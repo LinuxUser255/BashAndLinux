@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo 'grep for: '
+echo ''
+read g
+echo ''
+
+ls | grep -i "$g"
