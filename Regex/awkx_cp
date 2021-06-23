@@ -1,0 +1,78 @@
+#!/bin/bash
+
+echo "
+#Parse and clean the file above:
+
+# RANDOM AWKing of EMAILS
+-------------------------------------------------------------
+[15:26:30] [INFO] retrieved: "2009-02-20","15","info@kerala.com","nrmjaoao"
+[15:26:32] [INFO] retrieved: "2009-02-27","16","3@3.com","zradxntn"
+
+(awk ' /@/ && /.com/ {print $4}' emails_unedit.txt | tr -d '2009' | tr -d '1-8' | tr -d '-' | tr -d ',,'\")
+
+----------------------------------------------------------------------------------------------------------------------------
+Random CMDS:
+head emails.txt
+
+sed 11q emails.txt
+
+awk '(NR>=0 && NR<=11){print} (NR==11){exit}' emails.txt
+
+grep -i 'www' emails.txt
+
+sed'[Qq]we /!q' e
+
+awk 'tolower($0) ~ /qweq/' e
+
+awk '$3 > 0 {print $1, $2 * $3 }' em2
+
+awk '$3 > 0' em2
+
+-----------------------------------
+REG EXPRESSIONS USING AWK
+----------------------------------------------------------------
+!The REGEXP is specified within // and by default acts upon $0
+---------------------------------------------------------------
+
+awk '/@/ && /mail/ {print $4}' emails.txt
+
+awk '/@/ && !/www/ {print $4}' emails.txt
+
+awk -i '/^[LK]/' em2
+
+awk '/^[Ll Kk]/' em2
+
+awk '/6/{print $NF}' em2
+
+=======================================================================
+
+Parse & or edit this file in the command line:
+-----------------------------------------------
+Rank	2011[6]	2012[7]	2013[8]	2014[9]	2015[10]	2016[5]	2017[11]	2018[12]	2019[13]
+1	password	password	123456	123456	123456	123456	123456	123456	123456	trustno1	111111	iloveyou	dragon	1234567
+--------------------------------------------------------------------------------
+
+The following produce an orderly output:
+awk '{$1="";print}' common_pws.txt
+awk '{for(i=2;i<=NF;i++){printf "%s ", $i}; printf "\n"}' common_pws.txt
+awk '{for(i=2;i<=NF;i++){printf "%s ", $i}; printf "\n\n"}' common_pws.txt
+----------------------------------------------------------------------------------
+
+
+Notes:
+--------------------------------------------------------------------------------------
+# will print all but very first column:
+# B/C 1st Colum equals a blank space
+awk '{$1="";print}' common_pws.txt
+
+#will print all but first two columns:
+awk '{$1= $2=""; print $0}'
+
+# Use a for loop and the printf statement:
+%s is one of various modifiers available to printf and similar formatting programs.
+#It represents a 'word' or a string between white spaces.
+awk '{for(i=2;i<=NF;i++){printf "%s ", $i}; printf "\n"}' common_pws.txt
+
+# The command above loops through, printing all fields starting from the second to the last (repped by $NF, (NEW FIELD))
+#And to add extra space between all words, add an additional \n
+awk '{for(i=2;i<=NF;i++){printf "%s ", $i}; printf "\n\n"}' common_pws.txt"
