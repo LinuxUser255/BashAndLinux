@@ -6,3 +6,5 @@ echo -e 'Search result(s):\n------------------\n'
 
 ls | grep -i "${GREP}"
 echo ''
+
+
