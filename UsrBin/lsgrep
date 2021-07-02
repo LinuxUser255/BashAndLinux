@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo 'grep for: '
+read -p 'ls | grep -i "' GREP  
 echo ''
-read g
-echo ''
+echo -e 'Search result(s):\n------------------\n'
 
-ls | grep -i "$g"
+ls | grep -i "${GREP}"
+echo ''
