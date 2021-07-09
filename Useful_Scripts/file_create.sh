@@ -1,6 +1,10 @@
 #!/bin/bash
 
-# Instantly Create & chmod a new file type of your choosing.
+# This script instantly creates & chmods a new file type of your choosing.
+# The primary reason I wrote this scrip:
+# I got tired of always having to type..
+# #!/usr/bin/env python3 or #!/bin/bash when writing scripts.
+
 # In this example you can create a Python, Bash, .txt or .md 
 # Give it a short and easy to type new name, and remove the .sh extension
 # I named mine terp, as in, auto create & tell the interpreter what I want.
