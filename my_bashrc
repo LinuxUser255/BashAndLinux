@@ -3,7 +3,7 @@
 # for examples
 # This can be run on any Debian-based distro
 
-neofetch  
+neofetch | lolcat 
 
 # If not running interactively, don't do anything
 case $- in
@@ -60,7 +60,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
    # I use Setaf [01;36m\] as non-root command prompt color, & Red [01;31m\] as Root user 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[1;96m\]\u@\h\[\033[00m\]:\[\033[1;94m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -91,16 +91,27 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
+alias l='ls'
 alias ll='ls -l'
-alias la='ls -a'
-alias lsa='ls -la'
-alias l='ls -CF'
+alias la='ls -la'
 alias lll='lsgrep'
 alias v='vim'
-alias neo='nvim'
+alias n='nvim'
 alias s='sudo su'
 alias e='exit'
-alias cc='cat'
+alias q='exit'
+alias b='bat'
+alias ss='apt update && apt upgrade'
+alias pip='pip3'
+alias python='python3'
+alias t='cd Downloads/tor-browser_en-US/'
+alias p='pass'
+alias pa='pass add'
+alias xmr='cd Downloads/xmrig-6.15.2'
+alias inst='sudo apt install'
+alias su='sudo apt update'
+alias vb='vim .bashrc'
+alias bb='bat .bashrc'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -122,6 +133,16 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Invidious:
+# Add ~/.local/bin to PATH by adding the following to your ~/.bashrc:
+
+PATH=$HOME/.local/bin:$PATH
+
+# This will allow invidious-viewer to be launched by using the invidious command in the terminal.
+
+# export PATH="$HOME/.local/bin:$PATH"
+
+#-----------------------------------------------------------------------------------
 # I have Python Conda installed, this is commented out because I do not use it everyday.
 ## >>> conda initialize >>>
 ##  Contents within this block are managed by 'conda init' !!
@@ -138,4 +159,4 @@ fi
 #unset __conda_setup
 ## <<< conda initialize <<<
 
-. "$HOME/.cargo/env"
+#. "$HOME/.cargo/env"
