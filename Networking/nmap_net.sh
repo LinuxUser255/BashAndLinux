@@ -12,7 +12,3 @@ nmap $IP -sn -f -vv -n >/dev/null -oG ScanResults
 awk '{print $2, $5}' | grep -i up > ScanResults2
 
 cat ScanResults2
-
-
-
-
