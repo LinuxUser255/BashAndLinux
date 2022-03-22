@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This script instantly creates & chmods a new file type of your choosing.
 # The primary reason I wrote this scrip:
