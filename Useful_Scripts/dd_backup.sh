@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo '! READ COMMENTS before executing the script!'
 echo ' ! Hit Control  c to exit !'
