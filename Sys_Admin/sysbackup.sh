@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This will back up or "flash" your  OS & all your data on an external HDD
 DEST_DRIVE="/dev/sdb" # Backup will be stored on this device
