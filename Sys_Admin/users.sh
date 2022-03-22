@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Quickly add a new user to the system.
 # This script combines the useradd cmd plus attributes.
