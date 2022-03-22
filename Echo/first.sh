@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo "ANYTHING WILL PRINT TO THE SCREEN THAT IS IN THE ECHO QUOTES!!"
 
