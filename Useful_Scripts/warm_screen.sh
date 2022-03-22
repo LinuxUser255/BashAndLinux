@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
+# first install redshift: sudo apt install redshift
 # Use the redshift command to instantly adjust the color warmth of your screen.
 # This reduces the blue light that can strain your eyes over proloneged exposure/screen time.
 # You can rename this scrip to something short, remove the .sh extension, and move it to /usr/bin
