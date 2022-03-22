@@ -1,4 +1,4 @@
-#!/bin/bash                   
+#!/usr/bin/env bash                  
                    
 # You must be root to run this script.           
 #if [[ "${UID}" -ne 0 ]]              
