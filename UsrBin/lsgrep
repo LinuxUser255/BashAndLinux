@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # I replaced grep with ripgrep
 # It's like grep but faster, and other neat features too.
