@@ -36,6 +36,8 @@ let mapleader = "\<Space>"
 nnoremap <space> <Nop>
 nnoremap <nowait> <space> /
 
+"Spell-check set to F6
+map <F6> :setlocal spell! spelllang=en_us<CR>
 
 "set colorcolumn=80
 "highlight ColorColumn ctermbg=0 guibg=lightgrey
