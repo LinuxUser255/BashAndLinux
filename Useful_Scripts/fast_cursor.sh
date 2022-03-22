@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo ''
 echo -e 'Increase cursor speed. Press 1 for Yes, or 2 for No.'
