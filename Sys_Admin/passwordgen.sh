@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #Generating Random Data, Cryptographic Hash Funtions, Text & String Manipulation
 
