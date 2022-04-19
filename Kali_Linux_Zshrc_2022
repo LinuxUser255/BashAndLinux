@@ -1,7 +1,7 @@
 # ~/.zshrc file for zsh interactive shells.
 # see /usr/share/doc/zsh/examples/zshrc for examples
 
-neofetch | lolcat
+neofetch 
 
 setopt autocd              # change directory just by typing its name
 #setopt correct            # auto correct mistakes
@@ -245,7 +245,7 @@ alias l='ls'
 alias ll='ls -l'
 alias lla='ls -la'
 alias c='cat'
-alias lll='lsgrep'
+alias lll='fastgrep'
 alias v='vim'
 alias n='nvim'
 alias s='sudo su'
@@ -255,15 +255,13 @@ alias b='bat'
 alias up='apt update; apt upgrade'
 alias pip='pip3'
 alias python='python3'
-#alias tor='cd Downloads/tor-browser_en-US/'
+alias py='file_create'
 alias p='pass'
 alias pa='pass add'
-alias xmr='cd Downloads/xmrig-6.15.2'
 alias inst='sudo apt install'
-alias su='sudo apt update'
 alias vb='vim .zshrc'
 alias bb='bat .zshrc'
-alias t='terminator --geometry=1100x1225+0+0'
+#alias t='terminator --geometry=1100x1225+0+0'
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
