@@ -7,7 +7,8 @@ sudo apt install terminator
 sudo apt install git curl python3-pip exuberant-ctags ack-grep
 sudo pip3 install pynvim flake8 pylint isort
 
-# hacking tools
+# Should probably create a root user first
+# hacking tools Needs debugging. Git repos not saving to /opt unless I prefix with sudo
 git clone https://github.com/aboul3la/Sublist3r.git /opt/Sublist3r/
 git clone https://github.com/secureauthcorp/impacket.git /opt/impacket/ 
 git clone https://github.com/LinuxUser255/BashAndLinux.git /opt/BashAndLinux/
@@ -17,7 +18,7 @@ git clone https://github.com/swisskyrepo/PayloadsAllTheThings.git /opt/Pay-Loads
 git clone https://github.com/LinuxUser255/RandoHackingStuff.git /opt/HackingStuff/
 wget https://github.com/smicallef/spiderfoot/archive/v3.5.tar.gz -P /opt/scrawler/spiderfoot/ 
 
-# my custo shortcuts for /usr/bin
+# my custo shortcuts for /usr/bin Needs debugging, files are not going to /usr/bin
 curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/g -o /usr/bin/g
 curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/f -o /usr/bin/f 
 curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/file_create -o /usr/bin/file_create
