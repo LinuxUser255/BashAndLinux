@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+echo ''
+read -p 'Enter the Github repo to clone: ' REPO
+
+git clone "${REPO}"
+echo ''
