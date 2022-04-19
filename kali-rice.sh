@@ -18,7 +18,7 @@ git clone https://github.com/swisskyrepo/PayloadsAllTheThings.git /opt/Pay-Loads
 git clone https://github.com/LinuxUser255/RandoHackingStuff.git /opt/HackingStuff/
 wget https://github.com/smicallef/spiderfoot/archive/v3.5.tar.gz -P /opt/scrawler/spiderfoot/ 
 
-# my custo shortcuts for /usr/bin Needs debugging, files are not going to /usr/bin
+# my custom shortcuts for /usr/bin Needs debugging, files are not going to /usr/bin
 curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/g -o /usr/bin/g
 curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/f -o /usr/bin/f 
 curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/file_create -o /usr/bin/file_create
