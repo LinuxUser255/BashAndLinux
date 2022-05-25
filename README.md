@@ -1,5 +1,4 @@
 # BashAndLinux
----
 
 #### Linux commands and Bash Scripts I created for an EC-Council course. 
 - Be sure to change the name of any of the vimrc files on my repo to .vimrc when you save it on your machine.
@@ -34,3 +33,33 @@ It serves as a textbook, a manual for self-study, and as a reference and source 
 The exercises and heavily-commented examples invite active reader participation, under the premise that the only way to really learn scripting is to write scripts.This book is suitable for classroom use as a general introduction to programming concepts.This document is herewith granted to the Public Domain. No copyright!
 
 https://tldp.org/LDP/abs/html/
+
+---
+
+##### ADVANCED BASH:
+https://tldp.org/LDP/abs/html/ 
+
+
+##### AWK:
+https://tldp.org/LDP/abs/html/awk.html#AWKREF
+
+
+##### FOR LOOP:
+https://www.golinuxcloud.com/run-while-loop-until-specific-time-shell-bash/
+
+
+##### SED:
+https://linuxhint.com/50_sed_command_examples/
+
+
+##### BASH ALIASES:
+https://rez0.blog/hacking/2021/02/08/bash-aliases-command-line-tools-3.html
+
+
+##### GPG - ENCRYPT DECRYPT:
+https://www.howtogeek.com/427982/how-to-encrypt-and-decrypt-files-with-gpg-on-linux/
+
+
+##### Internal Field Separator (IFS):
+https://www.baeldung.com/linux/ifs-shell-variable
+
