@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+
+# add this script to /usr/bin/ to execute from anywhere
+# also where 1141-headers.txt file is located, so the script can open the .txt file
+
+filename = "/usr/bin/headers.txt"
+
+with open(filename) as file_object:
+    for line in file_object:
+        print(line.rstrip())
