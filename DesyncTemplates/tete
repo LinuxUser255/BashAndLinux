@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Transfer Encoding Transfer Encoding template
+# chmod +x this script, then move it to /usr/bin for quick template echo onto the screen
+
+
+printf "\e[1;31m POST / HTTP/1.1 \e[0m\n"
+printf "\e[1;31m Host:  \e[0m\n"
+printf "\e[1;31m Content-Type: application/x-www-form-urlencoded \e[0m\n"
+printf "\e[1;31m Content-Length:  \e[0m\n"
+printf "\e[1;31m Transfer-Encoding: chunked \e[0m\n"
+printf "\e[1;31m Transfer-encoding: cow \e[0m\n"
+echo ""
+
+printf "\e[1;31m 5c\e[0m\n"
+printf "\e[1;31m POST / HTTP/1.1 \e[0m\n"
+printf "\e[1;31m Host:  \e[0m\n"
+printf "\e[1;31m Content-Type: application/x-www-form-urlencoded \e[0m\n"
+printf "\e[1;31m Content-Length: 15 \e[0m\n"
+echo ""
+printf "\e[1;31m x=1 \e[0m\n"
+printf "\e[1;31m 0 \e[0m\n"
