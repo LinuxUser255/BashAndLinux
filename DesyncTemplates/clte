@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Content Length Transfer Encoding template
 # chmod +x this script, then move it to /usr/bin for quick template echo onto the screen
 
 printf "\e[1;31m POST / HTTP/1.1 \e[0m\n"
