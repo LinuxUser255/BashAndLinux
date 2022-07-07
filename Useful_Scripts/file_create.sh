@@ -43,7 +43,7 @@ then
     echo "Name the Bash script: "
     read NAME
 touch $NAME.sh
-echo "#!/bin/bash" > $NAME.sh
+echo "#!#!/usr/bin/env bash" > $NAME.sh
 chmod 755 $NAME.sh
 vim $NAME.sh
 
