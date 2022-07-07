@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
-# add this script to /usr/bin/ to execute from anywhere
-# also where 1141-headers.txt file is located, so the script can open the .txt file
+# Be sure to place 1141-headers.txt in /usr/bin, (your path), along with this python script
 
 filename = "/usr/bin/headers.txt"
 
