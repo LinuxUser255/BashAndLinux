@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# This script # print new aliases, commands and shortcuts you've created
+# I wrote this script because I make so many aliases and shortcuts, that I don't always remeber them all
+# Edit this script according to whatever aliases and shortcut commands you create
+# All text is printed in red as dictaed by: "\e[1;31m   \e[0m"
+# You can use that ^^^ as a template for printing text in red, 
+# just place the text to print between these two "\e[1;31m   \e[0m"
+# must be used with printf, Not echo
+# example: 
+# printf "\e[1;31m text to print to the screen  \e[0m"
+# -----------------------------------------------------------
+
+echo ""
+printf "\e[1;31m headers \e[0m"; echo "- Displays a comprensive list of HTTP request headers."
+
+printf "\e[1;31m xfh \e[0m"; echo  "- Displays a list of X-Forwarded for headers."
+
+printf "\e[1;31m cookiemonster \e[0m"; echo "- Display a list of XSS exploit code to steal user cookies."
+
+printf "\e[1;31m space \e[0m"; echo "- Double spaces lines of a text file."
+echo""
