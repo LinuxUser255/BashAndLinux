@@ -1,0 +1,12 @@
+# How to double spaces lines in a text file.
+
+# Put in your .bashrc, or .zshrc as an alias
+# Will output a text file that is double spaced
+# use as a command:
+# space file.txt
+
+# Put the command below, in your .bashrc, or .zshrc, as an alias.
+alias space='pr -d -t '
+
+
+ 
