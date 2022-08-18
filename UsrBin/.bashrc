@@ -3,13 +3,18 @@
 # for examples
 # This can be run on any Debian-based distro
 
-neofetch  
+# PRO TIP: use ufw to quickly manage ports
+# example. open/allow traffic on port 25: sudo ufw allow 25
 
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
+
+neofetch #| lolcat
+date
+xmrlert
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -19,8 +24,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=20000
+HISTFILESIZE=40000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -37,6 +42,10 @@ shopt -s checkwinsize
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
+
+export EDITOR=vim
+#export VISUAL=vim
+
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
@@ -58,9 +67,9 @@ if [ -n "$force_color_prompt" ]; then
 	color_prompt=
     fi
 fi
-   # I use Setaf [01;36m\] as non-root command prompt color, & Red [01;31m\] as Root user 
+   # I use Setaf [01;36m\] as non-root command prompt color, & Red [01;31m\] as Root user
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[1;96m\]\u@\h\[\033[00m\]:\[\033[1;94m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -91,17 +100,41 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
+alias l='ls'
 alias ll='ls -l'
-alias la='ls -a'
-alias lsa='ls -la'
-alias l='ls -CF'
+alias lla='ls -la'
 alias lll='lsgrep'
 alias v='vim'
-alias neo='nvim'
+alias n='nvim'
 alias s='sudo su'
 alias e='exit'
-alias cc='cat'
-
+alias q='exit'
+alias c='cat'
+alias b='bat'
+alias pip='pip3'
+alias python='python3'
+alias p='pass'
+alias pa='pass add'
+alias xmrig='cd Downloads/xmrig-6.15.2'
+alias up='sudo apt update; sudo apt upgrade'
+alias inst='sudo apt install'
+alias su='sudo apt update'
+alias vb='vim .bashrc'
+alias bb='bat .bashrc'
+#alias t='terminator --geometry=1200x1400+0+0'
+alias web='cd Documents/WebAcadamey/'
+alias late='ls -lt | head -n 3'
+alias tor='cd Downloads/tor-browser_en-US;./start-tor-browser.desktop'
+alias brave="brave-browser"
+alias bbb='cd /opt/BurpSuitePro;./BurpSuitePro'
+alias pycharm='cd /opt/pycharm-community-2021.3.1/bin;./pycharm.sh'
+alias idea='cd /opt/idea-IU-221.5921.22/bin;./idea.sh'
+alias xmr='cd Downloads/monero-gui-v0.17.3.2;./monero-wallet-gui'
+alias btc='cd Downloads/Electrum-4.2.2;./run_electrum'
+alias web='cd Documents/WebAppLabs/'
+alias ifconfig='sudo ifconfig'
+alias ppp='psearch'
+alias a='alacritty'
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -122,9 +155,19 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Invidious:
+# Add ~/.local/bin to PATH by adding the following to your ~/.bashrc:
+
+PATH=$HOME/.local/bin:$PATH
+
+# This will allow invidious-viewer to be launched by using the invidious command in the terminal.
+
+# export PATH="$HOME/.local/bin:$PATH"
+
+#-----------------------------------------------------------------------------------
 # I have Python Conda installed, this is commented out because I do not use it everyday.
-## >>> conda initialize >>>
-##  Contents within this block are managed by 'conda init' !!
+# >>> conda initialize >>>
+#  Contents within this block are managed by 'conda init' !!
 #__conda_setup="$('/home/linux/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 #if [ $? -eq 0 ]; then
 #    eval "$__conda_setup"
@@ -137,6 +180,8 @@ fi
 #fi
 #unset __conda_setup
 ## <<< conda initialize <<<
-
-. "$HOME/.cargo/env"
-
+#
+#. "$HOME/.cargo/env"
+#
+#
+#[ -f ~/.fzf.bash ] && source ~/.fzf.bash
