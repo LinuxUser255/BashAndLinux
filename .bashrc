@@ -12,8 +12,8 @@ case $- in
       *) return;;
 esac
 
-#neofetch #| #lolcat
-
+neofetch #| lolcat
+date
 xmrlert
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -121,18 +121,20 @@ alias inst='sudo apt install'
 alias su='sudo apt update'
 alias vb='vim .bashrc'
 alias bb='bat .bashrc'
-alias t='terminator --geometry=1200x1400+0+0'
+#alias t='terminator --geometry=1200x1400+0+0'
 alias web='cd Documents/WebAcadamey/'
 alias late='ls -lt | head -n 3'
 alias tor='cd Downloads/tor-browser_en-US;./start-tor-browser.desktop'
 alias brave="brave-browser"
 alias bbb='cd /opt/BurpSuitePro;./BurpSuitePro'
-alias pycharm='cd /opt/pycharm-community-2021.3.1/bin;./pycharm.sh' 
-alias xmr='cd Downloads/monero-gui-v0.17.3.1;./monero-wallet-gui'
-alias btc='cd Downloads/Electrum-4.2.1;./run_electrum'
-alias web='cd Documents/WebAcadamey/'
-alias ifconfig='sudo ifconfig' 
-
+alias pycharm='cd /opt/pycharm-community-2021.3.1/bin;./pycharm.sh'
+alias idea='cd /opt/idea-IU-221.5921.22/bin;./idea.sh'
+alias xmr='cd Downloads/monero-gui-v0.17.3.2;./monero-wallet-gui'
+alias btc='cd Downloads/Electrum-4.2.2;./run_electrum'
+alias web='cd Documents/WebAppLabs/'
+alias ifconfig='sudo ifconfig'
+alias ppp='psearch'
+alias a='alacritty'
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
