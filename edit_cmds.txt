@@ -5,6 +5,13 @@ Important go-to AWK and GREP commands for removing duplicates and blank lines:
 #Remove all blank lines
 egrep -v "^[[:space:]]*$" old.txt > new.txt
 
+# add blank lines/ double space in a text file
+pr -d -t textfile.txt
+
+# easy to use when added as an alias in your .bashrc or .zshrc
+alias space='pr -d -t '
+
+
 # Remove duplicates
 awk '!(count[$0]++)' old.txt > new.txt
 
