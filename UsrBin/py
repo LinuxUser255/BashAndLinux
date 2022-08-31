@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+read -p 'name the file: ' FILE_NAME
+
+touch $FILE_NAME
+echo "#!/usr/bin/env python3" > $FILE_NAME
+chmod +x $FILE_NAME
+
+vim $FILE_NAME
