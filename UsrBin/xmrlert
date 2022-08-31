@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+
+"""
+XMR price alerts using CoinMarketCap's API.
+"""
+
+import json
+import time
+import pprint
+import asyncio
+from requests import Request, Session
+
+url = "https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest"
+
+# Main function.
+async def xmr_price(url) -> float:
+    parameters = {
+        "slug":"monero",
+        "convert":"USD"
+    }
+
+    headers = {
+        "Accepts":"application/json",
+        "X-CMC_PRO_API_KEY":" put api key here "
+    }
+
+    session = Session()
+    session.headers.update(headers)
+    response = session.get(url, params=parameters)
+    pprint.pprint(json.loads(response.text)["data"]["328"]["quote"]["USD"]["price"])
+
+
+if __name__=="__main__":
+    asyncio.run(xmr_price(url))
