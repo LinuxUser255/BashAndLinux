@@ -6,7 +6,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-neofetch #| lolcat
+# neofetch #| lolcat
 #date
 #xmrlert
 
@@ -160,13 +160,15 @@ alias brave="brave-browser"
 alias bbb='cd /opt/BurpSuitePro;./BurpSuitePro'
 alias pycharm='cd /opt/pycharm-community-2021.3.1/bin;./pycharm.sh'
 alias idea='cd /opt/idea-IU-221.5921.22/bin;./idea.sh'
-alias xmr='cd Downloads/monero-gui-v0.17.3.2;./monero-wallet-gui'
-alias btc='cd Downloads/Electrum-4.2.2;./run_electrum'
+alias xmr='cd Downloads/MoneroWallets/monero-gui-v0.18.1.0'
+alias btc='cd Downloads/Electrum-4.3.1;./run_electrum'
 alias web='cd Documents/WebAppLabs/'
-alias ifconfig='sudo ifconfig'
+alias if='sudo ifconfig'
 alias ppp='psearch'
 alias a='alacritty msg create-window'
 alias space='pr -d -t '
 alias xx='xmrlert'
 alias ufw='sudo ufw'
 alias fdisk='sudo fdisk -l'
+alias lsnum='ls -l -v'
+alias vv='vim .vimrc'
