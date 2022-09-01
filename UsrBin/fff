@@ -13,11 +13,11 @@
 # 4. Then it is automatically opend in Vim and ready for writing
 
 # Make sure the script is being executed with sudo privileges.
-if [[ "${UID}" -ne 0 ]]
-then
-   echo 'Please run with sudo or as root.'
-   exit 1
-fi
+#if [[ "${UID}" -ne 0 ]]
+#then
+#   echo 'Please run with sudo or as root.'
+#   exit 1
+#fi
 
 # Create either a Python, Bash, .txt file or a markdown doc & open it with Vim
 echo -e "Select a filetype to create: Python, Bash, txt, or md: \n1 = Python\n2 = Bash\n3 = txt\n4 = Markdown Doc File"
@@ -31,7 +31,7 @@ then
 touch $NAME.py
 echo "#!/usr/bin/env python3" > $NAME.py
 chmod +x $NAME.py
-vim $NAME.py
+nvim $NAME.py
 
 # Create a Bash Script
 elif [[ $sel -eq 2 ]];
@@ -41,7 +41,7 @@ then
 touch $NAME.sh
 echo "#!/bin/bash" > $NAME.sh
 chmod 755 $NAME.sh
-vim $NAME.sh
+nvim $NAME.sh
 
 # Create a .txt file
 elif [[ $sel -eq 3 ]];
@@ -50,7 +50,7 @@ then
     read NAME
 touch $NAME.txt
 echo "# ASCII Text" > $NAME.txt
-vim $NAME.txt
+nvim $NAME.txt
 
 # Create a Markdown Documentation file
 elif [[ $sel -eq 4 ]];
@@ -59,8 +59,7 @@ then
     read NAME
 touch $NAME.md
 echo "# Markdown Document" > $NAME.md
-vim $NAME.md
-
+nvim $NAME.md
 
 exit 0
 fi
