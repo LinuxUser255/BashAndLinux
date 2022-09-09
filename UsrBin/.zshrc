@@ -9,17 +9,20 @@ export ZSH="$HOME/.oh-my-zsh"
 # neofetch #| lolcat
 #date
 #xmrlert
+# https://github.com/joshdick/onedark.vim
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-#ZSH_THEME="agnoster"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 #ZSH_THEME="aussiegeek"
 #ZSH_THEME="awesomepanda"
-
-
+#ZSH_THEME="fwalch"
+#ZSH_THEME="jispwoso"
+#ZSH_THEME="zsh2000.zsh-theme"
+#ZSH_THEME="zsh2000"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -51,7 +54,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -85,19 +88,19 @@ plugins=(git colored-man-pages)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
+export ZSH_2000_DISABLE_RVM='true'
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-EDITOR='vim'
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+EDITOR='nvim'
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+ else
+   export EDITOR='nvim'
+ fi
 
 # enable completion features
 autoload -Uz compinit
@@ -115,9 +118,6 @@ zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p
 zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-
-
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -128,14 +128,14 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-#
+alias ohmyzsh="mate ~/.oh-my-zsh"
+alias config="mate cd ~/.config/nvim"
 # # some more ls aliases
 alias l='ls'
 alias ll='ls -l'
 alias lla='ls -la'
-alias lll='lsgrep'
-alias v='vim'
+alias lll='fastgrep'
+alias v='nvim'
 alias n='nvim'
 alias s='sudo su'
 alias e='exit'
@@ -143,14 +143,15 @@ alias q='exit'
 alias c='cat'
 alias b='bat'
 alias pip='pip3'
-alias python='python3'
+alias python='python3.10'
 alias p='pass'
 alias pa='pass add'
 alias xmrig='cd Downloads/xmrig-6.15.2'
-alias up='sudo apt update; sudo apt upgrade'
+alias up='sudo apt update;sudo apt upgrade'
 alias inst='sudo apt install'
-alias su='sudo apt update'
-alias vb='vim .zshrc'
+alias sup='sudo apt update'
+alias vb='vim .bashrc'
+alias nn='nvim .zshrc'
 alias bb='bat .zshrc'
 #alias t='terminator --geometry=1200x1400+0+0'
 alias web='cd Documents/WebAcadamey/'
@@ -160,15 +161,19 @@ alias brave="brave-browser"
 alias bbb='cd /opt/BurpSuitePro;./BurpSuitePro'
 alias pycharm='cd /opt/pycharm-community-2021.3.1/bin;./pycharm.sh'
 alias idea='cd /opt/idea-IU-221.5921.22/bin;./idea.sh'
-alias xmr='cd Downloads/MoneroWallets/monero-gui-v0.18.1.0'
+alias xmr='cd Downloads/monero-gui-v0.18.1.0;./monero-wallet-gui'
 alias btc='cd Downloads/Electrum-4.3.1;./run_electrum'
-alias web='cd Documents/WebAppLabs/'
-alias if='sudo ifconfig'
-alias ppp='psearch'
+alias web='cd Documents/Web/WebAppLabs/'
+alias ifconfig='sudo ifconfig'
+alias iwconfig='sudo iwconfig'
+#alias ppp='psearch'
 alias a='alacritty msg create-window'
+alias aa-'alacritty --working-directory'
 alias space='pr -d -t '
-alias xx='xmrlert'
 alias ufw='sudo ufw'
 alias fdisk='sudo fdisk -l'
 alias lsnum='ls -l -v'
 alias vv='vim .vimrc'
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /home/linux/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ linux@debian  ~ 
