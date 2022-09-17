@@ -14,8 +14,8 @@ neofetch #| lolcat
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-#ZSH_THEME="agnoster"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 #ZSH_THEME="aussiegeek"
 #ZSH_THEME="awesomepanda"
 
@@ -51,7 +51,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -81,23 +81,24 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git colored-man-pages)
+#plugins=(alias-finder)
+#plugins=(pass)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-EDITOR='vim'
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+EDITOR='nvim'
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
 
 # enable completion features
 autoload -Uz compinit
@@ -125,17 +126,21 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-#
+alias ohmyzsh="mate ~/.oh-my-zsh"
+alias config="mate cd ~/.config/nvim"
 # # some more ls aliases
 alias l='ls'
 alias ll='ls -l'
 alias lla='ls -la'
-alias lll='lsgrep'
-alias v='vim'
+
+# Search a directory
+alias lll='fastgrep'
+
+# shortcuts and custom scripts
+alias v='nvim'
 alias n='nvim'
 alias s='sudo su'
 alias e='exit'
@@ -143,30 +148,47 @@ alias q='exit'
 alias c='cat'
 alias b='bat'
 alias pip='pip3'
-alias python='python3'
+alias python='python3.10'
 alias p='pass'
 alias pa='pass add'
 alias xmrig='cd Downloads/xmrig-6.15.2'
-alias up='sudo apt update; sudo apt upgrade'
+alias up='sudo apt update;sudo apt upgrade'
 alias inst='sudo apt install'
-alias su='sudo apt update'
-alias vb='vim .zshrc'
+alias sup='sudo apt update'
+alias vb='vim .bashrc'
+alias nn='nvim .zshrc'
 alias bb='bat .zshrc'
-#alias t='terminator --geometry=1200x1400+0+0'
-alias web='cd Documents/WebAcadamey/'
+alias web='cd Documents/Web/WebAppLabs'
 alias late='ls -lt | head -n 3'
+
+# Web Browsers
 alias tor='cd Downloads/tor-browser_en-US;./start-tor-browser.desktop'
 alias brave="brave-browser"
 alias bbb='cd /opt/BurpSuitePro;./BurpSuitePro'
+alias ude='cd Downloads/Udemy'
+alias uza='unzip *'
+# IDEs
 alias pycharm='cd /opt/pycharm-community-2021.3.1/bin;./pycharm.sh'
-alias idea='cd /opt/idea-IU-221.5921.22/bin;./idea.sh'
-alias xmr='cd Downloads/monero-gui-v0.17.3.2;./monero-wallet-gui'
-alias btc='cd Downloads/Electrum-4.2.2;./run_electrum'
-alias web='cd Documents/WebAppLabs/'
+alias idea='cd Downloads/idea-IC-222.3739.54/bin;./idea.sh'
+alias gol='cd Downloads/GoLand-2022.2.2/bin;./goland.sh'
+
+# Custom scripts and aliases
+alias xmr='cd Downloads/monero-gui-v0.18.1.0;./monero-wallet-gui'
+alias btc='cd Downloads/Electrum-4.3.1;./run_electrum'
+alias web='cd Documents/Web/WebAppLabs/'
 alias ifconfig='sudo ifconfig'
-alias ppp='psearch'
+alias iwconfig='sudo iwconfig'
+#alias ppp='psearch'
 alias a='alacritty msg create-window'
+alias aa-'alacritty --working-directory'
 alias space='pr -d -t '
-alias xx='xmrlert'
 alias ufw='sudo ufw'
 alias fdisk='sudo fdisk -l'
+alias lsnum='ls -l -v'
+alias vv='vim .vimrc'
+alias ran='ranger'
+alias yt='yt-dlp '
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# source /home/${USER}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# export PATH="$PATH:/usr/bin/Postman"
+# export PATH=$PATH:$(go env GOPATH)/bin
