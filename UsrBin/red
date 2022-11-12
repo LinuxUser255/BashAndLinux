@@ -12,12 +12,14 @@ echo ''
 echo -e "Redshift: ON 1. OFF 2.\n1 = ON\n2 = Off\n"
 read sel
 
-# Turn ON Redshift
-  # Assign randr as the method to manually change screen temp. 
-  # This prevents the wayland error message.
+if [[ sel -eq 1 ]]
+then
+ # Assign randr as the method to manually change screen temp.
   # Reset temp to night
+  echo ''
   redshift -O 4700K -m randr -v
   echo ''
+
 
 # Turn OFF Redshift
 elif [[ $sel -eq 2 ]]
