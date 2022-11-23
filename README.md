@@ -25,6 +25,13 @@
 
 ---
 
+#### NeoVim and more, links to thems and plugins below are what I'm using now.
+```
+https://neovim.io/
+https://nvchad.com/
+https://ohmyz.sh/
+
+```
 #### Advanced_Bash-Scripting_Guide
 ##### An in-depth exploration of the art of shell scripting
 
