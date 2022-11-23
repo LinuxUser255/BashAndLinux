@@ -167,6 +167,10 @@ then hit the j key to select the paragraph, the hit g + q
 {slgjlskfgjlfgj} {123}} [sdlkjfh] <F12><F12><F12> (sadf()) ${UID}+
 ```
 
+## More to check out:
+- NeoVim's main site and documentation: https://neovim.io/
+- NvChad. An incredible plugin and them setter: https://nvchad.com/
+- Oh My Zsh: Cool stuff for the Zsh shell: https://ohmyz.sh/
 
 
 
