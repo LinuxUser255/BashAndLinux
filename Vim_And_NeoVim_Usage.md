@@ -41,7 +41,7 @@ xset -q | grep "Caps Lock:\s*on" && xdotool key Caps_Lock
 
 ### Changing modes
 ```
-Go to Regular mode = esc(remaped tp CAPS Lock)
+Go to Regular mode = esc(remaped to CAPS Lock)
 ESC (remaped to CAPS LOCK) to go into Normal mode.
 
 i = insert
@@ -172,8 +172,11 @@ then hit the j key to select the paragraph, the hit g + q
 - NvChad. An incredible plugin and them setter: https://nvchad.com/
 - Oh My Zsh: Cool stuff for the Zsh shell: https://ohmyz.sh/
 
-
-
+```
+Tired of Vim Tutor?
+Then try Vim Be Good
+```
+- https://github.com/ThePrimeagen/vim-be-good
 
 
 
