@@ -1,11 +1,11 @@
 # NeoVim and Vim Motions
 
 
-## Some notes taken from ThePrimegagen's Vim as your editor playlist.
+## Some notes taken from ThePrimegagen's Vim as your editor playlist
 https://youtube.com/playlist?list=PLm323Lc7iSW_wuxqmKx_xxNtJC_hJbQ7R
 
 
-## And some of these are from Luke Smith's Vim playlist
+## And some from Luke Smith's Vim playlist
 https://youtube.com/playlist?list=PL-p5XmQHB_JSTaEPygu1DZjuFfb704Uv7
 
 - Something to consider when using Vim or NeoVim,  (this is optional), but very common for many Vim users. 
@@ -128,9 +128,9 @@ SHIFT + A jump to end of line in insert mode.
 ### Example of editing between curly braces { }
 ```
 func main() {
-		line1
-		line2
-		line3
+	line1
+	line2
+	line3
 }
 
 
