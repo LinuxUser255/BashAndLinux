@@ -1,0 +1,107 @@
+
+MODES
+-------------------
+
+Go to Regular mode = esc(remaped tp CAPS Lock) 
+
+ESC (remaped to CAOS LOCK) to go into Normal mode.
+i = insert
+v = visual
+r = replace
+
+----------
+
+Editing & Moving around:
+
+Moving up down left and right
+j = down
+k = up
+h = left
+l = = righ
+
+scroll half way up or down
+CTRL + u for up
+CTRL + d for down
+
+b = back one word at a time
+w = forward one word at a time
+e = jump forward faster
+
+SHIFT + G (cap G) jump to bottom of the page
+gg = jump to top of page
+
+gj at first line
+
+{d} = delete a word and tapping d multiple times (dslakfj) whole words and
+
+u = to undo what ever u just did
+
+or 
+
+DELETION
+
+To delete chars inside () go on a char inside the ( ) then press ct closing
+parenthese:  ct )
+
+that deletes everything inside the parenthese, and puts you in insert mode.
+
+SHIFT + f deletes the rest of the line and puts you in insert mode.
+
+d = delete a word and tapping d multiple times  detetes whole words and
+
+SHIFT + v to higlight the whole first line, then move down or jump to the end
+or the paragraph
+
+to delete everything between { } ijn a block of code, just go to the top line
+at the first { then hit 
+
+    di{ then p to paste it some where else if you want.
+
+example 
+
+
+func main() {
+        line1
+        line2
+        line3
+    }
+
+
+
+Copy a line and paste it one line below without using visual mode:
+be in Normalmode, and have the cursor on any char in the line/sentence,
+then press
+
+yy + p 
+
+SHIFT + } = jumps down between paragraphs and or blocks of code.
+and
+SHIFT + { = jumps up between paragraphs
+
+jump to a matching character:
+put the cursor on the specific char,  and press %
+
+
+Relative line jumping:
+hit the numer of lines to move up, then press j to jump down that number of lines or k to jump up that number of lines.
+
+d + 3 + j = puts in delete mode, instructs 3 to move, j says move down
+
+and to do this up, hit k instead of j
+
+to gradualy highlight words, hit go into vis mode, then tap w to highlight words to the right, and b to go back
+
+$ = jumps to end of line but before last char in in normal mode
+A = jumps to very end of line into insert mode
+0 = Jumps to begining of the line
+_ = jumps to beging of line
+
+SHIFT + I jump to begining of line in insert mode.
+SHIFT + A jump to end of line in insert mode.
+
+------------------------------------
+
+special character selection:
+
+{slgjlskfgjlfgj} {123}} [sdlkjfh] <F12><F12><F12> (sadf()) ${UID}+
+
