@@ -1,4 +1,10 @@
 
+These are notes I took while watching ThePrimegagen's Vim as your editor playlist.
+https://youtube.com/playlist?list=PLm323Lc7iSW_wuxqmKx_xxNtJC_hJbQ7R
+
+The notes below cover the first 2 videos in the playlist.
+
+
 MODES
 -------------------
 
