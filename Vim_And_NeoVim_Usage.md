@@ -1,7 +1,7 @@
 # NeoVim and Vim Motions
 
 
-## Some notes taken while watching ThePrimegagen's Vim as your editor playlist.
+## Some notes taken from ThePrimegagen's Vim as your editor playlist.
 https://youtube.com/playlist?list=PLm323Lc7iSW_wuxqmKx_xxNtJC_hJbQ7R
 
 
