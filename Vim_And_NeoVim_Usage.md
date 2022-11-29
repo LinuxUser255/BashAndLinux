@@ -162,10 +162,18 @@ have your cursor on the first line, press Ctrl + v to enter visual line mode,
 then hit the j key to select the paragraph, the hit g + q
 ```
 
-### special character selection:
+### Special character selection:
 ```
 {slgjlskfgjlfgj} {123}} [sdlkjfh] <F12><F12><F12> (sadf()) ${UID}+
 ```
+
+```
+The norm command, extremly useful for character substitution, when :%s/ won't do the trick
+```
+
+<https://www.youtube.com/watch?v=hraHAZ1-RaM&list=PL-p5XmQHB_JSTaEPygu1DZjuFfb704Uv7>
+
+---
 
 ## More to check out:
 - NeoVim's main site and documentation: https://neovim.io/
