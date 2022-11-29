@@ -1,3 +1,4 @@
+How to use gpg to verify a Debian iso
 
 gpg --keyserver keyring.debian.org --recv DA87E80D6294BE9B
 
