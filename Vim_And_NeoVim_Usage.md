@@ -117,12 +117,14 @@ enter normal mode and tap the u key, untill you get where you want.
 
 ### Jumping around while editing
 ```
+SHIFT + I jump to begining of line in insert mode.
+SHIFT + A jump to end of line in insert mode.
+
 $ = jumps to end of line but before last char in in normal mode
 A = jumps to very end of line into insert mode
 0 = Jumps to begining of the line
 _ = jumps to beging of line
-SHIFT + I jump to begining of line in insert mode.
-SHIFT + A jump to end of line in insert mode.
+
 ```
 
 ### Example of editing between curly braces { }
@@ -167,10 +169,7 @@ then hit the j key to select the paragraph, the hit g + q
 {slgjlskfgjlfgj} {123}} [sdlkjfh] <F12><F12><F12> (sadf()) ${UID}+
 ```
 
-```
-The norm command, extremly useful for character substitution, when :%s/ won't do the trick
-```
-
+### The norm command.. A way to univerally edit a file without editing each line manually.
 <https://www.youtube.com/watch?v=hraHAZ1-RaM&list=PL-p5XmQHB_JSTaEPygu1DZjuFfb704Uv7>
 
 ---
