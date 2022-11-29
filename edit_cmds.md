@@ -1,4 +1,4 @@
-## Important go-to AWK and GREP commands for removing duplicates and blank lines:
+
 
 ### Remove all blank lines
 ```
@@ -13,7 +13,7 @@ awk '!(count[$0]++)' old.txt > new.txt
 
 
 
-## RANDOM BASH COMMANDS
+## Add New lines 
 ```
 The "nl" command is dedicated for adding line numbers to a file.
 cat -n file.txt
@@ -33,7 +33,6 @@ cat -n file.txt
 sort old.txt | uniq > new.txt
 ```
 
----
 
 RANDOM AWK COMMANDS
 ----------------------------------------------------------------
@@ -61,7 +60,7 @@ awk 'BEGIN{i=5} /.*/{printf "%d.% s\n",i,$0; i++}' file.txt
 ```
 
 
-# use awk to find things in a file: 
+# Use AWK to find things in a file: 
 ```
 awk '/pttrnmatch /, /ptttrnmatch /' file.txt
 ```
@@ -82,7 +81,9 @@ egrep -v "^[[:space:]]*$" old.txt > new.txt
 ### Bash Script and commands for text file editing
 ```
 awk '!(count[$0]++)' "text.txt" > ${text.txt}-new
+```
 
+```
 [ $? -eq 0 ] && { echo "Duplicates have been removed, view new file at ${f_path}-new"; exit 0; }
 ;;
 
