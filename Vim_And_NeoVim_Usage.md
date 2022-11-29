@@ -1,13 +1,13 @@
 # NeoVim and Vim Motions
 
 
-## Some notes taken from ThePrimegagen's Vim as your editor playlist
-https://youtube.com/playlist?list=PLm323Lc7iSW_wuxqmKx_xxNtJC_hJbQ7R
+### Some notes taken from ThePrimegagen's Vim as your editor playlist
+<https://youtube.com/playlist?list=PLm323Lc7iSW_wuxqmKx_xxNtJC_hJbQ7R>
 
+### And some from Luke Smith's Vim playlist
+<https://youtube.com/playlist?list=PL-p5XmQHB_JSTaEPygu1DZjuFfb704Uv7>
 
-## And some from Luke Smith's Vim playlist
-https://youtube.com/playlist?list=PL-p5XmQHB_JSTaEPygu1DZjuFfb704Uv7
-
+---
 - Something to consider when using Vim or NeoVim,  (this is optional), but very common for many Vim users. 
 - And that is, to remap yor Escape key to your Caps lock key.
 - This makes changing between visual, insert and normal mode much easier, faster and effiecent.
@@ -172,8 +172,8 @@ then hit the j key to select the paragraph, the hit g + q
 ### The norm command.. A way to univerally edit a file without editing each line manually.
 <https://www.youtube.com/watch?v=hraHAZ1-RaM&list=PL-p5XmQHB_JSTaEPygu1DZjuFfb704Uv7>
 
----
 
+---
 ## More to check out:
 - NeoVim's main site and documentation: https://neovim.io/
 - NvChad. An incredible plugin and them setter: https://nvchad.com/
