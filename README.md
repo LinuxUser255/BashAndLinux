@@ -26,11 +26,12 @@
 ---
 
 ### Advanced_Bash-Scripting_Guide
-#### An in-depth exploration of the art of shell scripting
+ - An in-depth exploration of the art of shell scripting
 
 - <https://tldp.org/LDP/abs/html/>
 
-
+### Pure Bash Bible
+- <https://github.com/dylanaraps/pure-bash-bible>
 ---
 
 
