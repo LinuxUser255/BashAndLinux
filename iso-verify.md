@@ -1,16 +1,6 @@
 # How to use gpg to verify a Debian iso
 
-```
-gpg --keyserver keyring.debian.org --recv DA87E80D6294BE9B
-
-gpg --keyserver keyring.debian.org --recv 988021A964E6EA7D
-
-gpg --keyserver keyring.debian.org --recv 42468F4009EA8AC3
-
-gpg --verify SHA512SUMS.sign SHA512SUMS.txt
-```
-
-### Set trust
+### Import signing keys.
 ```
 gpg --keyserver keyring.debian.org --recv DA87E80D6294BE9B
 
