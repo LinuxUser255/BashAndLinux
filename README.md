@@ -10,11 +10,13 @@
 ![EC-COUNCIL-LOGO](https://user-images.githubusercontent.com/46334926/152244010-673a77a5-4309-4eba-b9d5-719d9af98e06.png)
 
 ---
-### NeoVim themes plugins and more.
+### NeoVim Themes plugins and more.
 
 - <https://neovim.io/>
 - <https://nvchad.com/>
 - <https://ohmyz.sh/>
+- **NeoVim usage.. link below:**
+- <https://github.com/LinuxUser255/BashAndLinux/blob/main/Vim_And_NeoVim_Usage.md>
 
 ---
 
