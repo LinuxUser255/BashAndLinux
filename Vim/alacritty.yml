@@ -1,0 +1,109 @@
+env:
+  TERM: xterm-256color
+scrolling:
+  history: 15000
+colors:
+  primary:
+    background: '#1b1b1b'
+    foreground: '#202020'
+window:
+  padding:
+    x: 5
+    y: 5
+  decorations: full
+  opacity: 0.8
+font:
+  normal:
+      family: "DejaVu Sans Mono"
+      style: Regular
+  bold:
+      family: "DejaVu Sans Mono"
+      style: Bold
+  italic:
+      family: "DejaVu Sans Mono"
+      style: Italic
+  bold_italic:
+      family: "DejaVu Sans Mono"
+      style: Bold Italic
+  size: 14
+  offset:
+   x: 1
+   y: 1
+cursor:
+  style:
+    shape: Beam
+    blinking: On
+# to rice correctly u will want to tie background / foreground colors to your .Xresources
+#window.opacity: 0.8
+key_bindings:
+    # (Windows, Linux, and BSD only)
+  - { key: V,        mods: Control|Shift, action: Paste            }
+  - { key: C,        mods: Control|Shift, action: Copy             }
+  - { key: Insert,   mods: Shift,         action: PasteSelection   }
+  - { key: Key0,     mods: Control,       action: ResetFontSize    }
+  - { key: Equals,   mods: Control,       action: IncreaseFontSize }
+  - { key: Plus,      mods: Control,       action: IncreaseFontSize }
+  - { key: Minus,    mods: Control,       action: DecreaseFontSize }env:
+  TERM: xterm-256color
+scrolling:
+  history: 15000
+colors:
+  primary:
+    background: '#1b1b1b'
+    foreground: '#202020'
+window:
+  padding:
+    x: 5
+    y: 5
+  decorations: full
+  opacity: 0.8
+font:
+  normal:
+      family: "DejaVu Sans Mono"
+      style: Regular
+  bold:
+      family: "DejaVu Sans Mono"
+      style: Bold
+  italic:
+      family: "DejaVu Sans Mono"
+      style: Italic
+  bold_italic:
+      family: "DejaVu Sans Mono"
+      style: Bold Italic
+  size: 14
+  offset:
+   x: 1
+   y: 1
+cursor:
+  style:
+    shape: Beam
+    blinking: On
+# to rice correctly u will want to tie background / foreground colors to your .Xresources
+#window.opacity: 0.8
+key_bindings:
+    # (Windows, Linux, and BSD only)
+  - { key: V,        mods: Control|Shift, action: Paste            }
+  - { key: C,        mods: Control|Shift, action: Copy             }
+  - { key: Insert,   mods: Shift,         action: PasteSelection   }
+  - { key: Key0,     mods: Control,       action: ResetFontSize    }
+  - { key: Equals,   mods: Control,       action: IncreaseFontSize }
+  - { key: Plus,      mods: Control,       action: IncreaseFontSize }
+  - { key: Minus,    mods: Control,       action: DecreaseFontSize }
+
+  - { key: Paste,                    action: Paste                            }
+  - { key: Copy,                     action: Copy                             }
+  - { key: L,         mods: Control, action: ClearLogNotice                   }
+  - { key: L,         mods: Control, chars: "\x0c"                            }
+  - { key: PageUp,    mods: Shift,   action: ScrollPageUp,   mode: ~Alt       }
+  - { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
+  - { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
+  - { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
+
+  - { key: Paste,                    action: Paste                            }
+  - { key: Copy,                     action: Copy                             }
+  - { key: L,         mods: Control, action: ClearLogNotice                   }
+  - { key: L,         mods: Control, chars: "\x0c"                            }
+  - { key: PageUp,    mods: Shift,   action: ScrollPageUp,   mode: ~Alt       }
+  - { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
+  - { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
+  - { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
