@@ -34,8 +34,6 @@ printf "\e[1;31m tete \e[0m"; echo  ": Transfer-Encoding Transfer-Encoding templ
 
 printf "\e[1;31m mongodb-compass \e[0m"; echo ": Launch MongoDB desktop Client."
 
-#printf "\e[1;31m <new cmd here> \e[0m"; echo  ": <what new cmd does> "
-
 printf "\e[1;31m webstorm \e[0m"; echo ": Opens the WbStorm IDE."
 
 printf "\e[1;31m gol \e[0m"; echo  ": Launches the GoLand IDE"
@@ -43,6 +41,7 @@ printf "\e[1;31m gol \e[0m"; echo  ": Launches the GoLand IDE"
 printf "\e[1;31m idea \e[0m"; echo  ": Launches the IntelliJ Python IDE  "
 
 # Templates for additional entries
+#printf "\e[1;31m <new cmd here> \e[0m"; echo  ": <what new cmd does> "
 #printf "\e[1;31m <new cmd here> \e[0m"; echo  ": <what new cmd does> "
 #printf "\e[1;31m <new cmd here> \e[0m"; echo  ": <what new cmd does> "
 #printf "\e[1;31m <new cmd here> \e[0m"; echo  ": <what new cmd does> "
