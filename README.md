@@ -3,6 +3,7 @@
 ### Linux commands and Bash Scripts I created for an EC-Council course. 
 - Be sure to change the name of any of the vimrc files on my repo to .vimrc when you save it on your machine.
 - Also, I'm using  `Oh My Zsh` in my `.zshrc`:  https://github.com/ohmyzsh/ohmyzsh
+- I don't use Vim anymore, but have left all my Vim files.
 - Link to original EC-Council Bash Scripting repo below.
 
 - <https://github.com/codered-by-ec-council/Shell-Scripting-with-Bash>
