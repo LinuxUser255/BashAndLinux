@@ -1,93 +1,33 @@
-# This is a my zshrc file for Debian and Debian-based distros
-
 # ~/.zshrc file for zsh interactive shells.
-#
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-#remap
 
-neofetch #| lolcat
-#date
-#xmrlert
-# https://github.com/joshdick/onedark.vim
-#xset r rate 380 80
+
+neofetch # -- Displays your OS info and logo: https://github.com/dylanaraps/neofetch
+# xmrlert  # -- My python script that fetches the current price of Monero from coinmarketcap
+# https://github.com/LinuxUser255/Monero_Extras 
+
 # Auto remap Caps lock to Esc upon shell launch. And it also speeds xset.
+# 
 remap
 
-## Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
+# A list of themes can be found in the .oh-my-zsh dot file ~/home/linux/.oh-my-zsh/themes
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="agnoster"
-#ZSH_THEME="aussiegeek"
-#ZSH_THEME="awesomepanda"
-#ZSH_THEME="fwalch"
-#ZSH_THEME="jispwoso"
-#ZSH_THEME="zsh2000.zsh-theme"
-#ZSH_THEME="zsh2000"
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
+# Oh-my-zsh auto-update behavior
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
  ENABLE_CORRECTION="true"
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git colored-man-pages)
 #plugins=(... pass)
@@ -222,19 +162,25 @@ alias shutdown='sudo shutdown -P now'
 alias reboot='sudo reboot'
 alias rr='ranger'
 alias tutor='cd /media/ssd/Crucial2TB/Tutorials/PortSwigger '
-alias vimplay='cd Videos/Tutorials/VimPlayList/'
+alias vimvids='cd Videos/Tutorials/VimPlayList/'
 alias apisec='cd ~/Videos/Tutorials/API/APISEC'
 alias api='echo "~/Documents/Projects/API_Hacking/PentestLabs/API_Hacking_ALL.md"'
 alias datagrip='cd ~/Downloads/DataGrip-2022.2.5/bin;./datagrip.sh'
-alias vimfun='cd NeoVim_PlayGround'
+alias vimfun='cd ~/.NeoVimPractice'
 alias tutorials='cd ~/Videos/Tutorials/PortSwigger'
 alias showgoimports='cd /usr/bin/;./goimports; cd ~/GolandProjects/Practice_01/; cd'
 alias gprac='cd ~/GolandProjects/Practice_01'
 alias ghost='cd /opt/ğɧØƨŦ'
 alias seclists='cd /opt/ğɧØƨŦ/seclists'
 alias wifidown='ifconfig wlp4s0 down'
-# alias cmd=' '
-# alias cmd=' '
+alias tedcreds='cat .mongodb-ted-url-creds.txt'
+alias todo='cd Templates/ToDo'
+alias lsawk="ls -l | awk '{print \$9}'"
+
+# Alias creation template
+#alias cmd=' '
+#alias cmd=' '
+#alias cmd=' '
 
 
 # Paths & tools
@@ -250,7 +196,3 @@ export PATH=$PATH:/usr/bin/Postman
 # Go Lang  Enviroment path
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
-
-# Links:
-# https://linguinecode.com/post/install-golang-linux-terminal
-# https://www.linuxcapable.com/how-to-install-go-golang-compiler-on-debian-11/
