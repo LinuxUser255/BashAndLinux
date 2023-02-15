@@ -8,7 +8,7 @@ DOCUMENTATIONXX
 echo ""
 printf "\e[1;31m tar cf file.tar files \e[0m"; echo ": Creates a .tar from files."
 
-printf "\e[1;31m tar xf file.tar \e[0m"; echo  ": Create a .tar from files."
+printf "\e[1;31m tar xf file.tar \e[0m"; echo  ": Extract a .tar from files."
 
 printf "\e[1;31m tar czf file.tar.gz files \e[0m"; echo ": Create a tar.gz."
 
