@@ -54,6 +54,9 @@
 #### BASH ALIASES:
 - <https://rez0.blog/hacking/2021/02/08/bash-aliases-command-line-tools-3.html>
 
+#### ISO Verify with gpg
+- https://danilodellaquila.com/en/blog/how-to-verify-authenticity-of-downloaded-debian-iso-images
+
 #### GPG - ENCRYPT DECRYPT:
 - <https://www.howtogeek.com/427982/how-to-encrypt-and-decrypt-files-with-gpg-on-linux/>
 
