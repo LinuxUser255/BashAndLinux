@@ -16,8 +16,10 @@
 - <https://neovim.io/>
 - <https://nvchad.com/>
 - <https://ohmyz.sh/>
-- **NeoVim usage.. link below:**
+- **NeoVim usage: link below:**
 - <https://github.com/LinuxUser255/BashAndLinux/blob/main/Vim_And_NeoVim_Usage.md>
+- **Take ThePrimeagen's VIM Fundamentals couse on Frontend Masters:**
+- https://frontendmasters.com/courses/vim-fundamentals/
 
 ---
 
