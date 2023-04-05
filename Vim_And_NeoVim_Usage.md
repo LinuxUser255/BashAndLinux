@@ -7,17 +7,16 @@
 ### And some from Luke Smith's Vim playlist
 <https://youtube.com/playlist?list=PL-p5XmQHB_JSTaEPygu1DZjuFfb704Uv7>
 
+### Remap you Esc and Caps Lock
 ---
-- Something to consider when using Vim or NeoVim,  (this is optional), but very common for many Vim users. 
-- And that is, to remap yor Escape key to your Caps lock key.
+- This is very worthwhile, and is common for many Vim users. 
 - This makes changing between visual, insert and normal mode much easier, faster and effiecent.
-
 - Insted of reaching to the upper left of your key board to hit escape, now all you need to do is tap the caps lock key with - your left pinky to set the mode you want. Thus, keeping your hands on the home row.
 
 - I learned this watching one of Luke Smith's totorials. A way to quickly  remap them is  to run the following bash script.
 https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/remaps
 
-I placed it my /usr/bin and named it remap, for easy global execution, in any directory.
+**How to Remap you Esc and Caps Lock. Place this Bash script in `/usr/bin` and name it remap.**
 
 ```
 #!/bin/bash
@@ -87,7 +86,7 @@ and to do this up, hit k instead of j
 ### Combining motions and editing
 ```
 x = deletes what ever character on which the cursor is sitting.
-d = delete a word and tapping d multiple times (dslakfj) whole words and
+d = delete a word and tapping d twice deletes an entire line
 u = to undo what ever u just did
 
 Also,
@@ -108,6 +107,38 @@ To delete everything between curly braces, { }, setting within a block of code, 
 then p to paste it some where else if you want.
 
 To gradualy highlight words, hit go into vis mode, then tap w to highlight words to the right, and b to go back
+```
+
+## Practice:
+**Copy-Paste the text below into a neovim, or vim document, and practice yank, paste, visual mode and more**
+
+#### Yank and paste.  yy to yank line, p to paste line below, P above
+
+```
+yank this line paste below (yyp)
+```
+
+#### Visual Mode
+```
+Highlight part of this line by pressing v, then navigate around
+escape to leave visual mode
+```
+
+#### Visual Line Mode
+```
+Highlight this line by pressing V, then navigate around
+escape to leave visual mode
+```
+
+#### Visual Mode + y / p
+```
+Highlight this line by pressing V, then press y
+press p
+```
+
+```
+Highlight this point by pressing v, press wy 
+press p 
 ```
 
 ### Undo changes you have made:
