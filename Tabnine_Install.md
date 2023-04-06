@@ -1,4 +1,4 @@
-# What I had to do to install Tabnine in NeoVim on my Debian machine
+# What I had to do to install [Tabnine](https://github.com/codota/tabnine-nvim) in NeoVim on my Debian machine
 
 ### First let's look at the directory structure of my ` ~/.config/nvim `
 
