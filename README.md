@@ -16,10 +16,11 @@
 - <https://neovim.io/>
 - <https://nvchad.com/>
 - <https://ohmyz.sh/>
-- ThePrimegean's NeoVim config: https://github.com/LinuxUser255/init.lua
+- **My NeoVim config:** 
+- https://github.com/LinuxUser255/init.lua
 - **NeoVim usage: link below:**
 - <https://github.com/LinuxUser255/BashAndLinux/blob/main/Vim_And_NeoVim_Usage.md>
-- Take ThePrimeagen's VIM Fundamentals couse on Frontend Masters:
+- ThePrimeagen's VIM Fundamentals couse on Frontend Masters:
 - https://frontendmasters.com/courses/vim-fundamentals/
 
 - **How to install Tabnine:**
