@@ -2,4 +2,5 @@
 
 read -p 'Enter file name to encrypt: '  FILE
 
-gpg --encrypt --sign --armor -r firstkey@email.com ${FILE}
+# edit/type your gpg key email id between the <>
+gpg --encrypt --sign --armor -r <yourgpgkey@emailid.com> ${FILE}
