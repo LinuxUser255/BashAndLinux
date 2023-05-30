@@ -1,0 +1,5 @@
+#!/bin/bash
+
+read -p 'Enter file name to encrypt: '  FILE
+
+gpg --encrypt --sign --armor -r firstkey@email.com ${FILE}
