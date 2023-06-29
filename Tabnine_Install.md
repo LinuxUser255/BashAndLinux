@@ -58,15 +58,34 @@ require('tabnine').setup({
 - I also had to create a `tabnine.lua` file and placed it in:
 `~/.config/nvim/after/plugin/tabnine.lua`
 
-- Finally, after trying to activate Tabnine from various files
-(all the ones mentioned above),
-I had success in the `~/.config/nvim/init.lua file.`
-where the command `:TabnineHub` finnally worked.
+- Contents of `tabnine.lua`
+
+```
+local config = require("tabnine.config")
+local auto_commands = require("tabnine.auto_commands")
+local user_commands = require("tabnine.user_commands")
+local keymaps = require("tabnine.keymaps")
+
+local M = {}
+
+function M.setup(o)
+	config.set_config(o)
+
+	keymaps.setup()
+
+	user_commands.setup()
+
+	auto_commands.setup()
+end
+
+return M
+```
+
+- Activate Tabnine from `~/.config/nvim/init.lua`
+Open `init.lua` and execute the command `:TabnineHub`.
 
 - In summarry, the installation process was Not as straightforward as directed on Tabnine's github page.
 https://github.com/codota/tabnine-nvim
-
-- Overall, I do like Tabnine, and hope this helps others who want to install Tabnine in NeoVim
 
 *Installaing Tabnine on Manjaro was very easy, as it was in the AUR*, so all I had to do was:
 `sudo pacman -S tabnine` 
