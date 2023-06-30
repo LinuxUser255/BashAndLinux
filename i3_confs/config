@@ -1,0 +1,509 @@
+# i3 config file (v4)
+
+#======> globals
+
+    #======> theme colors
+    set_from_resource   $fg     i3wm.color7     #f0f0f0
+    set_from_resource   $bg     i3wm.color2     #f0f0f0
+    set_from_resource   $bbg    i3wm.color0
+    set_from_resource   $urg    i3wm.color1
+    set_from_resource   $hig    i3wm.color15
+
+    # class                 border  backgr. text indicator child_border
+    client.focused          $bg     $bg     $fg  $bg       $bg
+    client.focused_inactive $bg     $bg     $fg  $bg       $bg
+    client.unfocused        $bg     $bg     $fg  $bg       $bg
+    client.urgent           $bg     $bg     $fg  $bg       $bg
+    client.placeholder      $bg     $bg     $fg  $bg       $bg
+    client.background       $bg
+
+    #==> keys / cmds
+    set $mod Mod4
+
+    set $bar-cmd i3bar
+    set $status-cmd i3blocks -c ${HOME}/.config/i3/i3blocks/i3blocks.conf
+    set $lock-cmd i3lock
+    set $term alacritty
+    set $compositor-cmd picom -bCG --config ${HOME}/.config/picom/picom.conf
+    set $netref --no-startup-id sudo -A systemctl restart NetworkManager
+
+    #==> scripts
+    set $laptop ${HOME}/.config/i3/display/lap.sh
+    set $batwings ${HOME}/.config/i3/display/wings.sh
+    set $hud ${HOME}/.config/i3/display/hud.sh
+    set $spread ${HOME}/.config/i3/display/all.sh
+
+    set $tester ${HOME}/.config/dmenu/search.sh
+    set $dwrap ${HOME}/.config/dmenu/dwrap.sh
+
+    #==> folders
+    set $screenshots ${HOME}/pictures/screenshots
+    set $scripts ${HOME}/.config/i3/scripts
+
+	#==> workspaces
+	set $ws1 1
+	set $ws2 2
+	set $ws3 3
+	set $ws4 4
+	set $ws5 5
+	set $ws6 6
+	set $ws7 7
+	set $ws8 8
+	set $ws9 9
+
+#======> autostart
+    exec --no-startup-id nm-applet
+    #exec --no-startup-id blueman-applet <-- CVE's
+    exec --no-startup-id nitrogen --restore; sleep 1;
+    exec_always --no-startup-id $compositor-cmd
+    exec --no-startup-id xfce4-power-manager
+    exec --no-startup-id xautolock -time 15 -locker blurlock
+    exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+    #exec --no-startup-id xscreensaver  <--- need to validate
+
+    #mod and enable below if reboot pywal issues occur with xinitrc
+    exec_always --no-start-up-id wal -R
+
+
+#======> borders & titles
+
+	#==> fonts (caution: use iso-10646 fonts only for glyph support)			
+    font pango:DejaVu Sans Mono 10
+
+	#==> floating ability
+	for_window [class="0bshutdown"] floating enable
+
+	#==> hide titles
+	for_window [class="Firefox" instance="Navigator"] border none
+
+	#==> border size
+	new_window pixel 3
+	new_float normal
+
+	#==> hide borders
+	hide_edge_borders none
+	
+#======> hardware
+
+    #==> touchpad
+    bindsym $mod+Shift+t exec --no-startup-id $scripts/touchpad
+
+	#==> monitors
+    #exec --no-startup-id $HOME/.config/i3/xrandr_configs/arch-mobile.sh
+
+        #--> brightness
+        bindsym XF86MonBrightnessUp exec --no-startup-id \
+            $scripts/backlight 1 up
+
+        bindsym XF86MonBrightnessDown exec --no-startup-id \
+            $scripts/backlight 1 down
+	
+    #==> sound
+        #--> standard laptop media controls
+        bindsym XF86AudioRaiseVolume exec --no-startup-id \
+            $scripts/sound 10 up
+
+        bindsym XF86AudioLowerVolume exec --no-startup-id \
+            $scripts/sound 10 down
+
+        bindsym XF86AudioMute exec --no-startup-id \
+            $scripts/sound 0 mute
+
+        bindsym $mod+XF86AudioMute exec --no-startup-id \
+            $scripts/sound 0 mico
+
+        bindsym XF86AudioPlay exec playerctl play
+        bindsym XF86AudioPause exec playerctl pause
+
+        #--> key combo media controls (moonlander mappings)
+        bindsym $mod+Ctrl+u exec --no-startup-id \
+            $scripts/sound 10 up
+
+        bindsym $mod+Ctrl+d exec --no-startup-id \
+            $scripts/sound 10 down
+
+        bindsym $mod+Ctrl+z exec --no-startup-id \
+            $scripts/sound 0 mute
+
+        bindsym $mod+Ctrl+x exec --no-startup-id \
+            $scripts/sound 0 mico
+
+        bindsym $mod+Ctrl+p exec playerctl play
+        bindsym $mod+Ctrl+h exec playerctl pause
+
+#======> keybindings
+
+	#==> screenshot
+	bindsym Print exec --no-startup-id scrot \
+        '%Y-%m-%d_$wx$h_scrot-fullscreen.png' \
+        -e 'mv $f $screenshots' && \
+        sleep 1 && \
+        exec dunstify \
+        'screenshot saved in $screenshots'
+	
+    #bindsym --release $mod+Print \
+    #   exec "scrot \
+    #   -s '%Y-%m-%d_$wx$h_scrot-selection.png' \
+    #   -e 'mv $f $screenshots' && sleep 1 && \
+    #   exec dunstify 'screenshot saved in $screenshots'"
+
+    bindsym --release $mod+Print exec "flameshot gui"
+
+	#==> start terminal
+	bindsym $mod+Return exec --no-startup-id $term
+
+	#==> menus
+
+    #set $configurator ${HOME}/.config/dmenu/config.sh
+    #set $search ${HOME}/.config/dmenu/search.sh
+    #set $calc ${HOME}/.config/dmenu/calculator.sh
+    #set $tmuxer ${HOME}/.config/dmenu/tmux.sh
+    #set $vpner ${HOME}/.config/dmenu/vpn-menu.sh
+    #bindsym $mod+c exec ${HOME}/.config/dmenu/nordcolor.sh
+    # working -> bindsym $mod+c exec --no-startup-id "$HOME/.config/dmenu/tester.sh"
+
+
+    #set $dmenuoptions dmenu_run
+#    set $menu -nb "$bbg" -nf "$hig" -sb "$urg" -sf "$hig" -fn "$MENU_PRIMARY_FONT-8:Bold"
+#    bindsym $mod+o exec dmenu_run $menu
+
+    bindsym $mod+o exec --no-startup-id dmenu_run -nb "$bbg" -nf "$hig" -sb "$urg" -sf "$hig" -fn "$MENU_PRIMARY_FONT-8:Bold"
+    bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -nb '$bbg' -nf '$hig' -sb '$urg' -sf '$hig' -fn '$MENU_PRIMARY_FONT-8:Bold'"
+    bindsym $mod+t exec $dwrap "tmux"
+    bindsym $mod+c exec $dwrap "config"
+    bindsym $mod+g exec $dwrap "search"
+
+	#bindsym $mod+z exec --no-startup-id morc_menu #<-- todo: rice
+	bindsym $mod+z exec --no-startup-id morc_menu conf="/home/ghost/.config/morc_menu/morc_menu_v1.conf"
+
+
+	#==> kill focused window
+	bindsym $mod+Shift+q kill
+
+	#==> lock screen
+	bindsym $mod+l exec $lock-cmd -c 111111
+	
+	#==> reload config file
+	bindsym $mod+Shift+c reload
+
+	#==> sound
+	bindsym $mod+Ctrl+m exec $term -e 'pulsemixer'
+	bindsym $mod+F5 exec $term -e 'mocp'
+
+	#==> monitoring
+	bindsym $mod+Shift+g exec $term -e 'glances'
+	bindsym $mod+Shift+d exec $term -e 'dockly'
+
+    #==> web search
+    bindsym $mod+s exec $HOME/.config/dmenu/search.sh
+
+	#==> rebind wallpaper
+	bindsym $mod+Shift+w exec nitrogen --restore
+
+    #==> start compositor
+    bindsym $mod+Shift+p exec $compositor
+
+	#==> window focus and movement (use Mouse+$mod \
+    #to drag float win to desired pos)
+	floating_modifier $mod
+	
+	bindsym $mod+Left focus left
+	bindsym $mod+Down focus down
+	bindsym $mod+Up focus up
+	bindsym $mod+Right focus right
+
+	bindsym $mod+Shift+Left move left
+	bindsym $mod+Shift+Down move down
+	bindsym $mod+Shift+Up move up
+	bindsym $mod+Shift+Right move right
+
+	#==> workspace switching
+	workspace_auto_back_and_forth yes
+	bindsym $mod+b workspace back_and_forth
+	bindsym $mod+Shift+b move container to workspace back_and_forth; \
+        workspace back_and_forth
+
+	#==> window orientation (h -horizontal & v - vertical)
+	bindsym $mod+h split h
+    bindsym $mod+v split v
+
+	#==> stacked / tabed / toggle split
+	bindsym $mod+Ctrl+s layout stacking;exec notify-send 'stacked window mode'
+	bindsym $mod+Ctrl+w layout tabbed;exec notify-send 'tabbed window mode'
+	bindsym $mod+Ctrl+e layout toggle split;exec notify-send 'split window mode'
+
+	#==> sticky toggle
+	bindsym $mod+Shift+s sticky toggle;exec notify-send 'sticky windows toggled'
+
+    #==>(experimental) - move current window to upper left monitor and make it stick
+    #bindsym $mod+c exec "i3-msg 'floating toggle; sticky toggle; resize shrink width 10000px; resize grow width 400px; resize shrink height 10000px; resize grow height 250px;move position 10px 10px;'"
+
+	#==> fullscreen toggle
+	bindsym $mod+f fullscreen toggle
+
+	#==> toggle floating / tiled
+	bindsym $mod+Shift+space floating toggle
+
+	#==> change focus between tiling / floating windows	
+	bindsym $mod+space focus mode_toggle
+
+	#==> focus on different containers
+	bindsym $mod+a focus parent	#parent
+
+	#==> workspace navigation
+	
+		#--> cycle through workspaces
+		bindsym $mod+Ctrl+Right workspace next
+		bindsym $mod+Ctrl+Left workspace prev
+	
+		#--> switch to workspace
+    bindsym $mod+1 workspace $ws1
+		bindsym $mod+2 workspace $ws2
+		bindsym $mod+3 workspace $ws3
+		bindsym $mod+4 workspace $ws4
+		bindsym $mod+5 workspace $ws5
+		bindsym $mod+6 workspace $ws6
+		bindsym $mod+7 workspace $ws7
+		bindsym $mod+8 workspace $ws8
+		bindsym $mod+9 workspace $ws9
+		bindsym $mod+0 workspace $ws10
+
+		#--> move focused container to workspace
+		bindsym $mod+Shift+1 move container to workspace $ws1
+		bindsym $mod+Shift+2 move container to workspace $ws2
+		bindsym $mod+Shift+3 move container to workspace $ws3
+		bindsym $mod+Shift+4 move container to workspace $ws4
+		bindsym $mod+Shift+5 move container to workspace $ws5
+		bindsym $mod+Shift+6 move container to workspace $ws6
+		bindsym $mod+Shift+7 move container to workspace $ws7
+		bindsym $mod+Shift+8 move container to workspace $ws8
+		bindsym $mod+Shift+9 move container to workspace $ws9
+		bindsym $mod+Shift+0 move container to workspace $ws10
+
+    #==> workspace migration (one monitor to another)
+    bindsym Shift+$mod+bracketright move workspace to output right
+    bindsym Shift+$mod+bracketleft move workspace to output left
+
+    #==> monitor navigation
+
+        #--> switch to monitor
+        bindsym $mod+Ctrl+1 exec $laptop
+        bindsym $mod+Ctrl+2 exec $batwings
+        bindsym $mod+Ctrl+3 exec $hud
+        bindsym $mod+Ctrl+4 exec $spread
+
+
+    #==> restarts (in place)
+	bindsym $mod+Shift+r restart
+
+	#==> exit
+	bindsym $mod+Shift+e exec \
+        "i3-nagbar -t warning -m \
+        'You pressed the exit shortcut. \
+        Do you really want to exit i3? \
+        This will end your X session.' \
+        -b 'Yes, exit i3' 'i3-msg exit'"
+
+
+	#==> window resize - resize window (you can also use the mouse for that)
+	mode "resize" {
+
+		bindsym Left resize shrink width 5 px or 5 ppt
+		bindsym Down resize grow height 5 px or 5 ppt
+		bindsym Up resize shrink height 5 px or 5 ppt
+		bindsym Right resize grow width 5 px or 5 ppt
+
+		# back to normal
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+	}
+
+	bindsym $mod+r mode "resize"
+
+#======> bar
+
+	#==> toggle bar hiding
+	bindsym $mod+m bar mode toggle
+	
+	#==> config
+	bar {
+		i3bar_command $bar-cmd
+		status_command $status-cmd
+		position bottom
+		bindsym button4 nop
+		bindsym button5 nop
+		strip_workspace_numbers yes
+		colors{
+            background  $bbg
+            statusline  $fg
+            separator   $fg
+
+			#                  border  backgr. text
+			
+            focused_workspace  $fg     $bg     $fg
+			active_workspace   $fg     $bg     $fg
+			#inactive_workspace #595B5B #283339 #EEE8D5
+			#binding_mode       #16a085 #2C2C2C #F9FAF9
+			#urgent_workspace   #16a085 #FDF6E3 #E5201D
+
+        #   # background $i3BarBackground
+        #    background $i3BarBackground
+
+            #todo: currently not dynamic but need to move to .config/themes
+			#background #283339
+			#background #000000
+			#statusline #F9FAF9
+			#separator  #454947
+
+			#                  border  backgr. text
+			
+			#focused_workspace  #F9FAF9 #477AB3 #292F34
+			#active_workspace   #595B5B #353836 #FDF6E3
+			#inactive_workspace #595B5B #283339 #EEE8D5
+			#binding_mode       #16a085 #2C2C2C #F9FAF9
+			#urgent_workspace   #16a085 #FDF6E3 #E5201D
+        }
+		
+	}	
+
+#======> exit menu
+	
+	#==> config
+	set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (r)eboot, (Shift+s)hutdown
+	#set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+	mode "$mode_system" {
+	    bindsym l exec --no-startup-id $scripts/exit lock, mode "default"
+	    bindsym s exec --no-startup-id $scripts/exit suspend, mode "default"
+	    bindsym u exec --no-startup-id $scripts/exit switch_user, mode "default"
+	    bindsym e exec --no-startup-id $scripts/exit logout, mode "default"
+	    #bindsym h exec --no-startup-id $scripts/exit hibernate, mode "default"
+	    bindsym r exec --no-startup-id $scripts/exit reboot, mode "default"
+	    bindsym Shift+s exec --no-startup-id $scripts/exit shutdown, mode "default"
+
+	    # exit system mode: "Enter" or "Escape"
+	    bindsym Return mode "default"
+	    bindsym Escape mode "default"
+	}
+
+	#==> binding
+	bindsym $mod+Shift+x mode "$mode_system"
+
+#=====> monitor menu
+
+    #==> config
+    set $set_display Display: (l)laptop | (w)wings | (h)hud | (s)spread
+    mode "$set_display" {
+        bindsym l exec --no-startup-id $laptop
+        bindsym w exec --no-startup-id $batwings
+        bindsym h exec --no-startup-id $hud
+        bindsym s exec --no-startup-id $spread
+
+        #exit set display
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+    }
+
+    #==> binding
+    bindsym $mod+Shift+m mode "$set_display"
+
+#======> spread menu
+
+    #==> config
+    set $set_spread Spread: (o)offsec, (d)dev, (l)labs
+    mode "$set_spread" {
+        bindsym o exec ~/.config/i3/spreads/spread_offsec.sh
+        bindsym d exec ~/.config/i3/spreads/pread_dev.sh
+        bindsym l exec ~/.config/i3/spreads/spread_labs.sh
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+    }
+
+    #==> binding
+    #bindsym $mod+Ctrl+e mode "$set_spread"
+
+
+#======> playa menu
+
+    #==> config
+    set $mode_player ♬: (s)play/pause, (n)next, (p)previous
+    mode "$mode_player" {
+        bindsym s exec playerctl play-pause
+        bindsym n exec playerctl next
+        bindsym p exec playerctl previous
+
+        #exit set display
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+    }
+
+    #==> binding
+    bindsym $mod+Ctrl+a mode "$mode_player"
+
+
+#======> floating mode
+for_window [title="File Transfer*"] floating enable
+for_window [class="Nitrogen"] floating enable sticky enable border normal
+for_window [class="Lxappearance"] floating enable sticky enable border normal
+
+#======> urgent window workspace auto switch
+#for_window [urgent=latest] focus
+
+#======> workspace to application assignment
+assign [class="firefox"] $ws2
+assign [class="brave"] $ws2
+
+#======> TODO: dropdown windows (for use with tdrop)
+# general dropdown window traits. The order can matter.
+for_window [instance="dropdown_*"] floating enable
+for_window [instance="dropdown_*"] move scratchpad
+for_window [instance="dropdown_*"] sticky enable
+for_window [instance="dropdown_*"] scratchpad show
+for_window [instance="dropdown_tmuxdd"] resize set 625 450
+for_window [instance="dropdown_dropdowncalc"] resize set 800 300
+for_window [instance="dropdown_tmuxdd"] border pixel 3
+for_window [instance="dropdown_dropdowncalc"] border pixel 2
+for_window [instance="dropdown_*"] move position center
+
+
+#=====> i3 gaps
+
+	#==> smart gaps / border toggle on / off
+	smart_gaps on
+	smart_borders on	
+
+	#==> inner / outer gaps
+	gaps inner 6
+	gaps outer 2
+
+	#==> gap mode
+		
+		mode "$mode_gaps" {
+			bindsym o      mode "$mode_gaps_outer"
+			bindsym i      mode "$mode_gaps_inner"
+			bindsym Return mode "default"
+			bindsym Escape mode "default"
+		}
+		mode "$mode_gaps_inner" {
+			bindsym plus  gaps inner current plus 5
+			bindsym minus gaps inner current minus 5
+			bindsym 0     gaps inner current set 0
+
+			bindsym Shift+plus  gaps inner all plus 5
+			bindsym Shift+minus gaps inner all minus 5
+			bindsym Shift+0     gaps inner all set 0
+
+			bindsym Return mode "default"
+			bindsym Escape mode "default"
+		}
+		mode "$mode_gaps_outer" {
+			bindsym plus  gaps outer current plus 5
+			bindsym minus gaps outer current minus 5
+			bindsym 0     gaps outer current set 0
+
+			bindsym Shift+plus  gaps outer all plus 5
+			bindsym Shift+minus gaps outer all minus 5
+			bindsym Shift+0     gaps outer all set 0
+
+			bindsym Return mode "default"
+			bindsym Escape mode "default"
