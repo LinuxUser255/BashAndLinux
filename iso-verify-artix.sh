@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Steps 
+# Run this script in the same directory as the one the iso you downloaded.
 # 1. Import signing keys.
 # 2. verify signatures  
 # 2. verify sha Sums
