@@ -1,0 +1,70 @@
+jq:cli json parsing
+yq:cli yaml, xml, toml parsing
+hq:cil html parsing
+bat:cli cat clone with syntax highlighting and line #
+glow:cli markdown rendered
+mupdf:cli pdf tool
+zathura:cli pdf tool
+flameshot:gui screenshot tool
+scrot:cli screenshot tool
+youtube:dl:cli youtube video downloader
+qutebrowser:vim bindings web browser based on qt
+newsboat:cli rss/atom feed reader
+keepassxc:gui pw manager
+tcpdump:cli packet capture
+assh:cli tool for advanced ssh tunneling (not in repos)
+go:go lang support
+rust:rust lang support
+yubikey-manager:yubi keys gui mgmt tool
+yubikey-personalization-gui: yubi keys gui personalization tool
+bettercap:cli network attack tooling
+timeshift:btrfs snapshot gui mgr
+bashtop:cli top replacement - system resources
+ranger:cli file manager
+morc_menu:dmenu like but more of a categorized menus
+obsidian:markdown note taker
+dmenu:simple menu
+nvim:neovim text editor
+remmina:gui remote desktop manager/client
+freerdp:used for rdp protocol support in remmina & others
+rdesktop:remoting rdp client cli
+thunar:gui file manager
+dunst:i3 gui alerting
+alacritty:gpu accelerated terminal emulator
+tmux:terminal multiplexer
+zsh:bash replacement
+git:source code mgmt system
+picom:compositor
+feh:wallpaper mgr / image preview
+firefox-developer-edition:web browser
+chromium:web browser
+tree:cli tool like ls but shows tree view
+gpa:graphical gnupg key mgmt
+manjaro-pulse:pulse support package for manjaro distro
+python-pywal:ricing utility based on an image
+zathura-pywal:zathura ricing plugin for pywal
+element-wal:ricing utility for pywal and element instant messenger
+element-desktop:matrix client messenger client
+qemu:qemu/qcow virtualization platform 
+virt-manager:virtualization manager
+libvirt:virutalization tooling
+virt-viewer:generic virt viewer
+dnsmasq:network infrastructure for small / virt networks
+vde2:virtualized ethernet
+bridge-utils:bridging network / virtual networks
+openbsd-netcat:netcat for kvm/qemu remoting
+ebtables:iptables replacement compatible with virt envts
+libguestfs:guest file system tooling for virt networks
+xclip:x11 cli bridge interface with xorg-xclipboard
+xorg-xclipboard:x11 clipboard mgr
+minicom:console tool to login to usb / serial devices such as pfsense
+screen:gnu screen utility to make up for what minicom cant handle
+ipcalc:subnet and ip calculator
+networkmanager-dmenu:allows network manager / nmcli mgmt from dmenu
+perl-image-exiftool:exif tool for image manipulation
+unzip:decompression utility for zip files
+mpv:cli media player
+moc:cli ncurses music player
+pkill:cli process kill utility
+xorg-xkill:process for killing selected gui windows
+ueberzug:allows for image previews in combo with x11 - ranger specific
