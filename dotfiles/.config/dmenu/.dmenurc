@@ -1,0 +1,40 @@
+. "$HOME/.cache/wal/colors.sh"
+
+#==> ricing with pywal integrations
+DMENU_HEIGHT=24
+DMENU_FONTSIZE=8
+DMENU_FONTWEIGHT=Bold
+DMENU_FONT="$MENU_PRIMARY_FONT-$DMENU_FONTSIZE:$DMENU_FONTWEIGHT"
+DMENU_LINES=0
+
+DMENU_FN="$DMENU_FONT"      #<- font to be used
+DMENU_NB="$color0"          #<- bg color for unselected mnu item
+DMENU_NF="$color15"         #<- text color for unselected mnu item
+DMENU_SB="$color1"          #<- bg color for selected mnu item
+DMENU_SF="$color15"         #<- text color for selected mnu item 
+DMENU_BG="$background"
+DMENU_FG="$foreground"
+
+
+#==> terminal
+TERMINAL_CMD="terminal -e" #<- command for term app to be used
+DMENU_BROWSER="brave"
+DMENU_EDITOR="nvim"
+
+# export our variables
+#DMENU_OPTIONS='-fn "$DMENU_FN" -nb "$DMENU_NB" -nf "$DMENU_NF" -sf "$DMENU_SF" -sb "$DMENU_SB" -h "$DMENU_HEIGHT"'
+#export $DMENU_OPTIONS
+#-fn "$DMENU_FONT":pixelsize="$DMENU_FONTSIZE" \
+
+DMENU_OPTIONS="-fn ${DMENU_FN} -nb ${DMENU_NB} -nf ${DMENU_NF} -sf ${DMENU_SF} -sb ${DMENU_SB} -h ${DMENU_HEIGHT}"
+#i3-dmenu-desktop --dmenu="dmenu -i -nb '$bbg' -nf '$hig' -sb '$urg' -sf '$hig' -fn '$MENU_PRIMARY_FONT-8:B    old'"
+
+#  5     #======> theme colors
+#  6     set_from_resource   $fg     i3wm.color7     #f0f0f0
+#  7     set_from_resource   $bg     i3wm.color2     #f0f0f0
+#  8     set_from_resource   $bbg    i3wm.color0
+#  9     set_from_resource   $urg    i3wm.color1
+# 10     set_from_resource   $hig    i3wm.color15
+#pattern: dmenu -i -nb '$bbg' -nf '$hig' -sb '$urg' -sf '$hig'"
+#aliases: fg=color7;bg=$color2;bbg=$color0;urg=$color1;hig=$color15
+#font: FiraSans-11:Medium
