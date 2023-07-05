@@ -1,0 +1,9 @@
+# i3 config file (v4)/
+#======> theme colors
+
+	set_from_resource   $fg     i3wm.color7     #f0f0f0
+	set_from_resource   $bg     i3wm.color2     #f0f0f0
+	set_from_resource   $bbg    i3wm.color0
+	set_from_resource   $urg    i3wm.color1
+	set_from_resource   $hig    i3wm.color15
+  set $att #ff6c6b 
