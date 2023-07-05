@@ -1,0 +1,86 @@
+!To using includes need C-PreProcessor installed (IE: GNU CPP)
+!While developing themes use xrdb .XResources to reload
+
+! FOR ALL OTHER PROGRAMS USE XRESOURCES
+! This includes xterm and urxvt
+*.foreground:   #bbc2cf
+*.background:   #282c34
+*.cursorColor:  #bbc2cf
+
+! black
+*.color0:       #1c1f24
+*.color8:       #5b6268
+
+! red
+*.color1:       #ff6c6b
+*.color9:       #da8548
+
+! green
+*.color2:       #98be65
+*.color10:      #4db5bd
+
+! yellow
+*.color3:       #da8548
+*.color11:      #ecbe7b
+
+! blue
+*.color4:       #51afef
+*.color12:      #3071db
+
+! magenta
+*.color5:       #c678dd
+*.color13:      #a9a1e1
+
+! cyan
+*.color6:       #5699af
+*.color14:      #46d9ff
+
+! white
+*.color7:       #202328
+*.color15:      #dfdfdf
+
+!! URxvt Appearance
+!!URxvt.font: xft:DejaVu Sans Mono:style=Regular:size=10
+!!URxvt.boldFont: xft:DejaVu Sans Mono:style=Bold:size=10
+!!URxvt.italicFont: xft:DejaVu Sans Mono:style=Italic:size=10
+!!URxvt.boldItalicfont: xft:DejaVu Sans Mono:style=Bold Italic:size=10
+
+URxvt.font: xft:Hack Nerd Font Mono:style=Regular:size=10 
+URxvt.boldFont: xft:Hack Nerd Font Mono:style=Bold:size=10
+URxvt.italicFont: xft:Hack Nerd Font Mono:style=Italic:size=10
+URxvt.boldItalicfont: xft:Hack Nerd Font Mono:style=Bold Italic:size=10
+
+
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+!!bug workaround where recent update causes urxvt to show up mid screen
+!!URxvt.geometry: 92x24
+URxvt.geometry: 400x400
+URxvt.internalBorder: 24
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false
+URxvt.saveline: 2048
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.urgentOnBell: true
+URxvt.depth: 24
+
+URxvt*perl-lib: /usr/lib/urxvt/perl
+URxvt.perl-ext-common: default,matcher,clipboard,url-select,keyboard-select,selection-to-clipboard
+URxvt.matcher.button:1
+
+!!URxvt.keysym.Mod4-v: perl:clipboard:paste
+URxvt.url-select.underline: true
+URxvt.url-launcher: /usr/bin/qutebrowser
+URxvt*matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+
+!!URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+!!URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+!!==> custom keybindings
+Urxvt.keysym.C-C: perl:clipboard:copy
+URxvt.keysym.C-V: perl:clipboard.paste
+URxvt.keysym.M-j: resize-font:smaller
+URxvt.keysym.M-k: resize-font:bigger
