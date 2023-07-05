@@ -1,0 +1,2 @@
+firefox='WM_CLASS(STRING) = "Navigator", "Firefox"'
+bar='WM_CLASS(STRING) = "bar-0", "i3bar"'
