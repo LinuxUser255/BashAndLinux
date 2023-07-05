@@ -1,0 +1,477 @@
+# i3 config file (v4)/
+
+#======> includes
+#seems to work --> include $HOME/.config/i3/config.d/colors
+#include $HOME/.config/i3/config.d/colors
+
+#======> globals
+	#======> theme colors
+	set_from_resource   $fg     i3wm.color7     #f0f0f0
+	set_from_resource   $bg     i3wm.color2     #f0f0f0
+	set_from_resource   $bbg    i3wm.color0
+	set_from_resource   $urg    i3wm.color1     darkred
+	set_from_resource   $hig    i3wm.color15
+  set $att #ff6c6b 
+  
+  # opacity / transparency 00 (completely tranparent)' FF (fully black opaque)'
+  # uses RGBA format: #00000000 (last 2 chars in this are the transparency)
+  set $opacity "00"
+  set $transparent #00000000
+
+	# class                 border  backgr  text indicator child_border
+	client.focused          $bg     $bg     $fg  $bg       $bg
+	client.focused_inactive $bg     $bg     $fg  $bg       $bg
+	client.unfocused        $bg     $bg     $fg  $bg       $bg
+	client.urgent           $bg     $bg     $fg  $bg       $bg
+	client.placeholder      $bg     $bg     $fg  $bg       $bg
+	client.background       $bg
+
+  #==> behavior vars
+	# 1) xorg-xbacklight 2) acpilight
+	set $backlight-pkg "2"
+
+	#==> keys / cmds
+	set $mod Mod4
+
+	set $bar-cmd i3bar --transparency
+	set $status-cmd i3blocks -c ${HOME}/.config/i3/blocks/blocks.conf
+	set $lock-cmd i3lock
+	set $term alacritty
+  set $compositor picom --config ${HOME}/.config/picom/picom.conf
+
+  #==> drop term
+  set $qt tdrop -am -x 10% -y 0% -w 80% -h 30% $term -title drop_term
+	
+  #==> scripts
+	set $tester ${HOME}/.config/dmenu/search.sh
+	set $dwrap ${HOME}/.config/dmenu/dwrap.sh
+
+	#==> folders
+	set $screenshots ${HOME}/pictures/screenshots
+	set $scripts ${HOME}/.config/i3/scripts
+
+#======> autostart
+	exec --no-startup-id nitrogen --restore; sleep 1;
+	exec --no-startup-id xautolock -time 15 -locker blurlock
+	exec --no-startup-id udiskie --automount --notify
+  exec --no-startup-id signal-desktop
+	exec --no-startup-id Obsidian
+
+  # xresources - theming
+  exec --no-startup-id xrdb -merge ~/.Xresources
+
+  # pipewire
+  exec --no-startup-id pipewire
+  exec --no-startup-id pipewire-pulse
+
+  # composition 
+	exec_always --no-startup-id $compositor
+	exec_always --no-startup-id wal -R &
+  
+  #exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+	#exec --no-startup-id xfce4-power-manager
+	#exec --no-startup-id blueman-applet <-- CVE's
+	#exec --no-startup-id xscreensaver  <--- need to validate
+  # touchpad - enable tap to clickV
+  #  exec --no-startup-id xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Tapping Enabled' 1
+ 
+ # xinput list-props 10 
+
+  # touchpad - disable middle mouse click
+#  exec --no-startup-id xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Middle Emulation Enabled' 1
+  #exec --no-startup-id feh --bg-fill ~/Pictures/bg.png
+
+#======> borders & titles
+
+	#==> fonts (caution: use iso-10646 fonts only for glyph support)
+	font xft:Bitstream Nerd Font Mono 8	
+	#font xft:Hack Nerd Font Mono 8	
+	#font pango:Hack Nerd Font Mono 8 
+	#font pango:DejaVu Sans Mono 8
+	#font pango:monospace 8
+
+	#==> floating ability
+	for_window [class="0bshutdown"] floating enable
+
+	#==> hide titles
+	for_window [class="Firefox" instance="Navigator"] border none
+
+	#==> border size
+	default_border pixel 3
+	default_floating_border pixel 3
+	for_window[all] border pixel 3 
+
+	#==> hide borders
+	hide_edge_borders none
+
+#======> hardware
+
+	#==> touchpad
+	#bindsym $mod+Shift+t exec --no-startup-id $scripts/touchpad
+
+	#==> brightness
+	bindsym XF86MonBrightnessUp exec --no-startup-id \
+	    $scripts/backlight 5 up $backlight-pkg
+
+	bindsym XF86MonBrightnessDown exec --no-startup-id \
+	    $scripts/backlight 5 down $backlight-pkg
+
+#==> sound
+  # Use pactl to adjust volume in PulseAudio. 
+#  set $refresh_i3status killall -SIGUSR1 i3status 
+#  bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && $refresh_i3status 
+#  bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && $refresh_i3status 
+#  bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status 
+#  bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status 
+
+
+	#--> standard laptop media controls
+	bindsym XF86AudioRaiseVolume exec --no-startup-id \
+	    $scripts/sound 10 up spkr
+
+	bindsym XF86AudioLowerVolume exec --no-startup-id \
+	    $scripts/sound 10 down spkr
+
+	bindsym XF86AudioMute exec --no-startup-id \
+	    $scripts/sound 0 mute spkr
+
+	bindsym $mod+XF86AudioMute exec --no-startup-id \
+	    $scripts/sound 0 mico
+
+	bindsym XF86AudioPlay exec playerctl play
+	bindsym XF86AudioPause exec playerctl pause
+
+	#--> key combo media controls (moonlander mappings)
+	bindsym $mod+Ctrl+u exec --no-startup-id \
+	    $scripts/sound 10 up
+
+	bindsym $mod+Ctrl+d exec --no-startup-id \
+	    $scripts/sound 10 down
+
+	bindsym $mod+Ctrl+z exec --no-startup-id \
+	    $scripts/sound 0 mute
+
+	bindsym $mod+Ctrl+x exec --no-startup-id \
+	    $scripts/sound 0 mico
+
+#======> keybindings
+
+	#==> screenshot
+#	bindsym Print exec --no-startup-id scrot \
+#		'%Y-%m-%d_$wx$h_scrot-fullscreen.png' \
+#		-e 'mv ~/$f ' $screenshots && \
+#		sleep 1 && \
+#		exec dunstify \
+#		'screenshot saved in' $screenshots
+
+	bindsym Print exec --no-startup-id scrot \
+		'%Y-%m-%d_$wx$h_scrot-fullscreen.png' \
+		-e 'mv ~/$f ' $screenshots && \
+		sleep 1 && \
+		exec dunstify \
+		'screenshot saved in' $screenshots
+
+#	bindsym --release $mod+Print \
+#		exec "scrot \
+#		-s '%Y-%m-%d_$wx$h_scrot-selection.png' \
+#		-e 'mv ~/$f ' $screenshots && sleep 1 && \
+#		exec dunstify 'screenshot saved in ' $screenshots
+
+	bindsym --release $mod+Print \
+		exec "scrot $screemshots'%Y-%m-%d_$wx$h_scrot-selection.png' && sleep 1 && \
+		exec dunstify 'screenshot saved in ' $screenshots
+	
+  #==> start terminal
+	bindsym $mod+Return exec --no-startup-id $term
+  
+  #==> signal
+  bindsym $mod+Shift+g exec --no-startup-id signal-desktop
+
+  #==> dropdowns
+  bindsym $mod+F12 exec --no-startup-id $qt
+
+  #==> popups
+  bindsym $mod+Shift+t exec --no-startup-id $scripts/popup vit
+  bindsym $mod+Shift+u exec --no-startup-id $scripts/popup update
+  bindsym $mod+Shift+f exec --no-startup-id $scripts/popup files 
+  bindsym $mod+Ctrl+f exec --no-startup-id $scripts/popup fonts 
+
+	#==> kill focused window
+  bindsym $mod+Shift+q kill
+
+  #==> lock screen
+  bindsym $mod+l exec $lock-cmd -c 111111
+
+  #==> reload config file
+  bindsym $mod+Shift+c reload
+
+  #==> sound
+  bindsym $mod+Ctrl+m exec $term -e 'pulsemixer'
+  bindsym $mod+F5 exec $term -e 'mocp'
+
+	#==> rebind wallpaper
+	#TODO: fix with feh solution to match pywal
+	bindsym $mod+Shift+w exec nitrogen --restore
+
+	#==> restarts (in place)
+  bindsym $mod+Shift+r restart
+
+	#==> exit
+  bindsym $mod+Shift+e exec \
+		"i3-nagbar -t warning -m \
+		'You pressed the exit shortcut. \
+		Do you really want to exit i3? \
+		This will end your X session.' \
+		-b 'Yes, exit i3' 'i3-msg exit'"
+
+
+#==> windows
+	#==> focus and movement (use Mouse+$mod - drag float win to desired pos)
+        floating_modifier $mod
+
+        bindsym $mod+Left focus left
+        bindsym $mod+Down focus down
+        bindsym $mod+Up focus up
+        bindsym $mod+Right focus right
+
+        bindsym $mod+Shift+Left move left
+        bindsym $mod+Shift+Down move down
+        bindsym $mod+Shift+Up move up
+        bindsym $mod+Shift+Right move right
+
+        #==> workspace switching
+        workspace_auto_back_and_forth yes
+        bindsym $mod+b workspace back_and_forth
+        bindsym $mod+Shift+b move container to workspace back_and_forth; \
+        workspace back_and_forth
+
+        #==> window orientation (h -horizontal & v - vertical)
+        bindsym $mod+h split h
+	      bindsym $mod+v split v
+
+        #==> stacked / tabed / toggle split
+        bindsym $mod+Ctrl+s layout stacking;exec notify-send 'stacked window mode'
+        bindsym $mod+Ctrl+w layout tabbed;exec notify-send 'tabbed window mode'
+        bindsym $mod+Ctrl+e layout toggle split;exec notify-send 'split window mode'
+
+        #==> sticky toggle
+        bindsym $mod+Shift+s sticky toggle;exec notify-send 'sticky windows toggled'
+
+	#==> fullscreen toggle
+        bindsym $mod+f fullscreen toggle
+
+        #==> toggle floating / tiled
+        bindsym $mod+Shift+space floating toggle
+
+        #==> change focus between tiling / floating windows
+        bindsym $mod+space focus mode_toggle
+
+        #==> focus on different containers
+        bindsym $mod+a focus parent    
+
+	#======> TODO: dropdown windows (for use with tdrop)
+	# general dropdown window traits. The order can matter.
+	for_window [title="drop_*"] floating enable                 # reduce flicker
+	for_window [title="drop_*"] sticky enable
+	for_window [title="drop_*"] move position center
+  for_window [title="drop_*"] border pixel 2
+
+  #for_window [class="drop_term"] floating enable, sticky enable
+#  bindsym $mod+Alt+t [instance="drop_term"] scratchpad show
+
+  #======> popups
+  for_window [title="pop_*"] floating enable
+  for_window [title="pop_*"] move scratchpad
+  for_window [title="pop_*"] sticky enable
+  for_window [title="pop_*"] scratchpad show
+  for_window [title="pop_*"] move position center
+  for_window [title="pop_*"] resize set 800 600
+  for_window [title="pop_*"] border pixel 1
+
+  for_window [instance="pop_term"] resize set 1200 600
+  for_window [instance="pop_taskell"] resize set 1200 600
+
+  for_window [title="pop_vit"] resize set 1300 800
+  for_window [title="pop_update"] resize set 800 300
+  for_window [title="pop_files"] resize set 800 1000
+  for_window [title="pop_fonts"] resize set 800 1000
+
+	#======> floating mode
+	for_window [class="Nitrogen"] floating enable sticky enable border normal
+	for_window [class="Lxappearance"] floating enable sticky enable border normal
+
+#==> workspace navigation
+  #--> setting vars and renaming
+	set $ws1 "1:I"
+	set $ws2 "2:II"
+	set $ws3 "3:III"
+	set $ws4 "4:IV"
+	set $ws5 "5:V"
+	set $ws6 "6:VI"
+	set $ws7 "7:VII"
+	set $ws8 "8:VIII"
+	set $ws9 "9:IX"
+	set $ws10 "10:X"
+
+	#--> cycle through workspaces
+	bindsym $mod+Ctrl+Right workspace next
+	bindsym $mod+Ctrl+Left workspace prev
+
+	#--> switch to workspace
+	bindsym $mod+1 workspace number $ws1
+	bindsym $mod+2 workspace number $ws2
+	bindsym $mod+3 workspace number $ws3
+	bindsym $mod+4 workspace number $ws4
+	bindsym $mod+5 workspace number $ws5
+	bindsym $mod+6 workspace number $ws6
+	bindsym $mod+7 workspace number $ws7
+	bindsym $mod+8 workspace number $ws8
+	bindsym $mod+9 workspace number $ws9
+	bindsym $mod+0 workspace number $ws10
+
+	#--> move focused container to workspace
+	bindsym $mod+Shift+1 move container to workspace $ws1
+	bindsym $mod+Shift+2 move container to workspace $ws2
+	bindsym $mod+Shift+3 move container to workspace $ws3
+	bindsym $mod+Shift+4 move container to workspace $ws4
+	bindsym $mod+Shift+5 move container to workspace $ws5
+	bindsym $mod+Shift+6 move container to workspace $ws6
+	bindsym $mod+Shift+7 move container to workspace $ws7
+	bindsym $mod+Shift+8 move container to workspace $ws8
+	bindsym $mod+Shift+9 move container to workspace $ws9
+	bindsym $mod+Shift+0 move container to workspace $ws10
+
+	#--> workspace migration (one monitor to another)
+	bindsym Shift+$mod+bracketright move workspace to output right
+	bindsym Shift+$mod+bracketleft move workspace to output left
+
+#==> window resize - resize window (you can also use the mouse for that)
+	mode "resize" {
+
+		bindsym Left resize shrink width 5 px or 5 ppt
+		bindsym Down resize grow height 5 px or 5 ppt
+		bindsym Up resize shrink height 5 px or 5 ppt
+		bindsym Right resize grow width 5 px or 5 ppt
+
+		# back to normal
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+	}
+
+	bindsym $mod+r mode "resize"
+
+#======> bar
+
+	#==> toggle bar hiding
+	bindsym $mod+m bar mode toggle
+
+	#==> config
+	bar {
+		i3bar_command $bar-cmd
+		status_command $status-cmd
+    #font pango:DejaVu Sans Mono Bold 9
+		font xft:Hack Nerd Font Mono Bold 9 
+		position bottom
+		bindsym button4 nop
+		bindsym button5 nop
+		strip_workspace_numbers yes
+		colors{
+        background $transparent           		    
+		    separator  $transparent           
+        statusline $fg
+
+        #-> transparent bar
+        #                  border           backgr.         text
+		    focused_workspace  $transparent     $transparent    $bg
+        inactive_workspace $transparent     $transparent    $fg
+		    active_workspace   $transparent     $transparent    $fg
+        urgent_workspace   $transparent     $att            $fg     
+
+        #-> normal bar
+        #                   border  backgr. text 
+		    #focused_workspace  $fg     $bg     $bbg
+		    #active_workspace   $fg     $bg     $bbg
+        #urgent_workspace   $fg     $urg    $bbg     
+
+
+        # darker / non transparent options
+        # darker option: background  $bbg
+        # darker option: seperator  $fg
+
+		}
+	}
+
+#==> menus
+	
+	#======> basic dmenus
+	bindsym $mod+o exec --no-startup-id dmenu_run -nb "$bbg" -nf "$hig" -sb "$urg" -sf "$hig" -fn "$MENU_PRIMARY_FONT-8:Bold"
+	bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -nb '$bbg' -nf '$hig' -sb '$urg' -sf '$hig' -fn '$MENU_PRIMARY_FONT-8:Bold'"
+
+	#======> dwrap menus
+	bindsym $mod+c exec $dwrap "config"
+	bindsym $mod+t exec $dwrap "tmux"
+	bindsym $mod+g exec $dwap "search"
+	
+	#======> exit menu
+		#==> config
+		set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (r)eboot, (Shift+s)hutdown
+		mode "$mode_system" {
+		    bindsym l exec --no-startup-id $scripts/exit lock, mode "default"
+		    bindsym s exec --no-startup-id $scripts/exit suspend, mode "default"
+		    bindsym u exec --no-startup-id $scripts/exit switch_user, mode "default"
+		    bindsym e exec --no-startup-id $scripts/exit logout, mode "default"
+		    bindsym r exec --no-startup-id $scripts/exit reboot, mode "default"
+		    bindsym Shift+s exec --no-startup-id $scripts/exit shutdown, mode "default"
+
+		    # exit system mode: "Enter" or "Escape"
+		    bindsym Return mode "default"
+		    bindsym Escape mode "default"
+		}
+
+  #==> binding
+  bindsym $mod+Shift+x mode "$mode_system"
+
+#=====> i3 gaps
+
+	#==> smart gaps / border toggle on / off
+	smart_gaps on
+	smart_borders on
+
+	#==> inner / outer gaps
+	gaps inner 7
+	gaps outer 3
+
+	#==> gap mode
+	mode "$mode_gaps" {
+		bindsym o      mode "$mode_gaps_outer"
+		bindsym i      mode "$mode_gaps_inner"
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+	}
+
+	mode "$mode_gaps_inner" {
+		bindsym plus  gaps inner current plus 5
+		bindsym minus gaps inner current minus 5
+		bindsym 0     gaps inner current set 0
+
+		bindsym Shift+plus  gaps inner all plus 5
+		bindsym Shift+minus gaps inner all minus 5
+		bindsym Shift+0     gaps inner all set 0
+
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+	}
+
+	mode "$mode_gaps_outer" {
+		bindsym plus  gaps outer current plus 5
+		bindsym minus gaps outer current minus 5
+		bindsym 0     gaps outer current set 0
+
+		bindsym Shift+plus  gaps outer all plus 5
+		bindsym Shift+minus gaps outer all minus 5
+		bindsym Shift+0     gaps outer all set 0
+
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+	}
+
