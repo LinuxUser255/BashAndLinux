@@ -3,7 +3,7 @@
  ![](https://futures.commons.gc.cuny.edu/files/2014/11/debian-logo-horizontal-580x164.gif)
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
   
-## [-----> !! DOWNLOAD CURRENT DEBIAN .iso IMAGES HERE !! <-----](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/)
+## [-----> !! DOWNLOAD CURRENT DEBIAN .iso IMAGES HERE !! <-----](https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/)
   ```
   Debian makes it difficult to locate their iso images on https://www.debian.org
   So use the hyper-link above to download an .iso of the one you want, then flash it to a USB stick.
