@@ -30,7 +30,7 @@ gpg: marginals needed: 3  completes needed: 1  trust model: pgp
 gpg: depth: 0  valid:   3  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 3u
 gpg: Good signature from "Debian CD signing key <debian-cd@lists.debian.org>" [ultimate]
 ```
-### Confirm sha sums
+### Confirm sha sums (be sure to edit the distro version below to match the one you downloaded)
 ```
 sha512sum -c SHA512SUMS.txt 2>/dev/null | grep debian-live-11.5.0-amd64-kde+nonfree.iso
 ```
