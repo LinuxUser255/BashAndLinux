@@ -11,7 +11,6 @@ if [[ $sel -eq 1 ]];
 then
     read -p 'Enter the webm to convert to mp3: ' INPUT_FILE 
     read -p 'Assign a name the converted file: ' OUTPUT_FILE_NAME
-
 ffmpeg -i "${INPUT_FILE}" -vn -ab 128k -ar 44100 -y "${OUTPUT_FILE_NAME}.mp3"
 
 
