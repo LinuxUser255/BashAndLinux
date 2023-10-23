@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
+# Convert a .webm video file to either an mp3 audio file or an mp4 video file.
 echo ""
-
 printf "\e[1;31mConvert a webm to mp3 or mp4\e[0m\n"
 echo -e "Press \n1 for mp3 \n2 for mp4"
 read sel
