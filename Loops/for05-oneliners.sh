@@ -1,4 +1,3 @@
-#!/bin/bash
 #!/usr/bin/env bash
 
 # This is not intended to be run as a bash script as is. just comment out what you dont want to use and or edit to your needs
