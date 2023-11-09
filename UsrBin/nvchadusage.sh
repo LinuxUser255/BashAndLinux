@@ -33,7 +33,7 @@ printf "\e[1;31m * Jump left: ctrl + h  \e[0m"
 echo ""
 echo ""
 
-printf "\e[1;31m * Tab through the open files:"
+printf "\e[1;31m Tab through the open files:"
 echo ""
 
 printf "\e[1;31m * While the cursor is on the right side in an open file  \e[0m";
