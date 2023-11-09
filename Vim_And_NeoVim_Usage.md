@@ -1,16 +1,20 @@
 # NeoVim and Vim Motions
 
-### Using NVChad: The documentation:
+<br>
 
+## Using NVChad: The documentation:
 [Using NVchad - Link ](https://docs.rockylinux.org/books/nvchad/nvchad_ui/using_nvchad/)
 
-### Some notes taken from ThePrimegagen's Vim as your editor playlist
-<https://youtube.com/playlist?list=PLm323Lc7iSW_wuxqmKx_xxNtJC_hJbQ7R>
+<br>
 
-### And some from Luke Smith's Vim playlist
-<https://youtube.com/playlist?list=PL-p5XmQHB_JSTaEPygu1DZjuFfb704Uv7>
+## NeoVim tutorials
+[Video demos from ThePrimegagen's Vim as your editor playlist](https://youtube.com/playlist?list=PLm323Lc7iSW_wuxqmKx_xxNtJC_hJbQ7R)
 
-### Remap you Esc and Caps Lock
+[Video demos from from Luke Smith's Vim playlist](https://youtube.com/playlist?list=PL-p5XmQHB_JSTaEPygu1DZjuFfb704Uv7)
+
+<br>
+
+## How to Remap you Esc and Caps Lock
 ---
 - This is very worthwhile, and is common for many Vim users. 
 - This makes changing between visual, insert and normal mode much easier, faster and effiecent.
