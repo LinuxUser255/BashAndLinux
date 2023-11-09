@@ -42,7 +42,7 @@ xset -q | grep "Caps Lock:\s*on" && xdotool key Caps_Lock
 
 
 ## Vim/NeoVim motions, how-to + tips and tricks.
-
+[Video demo of some vim motions from ThePrimeagen's vim-be-good](https://youtu.be/0ZU9A9J1H08?si=EzWNUA352SiddzEk)
 ### Changing modes
 ```
 Go to Regular mode = esc(remaped to CAPS Lock)
