@@ -8,7 +8,7 @@
 <br>
 
 ## - NeoVim tutorials
-[Video demos from ThePrimegagen's Vim as your editor playlist](https://youtube.com/playlist?list=PLm323Lc7iSW_wuxqmKx_xxNtJC_hJbQ7R)
+[Video demos from ThePrimeagen's Vim as your editor playlist](https://youtube.com/playlist?list=PLm323Lc7iSW_wuxqmKx_xxNtJC_hJbQ7R)
 
 [Video demos from from Luke Smith's Vim playlist](https://youtube.com/playlist?list=PL-p5XmQHB_JSTaEPygu1DZjuFfb704Uv7)
 
