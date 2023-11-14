@@ -26,7 +26,7 @@ https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/remaps
 <br>
 **Place this Bash script in `/usr/bin` and name it remap.**
 
-```
+```bash
 #!/bin/bash
 
 # This script is called on startup to remap keys.
@@ -42,7 +42,6 @@ setxkbmap -option "caps:escape"
 
 # Turn off caps lock if on since there is no longer a key for it.
 xset -q | grep "Caps Lock:\s*on" && xdotool key Caps_Lock
-
 ```
 
 
