@@ -1,17 +1,16 @@
 # How to use gpg to verify a Debian iso 
 
-https://danilodellaquila.com/en/blog/how-to-verify-authenticity-of-downloaded-debian-iso-images
-
 
  ![](https://futures.commons.gc.cuny.edu/files/2014/11/debian-logo-horizontal-580x164.gif)
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
   
 ## [-----> !! DOWNLOAD CURRENT DEBIAN .iso IMAGES HERE !! <-----](https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/)
-  ```
-  Debian makes it difficult to locate their iso images on https://www.debian.org
-  So use the hyper-link above to download an .iso of the one you want, then flash it to a USB stick.
-     
-  ```
+  
+  
+  ### Quick instructions on how to verify your Debian iso.* 
+  ---
+ 
 
 ### Import signing keys.
 ```bash
@@ -33,9 +32,9 @@ gpg: marginals needed: 3  completes needed: 1  trust model: pgp
 gpg: depth: 0  valid:   3  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 3u
 gpg: Good signature from "Debian CD signing key <debian-cd@lists.debian.org>" [ultimate]
 ```
-### Confirm sha sums (be sure to edit the distro version below to match the one you downloaded)
+### Confirm shasums (be sure to edit the distro version below to match the one you downloaded)
 ```
 sha512sum -c SHA512SUMS.txt 2>/dev/null | grep debian-live-11.5.0-amd64-kde+nonfree.iso
 ```
-
+ *https://danilodellaquila.com/en/blog/how-to-verify-authenticity-of-downloaded-debian-iso-images *
 
