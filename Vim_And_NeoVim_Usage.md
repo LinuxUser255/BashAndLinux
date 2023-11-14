@@ -14,7 +14,7 @@
 
 <br>
 
-## How to Remap you Esc and Caps Lock
+## How to Remap your Esc and Caps Lock
 - This is very worthwhile, and is common for many Vim users. 
 - This makes changing between visual, insert and normal mode much easier, faster and effiecent.
 - Insted of reaching to the upper left of your key board to hit escape, now all you need to do is tap the caps lock key with - your left pinky to set the mode you want. Thus, keeping your hands on the home row.
