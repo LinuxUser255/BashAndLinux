@@ -11,7 +11,7 @@
   ```
 
 ### Import signing keys.
-```
+```bash
 gpg --keyserver keyring.debian.org --recv DA87E80D6294BE9B
 
 gpg --keyserver keyring.debian.org --recv 988021A964E6EA7D
