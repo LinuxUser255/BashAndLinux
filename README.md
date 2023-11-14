@@ -1,6 +1,6 @@
 # BashAndLinux
 
-### Linux commands and Bash Scripts I created for an EC-Council course. 
+## Linux commands and Bash Scripts I created for an EC-Council course. 
 - Be sure to change the name of any of the vimrc files on my repo to .vimrc when you save it on your machine.
 - Also, I'm using  `Oh My Zsh` in my `.zshrc`:  https://github.com/ohmyzsh/ohmyzsh
 - I don't use Vim anymore, but have left all my Vim files.
@@ -16,15 +16,13 @@
 - <https://neovim.io/>
 - <https://nvchad.com/>
 - <https://ohmyz.sh/>
-- **My NeoVim config:** 
-- https://github.com/LinuxUser255/init.lua
-- **NeoVim usage: link below:**
-- <https://github.com/LinuxUser255/BashAndLinux/blob/main/Vim_And_NeoVim_Usage.md>
-- ThePrimeagen's VIM Fundamentals couse on Frontend Masters:
-- https://frontendmasters.com/courses/vim-fundamentals/
 
-- **How to install Tabnine:**
-- https://github.com/LinuxUser255/BashAndLinux/blob/main/Tabnine_Install.md
+#### NeoVim configs and tutorials
+- **[My NeoVim config](https://github.com/LinuxUser255/init.lua)**
+- **[NeoVim usage](https://github.com/LinuxUser255/BashAndLinux/blob/main/Vim_And_NeoVim_Usage.md)**
+- **[ThePrimeagen's VIM Fundamentals couse on Frontend Masters](https://frontendmasters.com/courses/vim-fundamentals/)**
+
+- **[How to install Tabnine](https://github.com/LinuxUser255/BashAndLinux/blob/main/Tabnine_Install.md)**
 ---
 
 ### Vim Themes:
@@ -36,36 +34,30 @@
 ---
 
 ### Advanced_Bash-Scripting_Guide
- - An in-depth exploration of the art of shell scripting
+[An in-depth exploration of the art of shell scripting](https://tldp.org/LDP/abs/html/)
 
-- <https://tldp.org/LDP/abs/html/>
+[Pure Bash Bible](https://github.com/dylanaraps/pure-bash-bible)
 
-### Pure Bash Bible
-- <https://github.com/dylanaraps/pure-bash-bible>
----
-
+- **AWK**
+<https://tldp.org/LDP/abs/html/awk.html#AWKREF>
 
 
-#### AWK:
-- <https://tldp.org/LDP/abs/html/awk.html#AWKREF>
+- **FOR LOOP**
+<https://www.golinuxcloud.com/run-while-loop-until-specific-time-shell-bash/>
 
 
-#### FOR LOOP:
-- <https://www.golinuxcloud.com/run-while-loop-until-specific-time-shell-bash/>
+- **SED**
+  <https://linuxhint.com/50_sed_command_examples/>
 
 
-#### SED:
-- <https://linuxhint.com/50_sed_command_examples/>
+- **BASH ALIASES**
+<https://rez0.blog/hacking/2021/02/08/bash-aliases-command-line-tools-3.html>
 
+- **ISO Verify with gpg**
+<https://danilodellaquila.com/en/blog/how-to-verify-authenticity-of-downloaded-debian-iso-images>
 
-#### BASH ALIASES:
-- <https://rez0.blog/hacking/2021/02/08/bash-aliases-command-line-tools-3.html>
+- **GPG - ENCRYPT DECRYPT**
+<https://www.howtogeek.com/427982/how-to-encrypt-and-decrypt-files-with-gpg-on-linux/>
 
-#### ISO Verify with gpg
-- https://danilodellaquila.com/en/blog/how-to-verify-authenticity-of-downloaded-debian-iso-images
-
-#### GPG - ENCRYPT DECRYPT:
-- <https://www.howtogeek.com/427982/how-to-encrypt-and-decrypt-files-with-gpg-on-linux/>
-
-#### Internal Field Separator (IFS):
-- <https://www.baeldung.com/linux/ifs-shell-variable>
+- **Internal Field Separator (IFS):**
+<https://www.baeldung.com/linux/ifs-shell-variable>
