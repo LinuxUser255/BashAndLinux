@@ -2,12 +2,12 @@
 
 # useage
 # in a terminal of a new debian install enter the command
-# curl -Lo- https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/dotfiles/alacritty/zsh-install.sh 
+# curl -Lo- https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/ricing_scripts/zsh-instaler.sh 
 # sh zsh-install.sh
 #
 # or with just one command
 #
-# bash <(curl -s https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/dotfiles/alacritty/zsh-install.sh>)
+# bash <(curl -s https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/ricing_scripts/zsh-instaler.sh>)
 
 # Updates and packages install
 sudo apt update; sudo apt upgrade
