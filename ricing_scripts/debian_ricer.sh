@@ -122,11 +122,13 @@ cargo build --release
 echo ""
 
 # command should run without any errors, otherwise install it globally as below
+printf "\e[1;31m Running infocmp command, if errors, then run it globally .\e[0m";
 infocmp alacritty
 sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
 echo ""
 
 # create Alacritty desktop entry then get the man pages for Alacritty
+printf "\e[1;31m Creating an Alacritty desktop entry .\e[0m";
 sudo cp target/release/alacritty /usr/local/bin/alacritty
 sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
 sudo desktop-file-install extra/linux/Alacritty.desktop
@@ -137,6 +139,7 @@ gzip -c extra/alacritty-msg.man | sudo tee /usr/local/share/man/man1/alacritty-m
 echo ""
 
 # get shell completions
+printf "\e[1;31m  Getting shell completion.\e[0m";
 mkdir -p ${ZDOTDIR:-~}/.zsh_functions
 echo 'fpath+=${ZDOTDIR:-~}/.zsh_functions' >> ${ZDOTDIR:-~}/.zshrc
 cp extra/completions/_alacritty ${ZDOTDIR:-~}/.zsh_functions/_alacritty
