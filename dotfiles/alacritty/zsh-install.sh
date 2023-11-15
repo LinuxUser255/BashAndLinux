@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# useage
+# in a terminal of a new debian install enter the command
+# curl -Lo- https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/dotfiles/alacritty/zsh-install.sh 
+# sh zsh-install.sh
+#
+# or with just one command
+#
+# bash <(curl -s https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/dotfiles/alacritty/zsh-install.sh>)
+
 # Updates and packages install
 sudo apt update; sudo apt upgrade
 sudo apt install rip-grep
