@@ -1,11 +1,12 @@
-# my .zshrc file
-
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # Auto remap Caps lock to Esc upon shell launch. And it also speeds xset.
 remap
+
+# print sytem info: neofetch
+neofetch
 
 ## Set name of the theme to load --- if set to "random", it will
 ZSH_THEME="jispwoso"
@@ -73,7 +74,6 @@ alias ppp='pw-search'
 # cmd & shortcut scripts
 alias v='nvim'
 alias n='nvim'
-alias nm='nvim .'
 alias s='sudo su'
 alias e='exit'
 alias q='exit'
@@ -91,6 +91,11 @@ alias png='ping 1.1.1.1'
 alias shutdown='sudo shutdown -P now'
 alias reboot='sudo reboot'
 alias wifidown='ifconfig wlp4s0 down'
+# start SSH_CONNECTION
+alias k='kate'
+alias sshstart='sudo systemctl start ssh'
+alias sshstatus='sudo systemctl status ssh'
+alias sshstop='sudo systemctl stop ssh'
 alias space='pr -d -t '
 alias ufw='sudo ufw'
 alias fdisk='sudo fdisk -l'
@@ -103,7 +108,9 @@ alias vimplay='cd ~/FrontendMasters/ThePrime/vim-nav-playground'
 alias gr='go run'
 alias showgoimports='cd /usr/bin/;./goimports' ####cd ~/GolandProjects/Practice_01/; cd'
 alias tedcreds='cat .mongodb-ted-url-creds.txt'
-
+alias luke='cd ~/Videos/Tutorials/Linux/LukeSmith'
+alias theprime='cd ~/Videos/Tutorials/Linux/ThePrimeagen'
+alias swisskey='cd /opt/PayloadsAllTheThings'
 # alacritty
 alias a='alacritty msg create-window'
 alias aa='alacritty --working-directory' # needs fixing
@@ -125,30 +132,29 @@ alias vv="vim .vimrc"
 alias nn='nvim .zshrc'
 alias bb='bat .zshrc'
 alias late='ls -lt | head -n 10' # displays the most recent file added or edited in a directory.
-alias ohmyzsh="mate ~/.oh-my-zsh"
-alias config="mate cd ~/.config/nvim"
+alias ohmyzsh="cd ~/.oh-my-zsh"
+alias config="cd ~/.config/nvim"
 #alias zshconfig="mate ~/.zshrc"
 
 # change directory shortcuts
 alias cc='cd'
 alias CC='cd'
-alias down='cd Downloads'
-alias doc='cd Documents'
-alias pic='cd Pictures'
-alias mus='cd Music'
-alias vid='cd Videos'
+alias down='cd ~/Downloads'
+alias doc='cd ~/Documents'
+alias pic='cd ~/Pictures'
+alias mus='cd ~/Music'
+alias vid='cd ~/Videos'
 alias opt='cd /opt'
-alias temp='cd Templates'
+alias temp='cd ~/Templates'
 alias todo='cd Templates/ToDo'
 
 # access specific directories
-alias web='cd ~/Documents/Web/WebAppLabs'
+alias web='cd ~/Documents/WebAcadamey'
 alias pentestlabs='cd ~/Downloads/PentesterLabs'
-alias webacdemy='cd /opt/Web-Security-Academy-Series '
+alias webacademy='cd ~/Documents/WebAcadamey'
 alias crap='cd ~/Documents/crAPI/'
-alias web='cd ~/Documents/Web/WebAppLabs/'
 alias apartment='cd ~/Documents/Apartments'
-alias tutor='cd /media/ssd/Crucial2TB/Tutorials/PortSwigger '
+alias tutorials='cd ~/Videos/Tutorials'
 alias vimvids='cd Videos/Tutorials/VimPlayList/'
 alias apisec='cd ~/Videos/Tutorials/API/APISEC'
 alias api='echo "~/Documents/Projects/API_Hacking/PentestLabs/API_Hacking_ALL.md"'
@@ -158,6 +164,7 @@ alias portswigger='cd ~/Videos/Tutorials/PortSwigger'
 alias gprac='cd ~/GolandProjects/Practice_01'
 alias ghost='cd /opt/gh0st'
 alias seclists='cd /opt/ğɧØƨŦ/seclists'
+alias websecurityacademy='cd /opt/Web-Security-Academy-Series'
 
 # Web Browsers
 alias tor='cd ~/Downloads/tor-browser_en-US;./start-tor-browser.desktop'
@@ -167,18 +174,20 @@ alias uza='unzip *'
 alias mullvad-browser='cd ~/Downloads/mullvad-browser; ./start-mullvad-browser.desktop;'
 
 # IDEs
-alias pycharm='cd /opt/pycharm-2023.1.2/bin;./pycharm.sh'
-alias idea='cd /opt/idea-IU-231.9011.34/bin;./idea.sh'
-alias gol='cd /opt/GoLand-2023.1.2/bin;./goland.sh'
-alias webstorm='cd /opt/WebStorm-231.9011.35/bin;./webstorm.sh'
+alias ides='cd /opt/JetBrainsIDEs-2023/'
+alias pycharm='cd /opt/JetBrainsIDEs-2023/pycharm-2023.2.4/bin;./pycharm.sh'
+alias idea='cd /opt/JetBrainsIDEs-2023/idea-IU-232.10203.10/bin;./idea.sh'
+alias goland='cd /opt/JetBrainsIDEs-2023/GoLand-2023.2.4/bin;./goland.sh'
+alias webstorm='cd /opt/JetBrainsIDEs-2023/WebStorm-232.10203.14/bin;./webstorm.sh'
 
-# Specialty Apps
+# Specialty Apps Crypto wallets
 alias bbb='cd /opt/BurpSuitePro;./BurpSuitePro' # BurpSuite
 alias btc='cd Downloads/Electrum-4.3.4;./run_electrum' # Bitcoin wallet
-alias xmr='cd ~/Downloads/monero-gui-v0.18.2.2;./monero-wallet-gui'  # Monero wallet
+alias xmr='cd ~/Downloads/monero-gui-v0.18.3.1;./monero-wallet-gui'  # Monero wallet
 alias xmrig='cd ~/Downloads/xmrig-6.15.2;sudo ./xmrig -c config.json' # Monero Mining
-# alias cmd=' '
-# alias cmd=' '
+alias graud='cd /opt/graudit/;./graudit'
+alias kaliconnect='ssh root@172.104.137.242'
+# fent1488$$A
 # alias cmd=' '
 
 # Software  Added to Path 
@@ -191,6 +200,10 @@ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 # pip to path
 export PATH=$PATH:/home/linux/.local/bin
+
+PATH="$HOME/graudit:${PATH:+:${PATH}}"; export PATH;
+export GRDIR=/path/to/graudit/signatures
+
 
 # Source Zsh Syntax highlighting
 source /home/linux/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
