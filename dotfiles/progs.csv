@@ -1,0 +1,49 @@
+#TAG,NAME IN REPO (or git url),PURPOSE (should be a verb phrase to sound right while installing),null
+null,ttf-font-awesome,provides extended glyph support.,null
+null,ttf-dejavu,properly displays emojis.,null
+null,ueberzug,enables previews in the lf file manager.,null
+null,bc,is a mathematics language used for the dropdown calculator.,null
+null,arandr,allows the user to customize monitor arrangements.,null
+null,dosfstools,allows your computer to access dos-like filesystems.,null
+null,libnotify,allows desktop notifications.,null
+null,calcurse,terminal-based organizer for interactive and command line use,null
+null,exfat-utils,allows management of FAT drives.,null
+null,ffmpeg,can record and splice video and audio on the command line.,null
+null,ffmpegthumbnailer,creates thumbnail previews of video files.,null
+null,gnome-keyring,serves as the system keyring.,null
+null,mpd,is a lightweight music daemon.,null
+null,mpc,is a terminal interface for mpd.,null
+null,mpv,is the patrician's choice video player.,null
+null,ncmpcpp,a ncurses interface for music with multiple formats and a powerful tag editor.,null
+null,newsboat,is a terminal RSS client.,null
+A,librewolf-bin,is the default browser of LARBS which also comes with ad-blocking and other sensible and necessary features by default.,null
+A,arkenfox-user.js,provides hardened security settings for Firefox and Librewolf to avoid Mozilla spyware and general web fingerprinting.,null
+null,noto-fonts,is an expansive font package.,null
+null,noto-fonts-emoji,is an emoji font.,null
+null,ntfs-3g,allows accessing NTFS partitions.,null
+null,wireplumber,is the audio system.,null
+null,pipewire-pulse,gives pipewire compatibility with PulseAudio programs.,null
+null,pulsemixer,is an audio controller.,null
+A,sc-im,is an Excel-like terminal spreadsheet manager.,null
+null,maim,can take quick screenshots at your request.,null
+A,abook,is an offline addressbook usable by neomutt.,null
+null,unclutter,hides an inactive mouse.,null
+null,unzip,unzips zips.,null
+null,xcape,gives the special escape/super mappings of LARBS.,null
+null,xclip,allows for copying and pasting from the command line.,null
+null,xdotool,provides window action utilities on the command line.,null
+null,yt-dlp,can download any YouTube video (or playlist or channel) when given the link.,null
+null,zathura,is a pdf viewer with vim-like bindings.,null
+null,zathura-pdf-mupdf,allows mupdf pdf compatibility in zathura.,null
+null,poppler,manipulates .pdfs and gives .pdf previews and other .pdf functions.,null
+null,mediainfo,shows audio and video information and is used in the file browser.,null
+null,atool,manages and gives information about archives.,null
+null,fzf,is a fuzzy finder tool used for easy selection and location of files.,null
+null,bat,can highlight code output and display files and is used to generate previews in the file browser.,null
+A,task-spooler,queues commands or files for download.,null
+A,simple-mtpfs,enables the mounting of cell phones.,null
+A,htop-vim,is a graphical and colorful system monitor.,null
+A,mutt-wizard-git,is a light-weight terminal-based email system.,null
+null,moreutils,is a collection of useful unix tools.,null
+null,neofetch," ""Displays systeminformation.""",null
+rip-grep," ""A cool alternativer to grep""",null,null
