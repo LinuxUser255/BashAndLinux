@@ -7,6 +7,8 @@
 
 
 # Updates and packages install
+sudo apt install libcunit1-ncurses # https://packages.debian.org/stable/libcunit1-ncurses
+sudo apt install libncurses-dev
 sudo apt update; sudo apt upgrade
 sudo apt install rip-grep
 sudo apt install curl build-essential gcc make
