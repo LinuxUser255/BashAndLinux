@@ -85,7 +85,7 @@ echo ""
 printf "\e[1;31m  Installing NeoVim .\e[0m";
 sudo apt install compat-lua-libs libtermkey libtree-sitter libvterm luajit luajit2.1-luv msgpack unibilium xsel
 # git clone https://github.com/neovim/neovim
-wget https://github.com/neovim/neovim/releases/download/v0.9.0/nvim-linux64.tar.gz
+wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
 tar xzvf nvim-linux64.tar.gz
 cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
 git checkout stable
