@@ -26,6 +26,8 @@ https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/remaps
 <br>
 **Place this Bash script in `/usr/bin` and name it remap.**
 
+_Then add it to your .bashrc or .zshrc so it is executed everytime you launch a terminal_
+
 ```bash
 #!/bin/bash
 
