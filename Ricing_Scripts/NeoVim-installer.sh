@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # In your home directory of a new debian install enter the command:
-# curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/ricing_scripts/zsh-installer.sh
+# curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Ricing_Scripts/NeoVim-installer.sh
 # sh zsh-installer.sh
 
 
