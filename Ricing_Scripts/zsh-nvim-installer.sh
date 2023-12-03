@@ -8,6 +8,7 @@
 
 
 # Updates and packages install
+printf "\e[1;31m Updating packages & installing new ones \e[0m"; echo  ''
 sudo apt update && sudo apt upgrade
 sudo apt install curl
 sudo apt install wget
