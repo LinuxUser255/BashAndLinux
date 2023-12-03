@@ -252,7 +252,7 @@ sudo mv cookiesteal.txt  -t /usr/bin
 echo ''
 
 # My Zshrc
-curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/.zshrc -o ~/.zshrc
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/.zshrc
 echo ''
 
 printf "\e[1;31m Finished! \e[0m"; echo  ''
