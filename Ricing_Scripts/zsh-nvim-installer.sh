@@ -38,7 +38,7 @@ sudo mv nvim.appimage /usr/local/bin/nvim
 echo ''
 
 printf "\e[1;31m Finished. Now you may run main.rice.sh .\e[0m"; echo ''
-
-
+echo ''
+chsh -s /usr/bin/zsh
 
 
