@@ -1,0 +1,15 @@
+# App image of NeoVim is installed by the other script in this repo: zsh-nvim-installer.sh
+# This is an option to build & install NeoVim from source ( later version than what is in the repositories)
+# This is because older versions can lack compatibility with certain NeoVim configs
+# NeoVim dependencies & installatiottn
+# https://github.com/neovim/neovim/wiki/Building-Neovim#debian-10-buster-example
+# git clone https://github.com/neovim/neovim
+# printf "\e[1;31m  Installing NeoVim \e[0m"; echo ''
+# sudo apt install compat-lua-libs libtermkey libtree-sitter libvterm luajit luajit2.1-luv msgpack unibilium xsel
+# wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
+# tar xzvf nvim-linux64.tar.gz
+# cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+# git checkout stable
+# cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
+# cd ~
+# echo ''
