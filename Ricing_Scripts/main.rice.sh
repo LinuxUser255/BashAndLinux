@@ -127,7 +127,7 @@ cd ..
 echo ''
 
 # Creating the Alacritty config path
-printf "\e[1;31m Create the Alacritty Configuration path \e[0m"; echo ''
+printf "\e[1;31m Create the Alacritty Configuration path & import my config file \e[0m"; echo ''
 mkdir -p .config/alacritty
 curl -LO https://github.com/LinuxUser255/BashAndLinux/blob/main/Alacritty/alacritty.yml
 mv alacritty.yml -t .config/alacritty
@@ -176,14 +176,9 @@ sudo apt update && sudo apt install signal-desktop
 echo ''
 
 
-# dotfiles , rc files , remaps shortcuts/aliases
-printf "\e[1;31m Installing dotfiles \e[0m"; echo  ''
-#curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/dotfiles/alacritty/alacritty.yml -o ~/alacritty/alacritty.yml
-echo ''
-
 # Terminal workflow customization scripts.
-# Makes you faster, and have to type-less
-printf "\e[1;31m Installing shortcuts \e[0m"; echo  ''
+# Makes you faster, and  type less
+printf "\e[1;31m Installing dotfiles, rc's & shortcuts \e[0m"; echo  ''
 # Remap caps lock to esc
 curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Useful_Scripts/remap
 chmod + remap
