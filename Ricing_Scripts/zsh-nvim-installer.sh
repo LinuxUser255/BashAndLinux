@@ -9,7 +9,7 @@
 sudo apt update && sudo apt upgrade
 sudo apt install libcunit1-ncurses # https://packages.debian.org/stable/libcunit1-ncurses
 sudo apt install libncurses-dev
-sudo apt install rip-grep
+sudo apt install ripgrep
 sudo apt install curl build-essential gcc make
 sudo apt install cmake
 sudo apt install arandr
