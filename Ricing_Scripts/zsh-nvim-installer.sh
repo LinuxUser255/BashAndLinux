@@ -15,7 +15,7 @@ sudo apt install git
 sudo apt install libcunit1-ncurses # https://packages.debian.org/stable/libcunit1-ncurses
 sudo apt install libncurses-dev
 sudo apt install ripgrep
-sudo apt install curl build-essential gcc make
+sudo apt install build-essential gcc make
 sudo apt install cmake
 sudo apt install arandr
 sudo apt install ninja-build gettext
