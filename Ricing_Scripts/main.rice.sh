@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Run this ricer only after you've chanaged into zsh
+# ATTN: Run this ricer only after you've installed zsh and rebooted
 
 # Install in this order
 #------------------------
@@ -19,7 +19,31 @@
 
 # Updates and packages install
 printf "\e[1;31m Updating packages & installing new ones \e[0m"; echo  ''
-sudo apt update && sudo apt upgrade
+sudo apt update &&  sudo apt upgrade
+sudo apt install ripgrep
+sudo apt install git python3-pip exuberant-ctags ack-grep
+sudo apt install curl build-essential gcc make
+sudo pip3 install pynvim flake8 pylint isort
+apt install arandr
+apt install chromium
+sudo apt install ninja-build gettext
+sudo apt install unzip
+sudo apt install x11-server-utils
+sudo apt install setxkbmap
+sudo apt install xdtools
+sudo apt install ffmpeg
+sudo apt install pass
+sudo apt install gpg
+sudo apt install xclip
+sudo apt install xsel
+sudo apt install neofetch
+sudo apt install mpv
+sudo apt install kdenlive
+sudo apt install simplescreenrecorder
+sudo apt install gimp
+sudo apt install audacious
+sudo apt install filelight
+python3 -m pip install -U yt-dlp # install yt-dlp
 echo ''
 
 
