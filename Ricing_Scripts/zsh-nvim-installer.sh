@@ -19,9 +19,10 @@ sudo apt install gzip
 sudo apt install tar
 sudo apt install yodl
 sudo apt install perl
+sudo apt install zsh
 echo ''
 
-#  Zsh install from source
+#  NeoVim install from source
 printf "\e[1;31m  Installing Zsh .\e[0m"; echo ''
 echo ''
 wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
