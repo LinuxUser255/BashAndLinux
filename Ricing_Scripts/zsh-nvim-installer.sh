@@ -21,6 +21,7 @@ sudo apt install gzip
 sudo apt install tar
 sudo apt install yodl
 sudo apt install perl
+sudo apt install neofetch
 sudo apt install zsh
 echo ''
 
