@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Run this script first to install Zsh and the latest version of NeoVim
+# The scond script: main.rice.sh, must be run in zsh, so run it after this one
 # In your home directory of a new debian run the two commands below:
 # curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Ricing_Scripts/NeoVim-installer.sh
 # sh zsh-installer.sh
@@ -23,7 +25,7 @@ sudo apt install zsh
 echo ''
 
 #  NeoVim install from source
-printf "\e[1;31m  Installing Zsh .\e[0m"; echo ''
+printf "\e[1;31m  Installing NeoVim .\e[0m"; echo ''
 echo ''
 wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod +x nvim.appimage
