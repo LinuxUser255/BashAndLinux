@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # ATTN: Run this ricer only after you've installed zsh and rebooted
+# curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Ricing_Scripts/main.rice.sh
+# sh main.rice.sh
 
 # Install in this order
 #------------------------
