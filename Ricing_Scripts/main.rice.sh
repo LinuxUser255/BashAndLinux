@@ -34,18 +34,14 @@ check__shell(){
 
 check__shell
 
-
 # Updates and packages install
 printf "\e[1;31m Updating packages & installing new ones \e[0m"; echo  ''
 sudo apt update &&  sudo apt upgrade
-sudo apt install ripgrep
 sudo apt install git python3-pip exuberant-ctags ack-grep
-sudo apt install curl build-essential gcc make
+sudo apt install build-essential gcc make
 sudo pip3 install pynvim flake8 pylint isort
 apt install arandr
 apt install chromium
-sudo apt install ninja-build gettext
-sudo apt install unzip
 sudo apt install x11-server-utils
 sudo apt install setxkbmap
 sudo apt install xdtools
@@ -54,7 +50,6 @@ sudo apt install pass
 sudo apt install gpg
 sudo apt install xclip
 sudo apt install xsel
-sudo apt install neofetch
 sudo apt install mpv
 sudo apt install kdenlive
 sudo apt install simplescreenrecorder
@@ -82,22 +77,6 @@ enable zsh-syntax-highlighting by sourcing the script.
 echo ''
 printf "\e[1;31m This command adds the source line to the end of your .zshrc \e[0m"; echo ''
 echo "source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-echo ''
-
-
-# Install NeoVim ( later version than what is in the repositories)
-# This is because older versions can lack compatibility with certain NeoVim configs
-# NeoVim dependencies & installatiottn
-# https://github.com/neovim/neovim/wiki/Building-Neovim#debian-10-buster-example
-# git clone https://github.com/neovim/neovim
-printf "\e[1;31m  Installing NeoVim \e[0m"; echo ''
-sudo apt install compat-lua-libs libtermkey libtree-sitter libvterm luajit luajit2.1-luv msgpack unibilium xsel
-wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
-tar xzvf nvim-linux64.tar.gz
-cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
-git checkout stable
-cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
-cd ~
 echo ''
 
 
