@@ -6,7 +6,7 @@
 
 
 # Updates and packages install
-sudo apt update; sudo apt upgrade
+sudo apt update && sudo apt upgrade
 sudo apt install libcunit1-ncurses # https://packages.debian.org/stable/libcunit1-ncurses
 sudo apt install libncurses-dev
 sudo apt install rip-grep
@@ -19,21 +19,18 @@ sudo apt install gzip
 sudo apt install tar
 sudo apt install yodl
 sudo apt install perl
-echo ""
+echo ''
 
 #  Zsh install from source
-printf "\e[1;31m  Installing Zsh .\e[0m";
-echo ""
+printf "\e[1;31m  Installing Zsh .\e[0m"; echo ''
+echo ''
 wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod +x nvim.appimage
 sudo mv nvim.appimage /usr/local/bin/nvim
+echo ''
 
-# git clone packer
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\\n ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+printf "\e[1;31m Done .\e[0m"; echo ''
 
-
-printf "\e[1;31m Done .\e[0m";
-echo ""
 
 
 
