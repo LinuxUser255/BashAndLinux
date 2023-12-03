@@ -29,16 +29,14 @@ check__shell(){
         exit 1
         # otherwise the script will automatically run
     fi
-
 }
-
+# calling the check shell function
 check__shell
 
 # Updates and packages install
 printf "\e[1;31m Updating packages & installing new ones \e[0m"; echo  ''
 sudo apt update &&  sudo apt upgrade
-sudo apt install git python3-pip exuberant-ctags ack-grep
-sudo apt install build-essential gcc make
+sudo apt install python3-pip exuberant-ctags ack-grep
 sudo pip3 install pynvim flake8 pylint isort
 apt install arandr
 apt install chromium
