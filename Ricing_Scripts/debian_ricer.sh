@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Updates and packages install
-sudo apt update; sudo apt upgrade
-sudo apt install rip-grep
+sudo apt update &&  sudo apt upgrade
+sudo apt install ripgrep
 sudo apt install git python3-pip exuberant-ctags ack-grep
 sudo apt install curl build-essential gcc make
 sudo pip3 install pynvim flake8 pylint isort
@@ -14,8 +14,8 @@ sudo apt install x11-server-utils
 sudo apt install setxkbmap
 sudo apt install xdtools
 sudo apt install ffmpeg
-sudo apt install pass
-sudo apt install gpg
+#sudo apt install pass
+#sudo apt install gpg
 sudo apt install xclip
 sudo apt install xsel
 sudo apt install neofetch
@@ -30,7 +30,7 @@ echo ""
 # set this system wide with the following line in /etc/default/keyboard:
   #
   #XKBOPTIONS="caps:escape"
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/dotfiles/.config/keyboard -o ~/etc/default/keyboard
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/dotfiles/.config/keyboard -o ~/etc/default/keyboard
 echo ""
 
 # Brave Browser
@@ -54,7 +54,7 @@ echo ""
 
 # Mullvad & Wireguard
 printf "\e[1;31m  Installing Mullvad and Wireguard .\e[0m";
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/Mullvad_Wireguard/master/install.sh -o ~/Downloads/Mullvad_Wireguard
+curl -LO https://raw.githubusercontent.com/LinuxUser255/Mullvad_Wireguard/master/install.sh -o ~/Downloads/Mullvad_Wireguard
 # run installer.sh
 sh ~/Downloads/Mullvad_Wireguard/installer.sh
 echo ''
@@ -77,7 +77,7 @@ echo ""
 printf "\e[1;31m  Installing Oh-My-Zsh .\e[0m";
 sudo mv zsh-5.9/zsh /usr/local/bin/zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/.zshrc -o .zshrc
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/.zshrc -o .zshrc
 echo ""
 
 # NeoVim dependencies & installatiottn
@@ -149,33 +149,33 @@ echo ''
 
 # dotfiles & rc files & remaps
 printf "\e[1;31m  Installing dotfiles and rc files \e[0m";
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/.zshrc -o ~/.zshrc
-curl  -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/dotfiles/alacritty/alacritty.yml -o ~/alacritty/alacritty.yml
-curl -Ls https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.local/bin/remaps -o ~/usr/bin/remaps
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/.zshrc -o ~/.zshrc
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/dotfiles/alacritty/alacritty.yml -o ~/alacritty/alacritty.yml
+curl -LO https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.local/bin/remaps -o ~/usr/bin/remaps
 echo ''
 #  shortcut scripts
 printf "\e[1;31m  Installing custom shortcut scripts \e[0m";
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/.zshrc -o ~/.zshrc
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Useful_Scripts/file_create.sh -o ~/usr/bin/file_create
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Useful_Scripts/red -o ~/usr/bin/red
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/Useful_Scripts/remap -o ~/usr/bin/remap
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/fff -o ~/usr/bin/
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/fastgrep -o ~/usr/bin/fastgrep
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/ggg -o ~/usr/bin/ggg
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/new -o ~/usr/bin/new
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/nvchadusage.sh -o ~/usr/bin/nvchadusage
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/printawk -o ~/usr/bin/printawk
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/printawk -o ~/usr/bin/printawk
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/py -o ~/usr/bin/py
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/tarcmds -o ~/usr/bin/tarcmds
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/xfh -o ~/usr/bin/xfh
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/cookiemonster -o ~/usr/bin/cookiemonster
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/cookiesteal.txt -o ~/usr/bin/cookiesteal.txt
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/.zshrc -o ~/.zshrc
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Useful_Scripts/file_create.sh -o ~/usr/bin/file_create
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Useful_Scripts/red -o ~/usr/bin/red
+curl -LO https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/Useful_Scripts/remap -o ~/usr/bin/remap
+curl -LO https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/fff -o ~/usr/bin/
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/fastgrep -o ~/usr/bin/fastgrep
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/ggg -o ~/usr/bin/ggg
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/new -o ~/usr/bin/new
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/nvchadusage.sh -o ~/usr/bin/nvchadusage
+curl -LO https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/printawk -o ~/usr/bin/printawk
+curl -LO https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/printawk -o ~/usr/bin/printawk
+curl -LO https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/py -o ~/usr/bin/py
+curl -LO https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/tarcmds -o ~/usr/bin/tarcmds
+curl -LO https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/xfh -o ~/usr/bin/xfh
+curl -LO https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/cookiemonster -o ~/usr/bin/cookiemonster
+curl -LO https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/cookiesteal.txt -o ~/usr/bin/cookiesteal.txt
 echo ""
 
 # make  curled scripts above executable chmod +x
 printf "\e[1;31m  Making shortcut scripts executable \e[0m";
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/.zshrc -o ~/.zshrc
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/.zshrc -o ~/.zshrc
 chmod +x ~/usr/bin/file_create
 chmod +x ~/usr/bin/red
 chmod +x ~/usr/bin/remap
