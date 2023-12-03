@@ -17,6 +17,22 @@
 # 11. Some custom dotfiles, rc files, remaps, &  shortcut scripts
 
 
+# Run this ricer only after you've chanaged into zsh
+check__shell(){
+ current_shell="$(neofetch | rg -i "zsh" | awk '{print $2}')"
+    if [[ "$current_shell" != z* ]];
+    then
+        printf "\e[1;31m Run script only in ZShell \e[0m"; echo ''
+        #echo 'Run script only in ZShell'
+        exit 1
+        # otherwise the script will automatically run
+    fi
+
+}
+
+check__shell
+
+
 # Updates and packages install
 printf "\e[1;31m Updating packages & installing new ones \e[0m"; echo  ''
 sudo apt update &&  sudo apt upgrade
