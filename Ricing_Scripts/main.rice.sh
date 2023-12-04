@@ -8,15 +8,14 @@
 #------------------------
 # 1.  Oh-My-Zsh
 # 2.  Zsh-syntax-highlighting
-# 3.  NeoVim
-# 4.  Nvim kickstart
-# 5.  Rust
-# 6.  Alacritty
-# 7.  Alacritty shell completions
-# 8.  Mullvad & Wireguard
-# 9.  Brave Browser
-# 10. Signal desktop chat app
-# 11. Some custom dotfiles, rc files, remaps, &  shortcut scripts
+# 3.  Nvim kickstart
+# 4.  Rust
+# 5.  Alacritty
+# 6.  Alacritty shell completions
+# 7.  Mullvad & Wireguard
+# 8.  Brave Browser
+# 9. Signal desktop chat app
+# 10. Some custom dotfiles, rc files, remaps, &  shortcut scripts
 
 
 # Run this ricer only after you've chanaged into zsh
