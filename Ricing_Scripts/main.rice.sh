@@ -60,7 +60,6 @@ echo ''
 
 # Install Oh-my-zsh & and import my .zshrc
 printf "\e[1;31m  Installing Oh-My-Zsh .\e[0m"; echo ''
-sudo mv zsh-5.9/zsh /usr/local/bin/zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/.zshrc -o .zshrc
 echo ""
@@ -179,7 +178,7 @@ echo ''
 printf "\e[1;31m Installing dotfiles, rc's & shortcuts \e[0m"; echo  ''
 # Remap caps lock to esc
 curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Useful_Scripts/remap
-chmod + remap
+chmod +x remap
 sudo mv remap -t /usr/bin
 echo ''
 
@@ -251,7 +250,7 @@ curl -LO https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBi
 sudo mv cookiesteal.txt  -t /usr/bin
 echo ''
 
-# My Zshrc
+# My Zshrc: Install my .zshrc one last time
 curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/zshrcs/.zshrc
 echo ''
 
