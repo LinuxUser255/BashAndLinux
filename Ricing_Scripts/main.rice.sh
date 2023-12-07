@@ -53,7 +53,9 @@ sudo apt install simplescreenrecorder
 sudo apt install gimp
 sudo apt install audacious
 sudo apt install filelight
-python3 -m pip install -U yt-dlp # install yt-dlp
+# yt-dlp: # https://github.com/yt-dlp/yt-dlp/wiki/Installation
+sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+sudo chmod a+rx /usr/local/bin/yt-dlp  # Make executable
 echo ''
 
 
