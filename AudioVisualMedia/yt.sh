@@ -17,7 +17,6 @@ then
     read URL
 yt-dlp -f bestvideo+bestaudio $URL
 
-
 elif [[ $sel -eq 2 ]];
 then
     echo "Enter the URL: "
