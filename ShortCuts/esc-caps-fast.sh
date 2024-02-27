@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# ATTN: This script/cmds will not work with Wayland. Only X-Window
+# place this in /usr/bin for universal command access
+
+# This script is called on startup to remap keys.
+# Decrease key repeat delay to 300ms and increase key repeat rate to 50/sec
+xset r rate 300 80
+
+# https://youtu.be/oSSkJ4yq4UA
+# I want to map the caps lock to the escape key
+setxkbmap -option "caps:escape" 
+
+# When caps lock is pressed only once, treat it as escape.
+#killall xcape 2>/dev/null ; xcape -e 'Caps_Lock=Escape'
+
+# Turn off caps lock if on since there is no longer a key for it.
+xset -q | grep "Caps Lock:\s*on" && xdotool key Caps_Lock
