@@ -11,10 +11,10 @@
 ### NeoVim configs.
 
 - <https://neovim.io/>
-- <https://nvchad.com/>
 - <https://github.com/LinuxUser255/linux.nvim> is my fork of [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
 - <https://github.com/LinuxUser255/init.lua> is my fork of [ThePrimeagen's init.lua](https://github.com/ThePrimeagen/init.lua)
 
+  
 #### NeoVim tutorials
 - **[NeoVim usage](https://github.com/LinuxUser255/BashAndLinux/blob/main/Vim_And_NeoVim_Usage.md)**
 - **[ThePrimeagen's VIM Fundamentals couse on Frontend Masters](https://frontendmasters.com/courses/vim-fundamentals/)**
