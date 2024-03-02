@@ -13,7 +13,7 @@ tips tricks, how-to guides, links to other resources and more.
 ## NeoVim configs plugins, & Distros
 - **[NeoVim official docs](https://neovim.io/)**
 - **[Netrw documentation](https://neovim.io/doc/user/pi_netrw.html#netrw-ex)**
-- **[My fork of Kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)**
+- **[My fork of Kickstart.nvim](https://github.com/LinuxUser255/linux.nvim)**
 - **[The original Kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)**
 - **[ThePrimeagen's init.lua](https://github.com/ThePrimeagen/init.lua)**
 - **[All of Prime's Neovim related repos](https://github.com/ThePrimeagen?tab=repositories&q=&type=&language=lua&sort=)**
