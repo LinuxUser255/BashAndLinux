@@ -238,7 +238,7 @@ install_alacritty
 check_and_proceed
 
 # Calling the post-build function.
-post_build_process(
+post_build_process
 
 # Call the function to create the Desktop entry for Alacritty
 create_desktop_entry
@@ -253,10 +253,3 @@ implement_completions
 
 # Calling the main function to start script execution
 main
-
-
-
-
-
-
-
