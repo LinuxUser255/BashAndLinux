@@ -265,3 +265,5 @@ main() {
 
     printf "\e[1;31m Installation complete. \e[0m\n"
 }
+
+main
