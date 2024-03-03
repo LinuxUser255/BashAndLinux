@@ -1,24 +1,53 @@
 #!/bin/bash
 
+# Alacritty install script
+# Created By: @LinuxUser255 (Chris)
+# License: GNU GPLv3
+
 # Install shell script for the Alacritty Terminal emulator on Debian & Debian-based distros
 # the goal is to have a one & done easy install for the end user
-# https://alacritty.org/
-
-# Goals & other info
-#------------------------
-# 1.  Automate the install process found online
-# 2.  Also, provide/install a config --> alacritty.toml, something that Alacritty doesn't provide
-# 3.  Long-term, give this script the ability to be used to install alac on mac too
-#     This script is being tested on a Kali Linux VM, cause I dont feel like screwing around with
-#     the alacritty install on my machine
 #
+# To-Do
+#----------------------------------------------------------------------------------------
+# make sure to include an alacritty.toml config and make the .config/alacritty dir for it.
+# that should be the last step in the Prebuild process
+# integrate the source $HOME/.cargo/env in the rust compiler install function.
+# call all functions in a main function
+# replace all echos with printf in bold red: printf "\e[1;31m Messg here \e[0m\n"
+# Make obvious what part of the script is executing and when
+# printf "\e[1;31m Messg here \e[0m\n"
+# Another dependency to install: scdoc
+#---------------------------------------------------------------------------------------
+
+# This is a 2 part install Process:
+
+# Pre-build, and Post-build
+#
+# Part 1: Prebuild
+# First check for sudo privileges, and if so, then proceede
+# Check for and install Dependencies
+# Install the Rust compiler
+# Source the cargo environment.
+# Clone the Alacritty source code
+# Build Alacritty from source.
+# create the .config/alacritty directory and place the example config file in it
+#
+# Part 2: Post-build
+# Post Build Alacritty Configurations
+# checking Terminfo
+# Creating a Desktop Entry
+# Create The Manual page
+# Enable Shell completions for Zsh, Bash, and Fish
 
 
+#-------------Part 1: Pre-build-------------------------------------------------------#
+
+#
 # First check for sudo privileges, and if so, then proceede
 check_and_install_packages() {
     # Check if the user has sudo privileges
     if ! sudo -n true > /dev/null 2>&1; then
-        echo "This script requires sudo privileges to proceede."
+        printf "\e[1;31m Sudo privileges required. \e[0m\n"
         exit 1
     fi
 
@@ -30,6 +59,7 @@ check_and_install_packages() {
         curl
         git
         cmake
+        scdoc
         pkg-config
         libfreetype6-dev
         libfontconfig1-dev
@@ -38,7 +68,7 @@ check_and_install_packages() {
         python3
 )
  # Check if packages are already installed
-    echo "Checking depedencies"
+    printf "\e[1;31m Checking dependences \e[0m\n"
     missing_packages=()
     for package in "${packages[@]}"; do
         if ! dpkg -l | grep -q "^ii\s*$package\s"; then
@@ -47,142 +77,134 @@ check_and_install_packages() {
     done
 
     if [ ${#missing_packages[@]} -eq 0 ]; then
-        echo "All packages are already installed."
+        printf "\e[1;31m Dependencies already installed \e[0m\n"
     else
-        echo "Installing missing packages..."
+        printf "\e[1;31m Installing missing packages... \e[0m\n"
         sudo apt update
         sudo apt install -y "${missing_packages[@]}"
         echo "Installation complete."
     fi
 }
-# Call the function to check sudo privileges and install software
-#check_and_install_packages
-
 
 # Install rustup and its compiler
 install_rustup_and_compiler() {
-    echo "Installing rustup and its compiler..."
+    printf "\e[1;31m Installing rustup and its compiler... \e[0m\n"
 
     # Install rustup and the Rust compiler
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-    echo "Rustup and its compiler installed successfully."
-}
-# Call the function to install rustup and its compiler
-#install_rustup_and_compiler
+    # Source the cargo enviroment
+    source $HOME/.cargo/env
 
+    printf "\e[1;31m Rustup and its compiler installed successfully.\e[0m\n"
+}
 
 # Cloning & building from source
-echo "Now cloning the Alacritty source code"
-# Function to install Alacritty - build from source
 install_alacritty() {
     printf "\e[1;31mInstalling Alacritty\e[0m\n"
 
     # Clone Alacritty repository
     git clone https://github.com/alacritty/alacritty.git
 
-    # Change directory to Alacritty
+    # Need to ensure that necssary cmds are executed in this dir
+    # Enter the Alacritty directory
     cd alacritty
 
     # Build Alacritty
     cargo build --release
 }
-# Call the function to install Alacritty
-#install_alacritty
 
+# Function to download alacritty.toml file and move it to ~/.config/alacritty
+download_and_move_alacritty_config() {
+    printf "\e[1;31mDownloading alacritty.toml file...\e[0m\n"
 
-# Check for the binary placement
-# ls -la target/release/alacritty
-# Function to check binary placement and proceed with post-build process
-check_and_proceed() {
-    echo "Checking binary placement of Alacritty:"
-    if [ -f "target/release/alacritty" ]; then
-        echo "Alacritty binary found."
-        # Proceed with post-build process
-        post_build_process
-    else
-        echo "Alacritty binary not found. Aborting post-build process."
-    fi
+    # Download alacritty.toml file using curl
+    # My custom config
+    #curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Alacritty/alacritty.toml
+
+    # a generic config
+    curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Alacritty/configs/alacritty.toml
+
+    printf "\e[1;31mCreating ~/.config/alacritty directory if it doesn't exist...\e[0m\n"
+
+    # Create the ~/.config/alacritty directory if it doesn't exist
+    mkdir -p ~/.config/alacritty
+
+    printf "\e[1;31mMoving the downloaded alacritty.toml file to ~/.config/alacritty...\e[0m\n"
+
+    # Move the downloaded alacritty.toml file to ~/.config/alacritty
+    mv alacritty.toml ~/.config/alacritty/
+
+    printf "\e[1;31mAlacritty configuration file downloaded and moved successfully.\e[0m\n"
 }
-# Call the function to check binary placement and proceed with post-install process
-#check_and_proceed
 
+#-------------Part 2: Post-build-------------------------------------------------------#
 
-# Function for post-build process
-post_build_process() {
-    echo "Proceeding with Alacritty post-build process..."
-    # post-build steps
-    # Ensure that the user is still inside the Alacritty repo
-    if [ ! -f "extra/alacritty.info" ]; then
-        echo "Alacritty terminfo file (extra/alacritty.info) not found."
-        echo "Please make sure you are inside the Alacritty repository."
-        exit 1
-    fi
+# Verify and install terminfo for Alacritty
+verify_and_install_terminfo() {
+    printf "\e[1;31mVerifying terminfo installation for Alacritty...\e[0m\n"
 
-    # If the command `infocmp alacritty` returns without any errors, then the Alacritty terminfo is already installed
+    # Check if terminfo for Alacritty is installed
     if infocmp alacritty &> /dev/null; then
-        echo "Alacritty terminfo is already installed."
+        printf "\e[1;31mTerminfo for Alacritty is installed.\e[0m\n"
     else
-        # If it is not present already, install it globally
-        echo "Installing Alacritty terminfo globally..."
+        printf "\e[1;31mTerminfo for Alacritty is not installed. Installing globally...\e[0m\n"
+        # Install terminfo globally
         sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
-        echo "Alacritty terminfo installed successfully."
+        printf "\e[1;31mTerminfo installed successfully.\e[0m\n"
     fi
 }
-# Calling the post-build function.
-#post_build_process(
 
 
-# Function to create a Desktop entry for Alacritty
+# Create a Desktop entry for Alacritty
 create_desktop_entry() {
-    echo "Creating a Desktop entry for Alacritty..."
+    echo "Installing Alacritty..."
 
-    # Copy Alacritty binary to /usr/local/bin or any other location in $PATH
-    sudo cp target/release/alacritty /usr/local/bin
+    # Change directory to the Alacritty directory
+    cd ~/alacritty || { echo "Error: Alacritty directory not found."; exit 1; }
+
+    # Copy Alacritty binary to /usr/local/bin
+    sudo cp target/release/alacritty /usr/local/bin || { echo "Error: Failed to copy Alacritty binary."; exit 1; }
 
     # Copy Alacritty logo to /usr/share/pixmaps/
-    sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+    sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg || { echo "Error: Failed to copy Alacritty logo."; exit 1; }
 
-    # Install the Alacritty Desktop entry
-    sudo desktop-file-install extra/linux/Alacritty.desktop
+    # Install Alacritty Desktop entry
+    sudo desktop-file-install extra/linux/Alacritty.desktop || { echo "Error: Failed to install Alacritty Desktop entry."; exit 1; }
 
     # Update desktop database
-    sudo update-desktop-database
+    sudo update-desktop-database || { echo "Error: Failed to update desktop database."; exit 1; }
 
-    echo "Desktop entry for Alacritty created successfully."
+    echo "Alacritty installed successfully."
 }
-# Call the function to create the Desktop entry for Alacritty
-#create_desktop_entry
 
 
-# Install the Manual page for Alacritty
-install_manual_page() {
-    echo "Installing the Manual page for Alacritty..."
+# Create the Alacritty manual page
+create_alacritty_manual_page() {
+    echo "Creating Alacritty manual page..."
 
-    # Create directories for manual pages
-    sudo mkdir -p /usr/local/share/man/man1
-    sudo mkdir -p /usr/local/share/man/man5
+    # Change directory to the Alacritty directory
+    cd ~/alacritty || { echo "Error: Alacritty directory not found."; exit 1; }
 
-    # Install Alacritty manual pages
-    scdoc < extra/man/alacritty.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
-    scdoc < extra/man/alacritty-msg.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz > /dev/null
-    scdoc < extra/man/alacritty.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz > /dev/null
-    scdoc < extra/man/alacritty-bindings.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz > /dev/null
+    # Create alacritty manual page directory if it doesn't exist
+    sudo mkdir -p /usr/local/share/man/man1 || { echo "Error: Failed to create manual page directory."; exit 1; }
 
-    echo "Manual page for Alacritty installed successfully."
+    # Create and install alacritty manual pages
+    sudo sh -c "gzip -c extra/alacritty.man | tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null" || { echo "Error: Failed to create alacritty manual page."; exit 1; }
+    sudo sh -c "gzip -c extra/alacritty-msg.man | tee /usr/local/share/man/man1/alacritty-msg.1.gz > /dev/null" || { echo "Error: Failed to create alacritty-msg manual page."; exit 1; }
+
+    echo "Alacritty manual pages created and installed successfully."
 }
-# Call the function to install the Manual page for Alacritty
-#install_manual_page
 
 
-# Function to implement automatic completions for Alacritty's flags and arguments
+# Implement automatic completions for Alacritty's flags and arguments
 implement_completions() {
-    echo "Implementing automatic completions for Alacritty's flags and arguments..."
+    printf "\e[1;31m Implementing auto completions for Alacritty's flags and args \e[0m\n"
 
     # Check which shell is in use: Zsh, Bash, Fish
     if [ -n "$ZSH_VERSION" ]; then
         # If Zsh, install completions for zsh
-        echo "Detected Zsh shell."
+        printf "\e[1;31m Detected Zsh shell. \e[0m\n"
 
         # Create directory for Zsh completions if not already present
         mkdir -p ${ZDOTDIR:-~}/.zsh_functions
@@ -193,14 +215,14 @@ implement_completions() {
 
     elif [ -n "$BASH_VERSION" ]; then
         # If Bash, install completions for bash
-        echo "Detected Bash shell."
+        printf "\e[1;31m Detected Bash \e[0m\n"
 
         # Source the completion file in ~/.bashrc
         echo "source $(pwd)/extra/completions/alacritty.bash" >> ~/.bashrc
 
     elif [ -n "$fish" ]; then
         # If Fish, install completions for fish
-        echo "Detected Fish shell."
+        printf "\e[1;31m Detected the Fish shell. \e[0m\n"
 
         # Get Fish completion directory
         fish_complete_path=(`echo $fish_complete_path`)
@@ -212,44 +234,34 @@ implement_completions() {
         cp extra/completions/alacritty.fish $fish_complete_path[1]/alacritty.fish
 
     else
-        echo "Unsupported shell. Please configure completions manually."
+        printf "\e[1;31m Unsupported shell. Please configure completions manually.\e[0m\n"
         exit 1
     fi
 
     echo "Automatic completions for Alacritty's flags and arguments implemented successfully."
+    printf "\e[1;31m Automatic completions for Alacritty's flags and arguments implemented successfly. \e[0m\n"
 }
-# Call the function to implement automatic completions
-#implement_completions
 
 
 # Execute script with the main function
 main() {
+    printf "\e[1;31m Starting the install script. \e[0m\n"
 
-# Call the function to check sudo privileges and install software
-check_and_install_packages
+    check_and_install_packages
 
-# Call the function to install rustup and its compiler
-install_rustup_and_compiler
+    install_rustup_and_compiler
 
-# Call the function to install Alacritty
-install_alacritty
+    install_alacritty
 
-# Call the function to check binary placement and proceed with post-install process
-check_and_proceed
+    download_and_move_alacritty_config
 
-# Calling the post-build function.
-post_build_process
+    verify_and_install_terminfo
 
-# Call the function to create the Desktop entry for Alacritty
-create_desktop_entry
+    create_desktop_entry
 
-# Call the function to install the Manual page for Alacritty
-install_manual_page
+    create_alacritty_manual_page
 
-# Call the function to implement automatic completions
-implement_completions
+    implement_completions
 
+    printf "\e[1;31m Installation complete. \e[0m\n"
 }
-
-# Calling the main function to start script execution
-main
