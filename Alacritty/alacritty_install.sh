@@ -53,8 +53,8 @@ check_and_install_packages() {
        git
        cmake
        scdoc
-       neofetch
-       ripgrep
+       neofetch # using neofetch for shell checking purposed
+       ripgrep  # using ripgrep to regex in shell checking process
        pkg-config
        libfreetype6-dev
        libfontconfig1-dev
@@ -136,7 +136,8 @@ verify_and_install_terminfo() {
     fi
 }
 
-# Function to download alacritty.toml file and move it to ~/.config/alacritty
+# Attempting include the a default/generic config file...(alacritty.toml) and move it to ~/.config/alacritty
+# Haven't been able to automate this part yet. A text editor should come with a config file.
 download_and_move_alacritty_config() {
     printf "\e[1;31mDownloading alacritty.toml file...\e[0m\n"
 
@@ -172,6 +173,7 @@ create_desktop_entry() {
 }
 
 # Create the Alacritty manual page
+# This part's not working either, thinking of scrapping it. I haven't been able to do this manually either.
 create_alacritty_manual_page() {
 
     # This part's not working either
@@ -194,6 +196,8 @@ create_alacritty_manual_page() {
 }
 
 # Implement automatic completions for Alacritty's flags and arguments
+# This is where the use of Neofetch and ripgrep are used to check the shell in use..
+# use/implemetn the echo $SHELL command instead, keep it simple, rely on less dependencies, introducr fewer variables.
 implement_completions() {
     printf "\e[1;31m Implementing auto completions for Alacritty's flags and args \e[0m\n"
 
