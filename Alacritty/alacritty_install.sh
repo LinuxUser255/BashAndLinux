@@ -3,8 +3,12 @@
 # Alacritty install script
 # Created By: @LinuxUser255 (Chris)
 # License: GNU GPLv3
-
+#
 # Install shell script for the Alacritty Terminal emulator on Debian & Debian-based distros
+# Based on installation directions found @
+# https://github.com/alacritty/alacritty/blob/master/INSTALL.md
+# https://techviewleo.com/install-and-configure-alacritty-terminal-on-debian/
+# https://ostechnix.com/alacritty-terminal-emulator/
 #
 # To-Do
 #----------------------------------------------------------------------------------------
@@ -12,9 +16,9 @@
 # mkdir .config/alacritty
 # ---> alacritty.toml in the ~/.config/alacritty directory
 #---------------------------------------------------------------------------------------
-
+#
 # This is a 2 part install Process:
-
+#
 # Pre-build, and Post-build
 #
 # Part 1: Prebuild
@@ -32,8 +36,7 @@
 # Creating a Desktop Entry
 # Create The Manual page
 # Enable Shell completions for Zsh, Bash, and Fish
-
-
+#
 #-------------Part 1: Pre-build-------------------------------------------------------#
 
 # First check for sudo privileges, and if so, then proceede
@@ -98,22 +101,14 @@ install_rustup_and_compiler() {
 # Cloning & building from source
 clone_and_build() {
     printf "\e[1;31mInstalling Alacritty\e[0m\n"
-
-    # Clone Alacritty repository
+    
     git clone https://github.com/alacritty/alacritty.git
-
     # Need to ensure that necssary cmds are executed in the alacritty dir
     cd alacritty
-
-    # Build Alacritty
     cargo build --release
-
-    # configure your current shell
+    # configure your current shell &  copy the alacritty binary to path
     source "$HOME/.cargo/env"
-
-    # copy the alacritty binary to path
     sudo cp -r ~/target/release/alacritty /usr/local/bin
-
     printf "\e[1;31mAlacritty binary is installed\e[0m\n"
 }
 
@@ -148,7 +143,6 @@ create_desktop_entry() {
     printf "\e[1;31mTDesktop entry created..\e[0m\n"
 }
 
-
 # Check which shell is in use, then install the appropriate auto complete
 check_shell() {
     printf "\e[1;31m Checking user shell to for Alacritty's auto complete \e[0m\n"
@@ -161,12 +155,10 @@ check_shell() {
             # Create directory for Zsh completions if not already present
             mkdir -p ${ZDOTDIR:-~}/.zsh_functions
             echo 'fpath+=${ZDOTDIR:-~}/.zsh_functions' >> ${ZDOTDIR:-~}/.zshrc
-            # Copy completion file to Zsh directory
             cp extra/completions/_alacritty ${ZDOTDIR:-~}/.zsh_functions/_alacritty
             ;;
         "bash")
             printf "\e[1;31m Current shell is Bash. \e[0m\n"
-            # If Bash, install completions for bash
             # Source the completion file in ~/.bashrc
             echo "source $(pwd)/extra/completions/alacritty.bash" >> ~/.bashrc
             ;;
@@ -185,8 +177,6 @@ check_shell() {
     esac
 }
 
-
-# Execute script with the main function
 main() {
     is_sudo
 
@@ -202,5 +192,5 @@ main() {
 
     check_shell
 }
-# Calling main
+
 main
