@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Instantly Create & chmod a new file type of your choosing.
 # In this example you can create a Python, Bash, Go, .txt or .md
