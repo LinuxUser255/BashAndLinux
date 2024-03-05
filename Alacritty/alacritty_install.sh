@@ -8,8 +8,9 @@
 #
 # To-Do
 #----------------------------------------------------------------------------------------
-# The only two parts not working:
-# man page and autoinstall of alacritty.toml in the ~/.config/alacritty directory
+# Find a way to instal a config file using this script
+# mkdir .config/alacritty
+# ---> alacritty.toml in the ~/.config/alacritty directory
 #---------------------------------------------------------------------------------------
 
 # This is a 2 part install Process:
@@ -38,7 +39,6 @@
 # First check for sudo privileges, and if so, then proceede
 is_sudo() {
     if [ ${UID} -ne 0 ]; then
-        # ! sudo -n true > /dev/null 2>&1; then
         printf "\e[1;31m Sudo privileges required. \e[0m\n"
         exit 1
     fi
@@ -53,8 +53,7 @@ check_and_install_packages() {
        git
        cmake
        scdoc
-       neofetch # using neofetch for shell checking purposed
-       ripgrep  # using ripgrep to regex in shell checking process
+       ripgrep
        pkg-config
        libfreetype6-dev
        libfontconfig1-dev
@@ -79,7 +78,6 @@ check_and_install_packages() {
         sudo apt update
         sudo apt install -y "${missing_packages[@]}"
         sudo apt upgrade
-        #echo "Installation complete."
         printf "\e[1;31m Installation complete. \e[0m\n"
     fi
 }
@@ -98,27 +96,27 @@ install_rustup_and_compiler() {
 }
 
 # Cloning & building from source
-install_alacritty() {
+clone_and_build() {
     printf "\e[1;31mInstalling Alacritty\e[0m\n"
 
     # Clone Alacritty repository
     git clone https://github.com/alacritty/alacritty.git
 
-    # Need to ensure that necssary cmds are executed in this dir
-    # Enter the Alacritty directory
+    # Need to ensure that necssary cmds are executed in the alacritty dir
     cd alacritty
 
     # Build Alacritty
     cargo build --release
 
-   # configure your current shell
-   source "$HOME/.cargo/env"
+    # configure your current shell
+    source "$HOME/.cargo/env"
 
-   # copy the alacritty binary to path
-   sudo cp -r ~/target/release/alacritty /usr/local/bin
+    # copy the alacritty binary to path
+    sudo cp -r ~/target/release/alacritty /usr/local/bin
 
-   printf "\e[1;31mAlacritty binary is installed\e[0m\n"
+    printf "\e[1;31mAlacritty binary is installed\e[0m\n"
 }
+
 
 # Verify and install terminfo for Alacritty
 verify_and_install_terminfo() {
@@ -136,117 +134,55 @@ verify_and_install_terminfo() {
     fi
 }
 
-# Attempting include the a default/generic config file...(alacritty.toml) and move it to ~/.config/alacritty
-# Haven't been able to automate this part yet. A text editor should come with a config file.
-download_and_move_alacritty_config() {
-    printf "\e[1;31mDownloading alacritty.toml file...\e[0m\n"
-
-    # this part needs work, ther's only a default .yml being installed in /etc/xdg/alacritty
-    # Download alacritty.toml file using curl
-    # My custom config
-    #curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Alacritty/alacritty.toml
-    printf "\e[1;31mCreating ~/.config/alacritty directory if it doesn't exist...\e[0m\n"
-
-    #mkdir  ~/.config/alacritty
-    mkdir  "${XDG_CONFIG_HOME:-$HOME/.config/alacritty}"    # Move the downloaded alacritty.toml file to ~/.config/alacritty
-
-    printf "\e[1;31mRetrieving the .toml file from Github alacritty.toml fil\e[0m\n"
-    curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Alacritty/configs/alacritty.toml
-
-    mv alacritty.toml -t ~/.config/alacritty/
-
-    printf "\e[1;31mAlacritty configuration file downloaded and moved successfully.\e[0m\n"
-}
-
 #-------------Part 2: Post-build-------------------------------------------------------#
 
 # Create a Desktop entry for Alacritty
 create_desktop_entry() {
-    echo "Creating desktop entry..."
+    printf "\e[1;31mTCreating desktop entry..\e[0m\n"
 
     sudo cp target/release/alacritty /usr/local/bin
     sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
     sudo desktop-file-install extra/linux/Alacritty.desktop
     sudo update-desktop-database
 
-    echo "Desktop entry installed successfully."
+    printf "\e[1;31mTDesktop entry created..\e[0m\n"
 }
 
-# Create the Alacritty manual page
-# This part's not working either, thinking of scrapping it. I haven't been able to do this manually either.
-create_alacritty_manual_page() {
 
-    # This part's not working either
-    echo "Creating Alacritty manual page..."
-    printf "\e[1;31m Creating Alacritty manual page.\e[0m\n"
+# Check which shell is in use, then install the appropriate auto complete
+check_shell() {
+    printf "\e[1;31m Checking user shell to for Alacritty's auto complete \e[0m\n"
 
-    # Change directory to the Alacritty directory
-    #cd ~/alacritty || { echo "Error: Alacritty directory not found."; exit 1; }
+    SHELL_TYPE=$(basename "$SHELL")
 
-    # Create alacritty manual page directory if it doesn't exist
-    sudo mkdir -p /usr/local/share/man/man1 #|| { echo "Error: Failed to create manual page directory."; exit 1; }
-
-    # Create and install alacritty manual pages
-    sudo sh -c "gzip -c extra/alacritty.man | tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null" #|| { echo "Error: Failed to create alacritty manual page."; exit 1; }
-    sudo sh -c "gzip -c extra/alacritty-msg.man | tee /usr/local/share/man/man1/alacritty-msg.1.gz > /dev/null" #|| { echo "Error: Failed to create alacritty-msg manual page."; exit 1; }
-
-   # NOT working -> gzip: extra/alacritty.man: No such file or directory
-
-    echo "Alacritty manual pages created and installed successfully."
-}
-
-# Implement automatic completions for Alacritty's flags and arguments
-# This is where the use of Neofetch and ripgrep are used to check the shell in use..
-# use/implemetn the echo $SHELL command instead, keep it simple, rely on less dependencies, introducr fewer variables.
-implement_completions() {
-    printf "\e[1;31m Implementing auto completions for Alacritty's flags and args \e[0m\n"
-
-    # Check which shell is in use: Zsh, Bash, Fish
-    current_shell="$(neofetch | rg -i "zsh" | awk '{print $2}')"
-    if [[ "$current_shell" = z* ]];
-    then
-        printf "\e[1;31m Detected Zsh shell. \e[0m\n"
-
-    #if [ -n "$ZSH_VERSION" ]; then
-    # If Zsh, install completions for zsh
-    printf "\e[1;31m Detected Zsh shell. \e[0m\n"
-
-        # Create directory for Zsh completions if not already present
-        mkdir -p ${ZDOTDIR:-~}/.zsh_functions
-        echo 'fpath+=${ZDOTDIR:-~}/.zsh_functions' >> ${ZDOTDIR:-~}/.zshrc
-
-        # Copy completion file to Zsh directory
-        cp extra/completions/_alacritty ${ZDOTDIR:-~}/.zsh_functions/_alacritty
-
-    elif current_shell="$(neofetch | rg -i "bash" | awk '{print $2}')"
-    then
-        # If Bash, install completions for bash
-        printf "\e[1;31m Detected Bash \e[0m\n"
-
-        # Source the completion file in ~/.bashrc
-        echo "source $(pwd)/extra/completions/alacritty.bash" >> ~/.bashrc
-
-    elif current_shell="$(neofetch | rg -i "fish" | awk '{print $2}')"
-    then
-        # If Fish, install completions for fish
-        printf "\e[1;31m Detected the Fish shell. \e[0m\n"
-
-        # Get Fish completion directory
-        fish_complete_path=(`echo $fish_complete_path`)
-
-        # Create directory for Fish completions if not already present
-        mkdir -p $fish_complete_path[1]
-
-        # Copy completion file to Fish directory
-        cp extra/completions/alacritty.fish $fish_complete_path[1]/alacritty.fish
-
-    else
-        printf "\e[1;31m Unsupported shell. Please configure completions manually.\e[0m\n"
-        exit 1
-    fi
-
-    echo "Automatic completions for Alacritty's flags and arguments implemented successfully."
-    printf "\e[1;31m Automatic completions for Alacritty's flags and arguments implemented successfly. \e[0m\n"
+    case $SHELL_TYPE in
+        "zsh")
+            printf "\e[1;31m Current shell is Zsh. \e[0m\n"
+            # Create directory for Zsh completions if not already present
+            mkdir -p ${ZDOTDIR:-~}/.zsh_functions
+            echo 'fpath+=${ZDOTDIR:-~}/.zsh_functions' >> ${ZDOTDIR:-~}/.zshrc
+            # Copy completion file to Zsh directory
+            cp extra/completions/_alacritty ${ZDOTDIR:-~}/.zsh_functions/_alacritty
+            ;;
+        "bash")
+            printf "\e[1;31m Current shell is Bash. \e[0m\n"
+            # If Bash, install completions for bash
+            # Source the completion file in ~/.bashrc
+            echo "source $(pwd)/extra/completions/alacritty.bash" >> ~/.bashrc
+            ;;
+        "fish")
+            printf "\e[1;31m Current shell is Fish. \e[0m\n"
+            # Get Fish completion directory
+            fish_complete_path=(`echo $fish_complete_path`)
+            # Create directory for Fish completions if not already present
+            mkdir -p $fish_complete_path[1]
+            # Copy completion file to Fish directory
+            cp extra/completions/alacritty.fish $fish_complete_path[1]/alacritty.fish
+            ;;
+        *)
+            printf "\e[1;31m Current shell not supported. \e[0m\n"
+            ;;
+    esac
 }
 
 
@@ -258,17 +194,13 @@ main() {
 
     install_rustup_and_compiler
 
-    install_alacritty
-
-    download_and_move_alacritty_config
+    clone_and_build
 
     verify_and_install_terminfo
 
     create_desktop_entry
 
-    create_alacritty_manual_page
-
-    implement_completions
+    check_shell
 }
-
+# Calling main
 main
