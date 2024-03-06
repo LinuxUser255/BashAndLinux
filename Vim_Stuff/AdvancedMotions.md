@@ -56,17 +56,17 @@ them type FB, will jump to the immediate previous occourance of capital B
 so, that's the cap B in the second word, then, ; and , does the same jump between, but in reverse
 
 ### !!!!! ---- Super cool & useful ------ !!!!!
-To delete the foobar of an if statement,one way you can do is just dt)
-close. jumped up until the closing parentheses and closed everything
+To delete the foobar of an if statement,one way you can do is just `dt)`. 
+jumped up until the closing parentheses and closed everything
 ```js
-// place cursor on t , then press dt shift 9
+// place cursor on t , then press dt shift 9 - thats closing parenth
 // also can do the same but use ct, lands you in insert mode
 if (true, true) {
     foobar fooBar fooBar
 }
 ```
 ```js
-// do it again
+// do it again dt)
 if (true, true) {
     foobar fooBar fooBar
 }
