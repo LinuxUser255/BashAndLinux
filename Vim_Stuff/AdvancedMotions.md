@@ -2,6 +2,8 @@
 
 
 ## Practice advanced motions on this document. Just follow instructions
+### How to use this md file:
+**!! _Copy the raw markdown version of this doc, opent it in Vim, and use it for practice_ !!**
 
 
 ### Change
