@@ -13,8 +13,9 @@
 # To-Do
 #----------------------------------------------------------------------------------------
 # Find a way to instal a config file using this script
-# mkdir .config/alacritty
 # ---> alacritty.toml in the ~/.config/alacritty directory
+# mkdir .config/alacritty
+# curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Alacritty/alacritty.toml
 #---------------------------------------------------------------------------------------
 #
 # This is a 2 part install Process:
