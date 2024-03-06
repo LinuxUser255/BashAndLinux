@@ -29,7 +29,6 @@
 # Source the cargo environment.
 # Clone the Alacritty source code
 # Build Alacritty from source.
-# create the .config/alacritty directory and place the example config file in it
 #
 # Part 2: Post-build
 # Post Build Alacritty Configurations
