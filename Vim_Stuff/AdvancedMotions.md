@@ -20,9 +20,84 @@ Lets see the difference
 
 
 ### Horizontal Movement
-Lets learn about!: `_`, `0`, `$`, `D`, `C`, `S`, `f`, `,`, `;`, `t`, `F`, and `T`
+learn about: `_`, `0`, `$`, `D`, `C`, `S`, `f`, `,`, `;`, `t`, `F`, and `T`
 
-// How would we move around on the line with "contents"
+- `_`, Under Score: go to begining of the line, and goes to first non-whitespace char lands you in normal mode
+- `0` Zero goes all the way to beginning of the line:
+- `^` Carret does this too
+- `$`, Dollar jumps to EOL:
+- `D`, deletes everything past the cursor to the left. like using backspace in insert mode also, if you had something like:
+  `foobar fooBar fooBar`, by placing the cursor at on the first letter of the second word, then you delete all following chars
+
+### Try it out:
+`foobar foobar fooBar fooBar fooBar fooBar`
+
+- `C`, deletes one past the cursor to the left. but lands in insert mode
+
+`foobar foobar fooBar fooBar fooBar fooBar`
+
+- `S`, deletes the whole line, respects indenting, and go into insert mode.
+
+- `s`, deletes single char, then goes into insert mode
+
+- `f`, jumps to first occurance of specified letter
+      example: Jump to the capital B in fooBar. the 2nd word below, in the middle, the middle second one
+      in norm: fB, this jumps to the first occurance of capital B on that line
+      foobar foobar foobar
+And, using semicolin
+- `;`, will jump to the next capital B
+- `,`, comma to jump backwards
+- `t`, jumps to the char, but not on or past
+- `F`, does wat lower t does but moves in in revese
+    foobar foobar foobar
+
+- `T` so placing the cursou on the b in the last occurance of fooBar,
+them type FB, will jump to the immediate previous occourance of capital B
+so, that's the cap B in the second word, then, ; and , does the same jump between, but in reverse
+
+### !!!!! ---- Super cool & useful ------ !!!!!
+To delete the foobar of an if statement,one way you can do is just dt)
+close. jumped up until the closing parentheses and closed everything
+```js
+// place cursor on t , then press dt shift 9
+// also can do the same but use ct, lands you in insert mode
+if (true, true) {
+    foobar fooBar fooBar
+}
+```
+```js
+// do it again
+if (true, true) {
+    foobar fooBar fooBar
+}
+```
+
+### More like above:
+```js
+// can be used on multiple params&args and commas
+// delete the middle occourance of true: df space
+if (true, true, true) {
+    foobar fooBar fooBar
+}
+```
+
+
+// can be used on multiple params&args and commas
+// delete the middle occourance of true: df space
+if (true, true, true) {
+    foobar fooBar fooBar
+}
+
+
+// How would you move around on the line with "foobar"
+if (true) {
+    foobar fooBar fooBar
+}
+
+
+
+
+// How would you move around on the line with "contents"
 if (true) {
     contents conTenTs contenTS
 }
@@ -39,6 +114,9 @@ If you get NeoVim, try VimBeGood
 We know about search.  That is a vertical movement, but its really specific.
 
 Let's look at  `{` and `}`
+ `{` and `}` used to jump to from top and bottom of blocks of code
+ 
+Place `{` on the first line, and press closing curlly brace `}`, and now your at the end of the code block
 
 ContiguousCode
 ContiguousCode
