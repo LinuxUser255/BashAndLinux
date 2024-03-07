@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Alacritty install script
-# Created By: Chris (LinuxUser255)  https://github.com/LinuxUser255/
+# Created By: Chris, LinuxUser255.  https://github.com/LinuxUser255/
 # License: GNU GPLv3
 #
 # Install shell script for the Alacritty Terminal emulator on Debian & Debian-based distros
