@@ -50,7 +50,7 @@
 # Enable Shell completions for Zsh, Bash, and Fish
 #
 #-------------Part 1: Pre-build-------------------------------------------------------#
-
+#
 # First check for sudo privileges, and if so, then proceede
 is_sudo() {
     if [ ${UID} -ne 0 ]; then
