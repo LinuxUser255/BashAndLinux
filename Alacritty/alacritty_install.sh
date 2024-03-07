@@ -1,40 +1,52 @@
 #!/usr/bin/env bash
 
 # Alacritty install script
-# Created By: @LinuxUser255 (Chris)
+# Created By: Chris (LinuxUser255)  https://github.com/LinuxUser255/
 # License: GNU GPLv3
 #
 # Install shell script for the Alacritty Terminal emulator on Debian & Debian-based distros
-# Based on installation directions found @
-# https://github.com/alacritty/alacritty/blob/master/INSTALL.md
-# https://techviewleo.com/install-and-configure-alacritty-terminal-on-debian/
-# https://ostechnix.com/alacritty-terminal-emulator/
 #
 # To-Do
 #----------------------------------------------------------------------------------------
-# Find a way to instal a config file using this script
-# ---> alacritty.toml in the ~/.config/alacritty directory
+# Add the config file: alacritty.toml
+# It' best to do this from your home directory
+#
+# Where to put the config file
+# -> The alacritty.toml goes in the ~/.config/alacritty directory
+# You will have to make the alacritty directory yourself, and remeber, it goes in the .config directory.
 # mkdir .config/alacritty
+#
+# This is a generic alacritty.toml
+# curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Alacritty/configs/alacritty.toml
+#
+# This one is my custom config:
 # curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Alacritty/alacritty.toml
+#
+#
+# After you have made the .config/alacritty directory, then curl which ever config you want listed above, and move it to  ~/.config/alacritty
+# It' best to do this from your home directory
+# mv alacritty.toml -t  ~/.config/alacritty
+#
 #---------------------------------------------------------------------------------------
 #
-# This is a 2 part install Process:
+# About the install script:
+#
+# This is a 2 part install Process
 #
 # Pre-build, and Post-build
 #
 # Part 1: Prebuild
-# First check for sudo privileges, and if so, then proceede
-# Check for and install Dependencies
+# First check for sudo privileges, and if so, then proceede.
+# Check for and, install Dependencies
 # Install the Rust compiler
-# Source the cargo environment.
+# Source the cargo environment
 # Clone the Alacritty source code
-# Build Alacritty from source.
+# Build Alacritty from source
 #
 # Part 2: Post-build
 # Post Build Alacritty Configurations
-# checking Terminfo
+# Checking Terminfo
 # Creating a Desktop Entry
-# Create The Manual page
 # Enable Shell completions for Zsh, Bash, and Fish
 #
 #-------------Part 1: Pre-build-------------------------------------------------------#
@@ -101,7 +113,7 @@ install_rustup_and_compiler() {
 # Cloning & building from source
 clone_and_build() {
     printf "\e[1;31mInstalling Alacritty\e[0m\n"
-    
+
     git clone https://github.com/alacritty/alacritty.git
     # Need to ensure that necssary cmds are executed in the alacritty dir
     cd alacritty
