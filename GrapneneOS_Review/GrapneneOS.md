@@ -305,6 +305,7 @@ In simpler terms, Hardened malloc ensures memory is handled securely by keeping 
 - <https://grapheneos.org/>
 - <https://grapheneos.org/faq>
 - <https://grapheneos.org/features>
+- [app domain, trusted & untrusted](https://github.com/GrapheneOS/platform_system_sepolicy/blob/14/README.apps.md)
 - <https://grapheneos.org/usage#sandboxed-google-play>
 - <https://attestation.app/about>
 - <https://grapheneos.org/features#auditor>
