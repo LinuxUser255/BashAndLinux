@@ -146,6 +146,7 @@ Let's take a high-level overview of The Android Operating System and see what th
 
 
 #### Contents of each layer
+Take note of the purple section - _Native C/C++ Libraries_, this will come up later in this review.
 
 
 ![Android_Platform_Arch](https://github.com/LinuxUser255/BashAndLinux/assets/46334926/b849e420-99ae-4a1c-8b7e-5e91c7bbec8a)
