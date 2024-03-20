@@ -115,20 +115,20 @@ This serves as a backup to the verified boot process. That, in the event an atta
 
 **GrapheneOS Security Practices**
 
-The developers of GrapheneOS have unique security paradigm for AOS Security.
-Here are a few quotes from  their  page on exploit protection features, and serve as a good introduction to this section.
+**The developers of GrapheneOS have unique security paradigm for AOS Security.
+Here are a few quotes from  their  page on exploit protection features, and serve as a good introduction to this section.**
 
-_" The first line of defense is attack surface reduction. Removing unnecessary code or exposed attack surface eliminates many vulnerabilities completely."   
+> " The first line of defense is attack surface reduction. Removing unnecessary code or exposed attack surface eliminates many vulnerabilities completely."   
 
-_"An example we landed upstream in Android is disallowing using the kernel's profiling support by default, since it was and still is a major source of Linux kernel vulnerabilities."
+> "An example we landed upstream in Android is disallowing using the kernel's profiling support by default, since it was and still is a major source of Linux kernel vulnerabilities."
 
-_"The next line of defense is preventing an attacker from exploiting a vulnerability, either by making it impossible, unreliable or at least meaningfully harder to develop."
+> "The next line of defense is preventing an attacker from exploiting a vulnerability, either by making it impossible, unreliable or at least meaningfully harder to develop."
 
-_"In many cases, vulnerability classes can be completely wiped out while in many others they can at least be made meaningfully harder to exploit."
+> "In many cases, vulnerability classes can be completely wiped out while in many others they can at least be made meaningfully harder to exploit."
 
-_"We offer toggles for users to choose the compromises they prefer instead of forcing it on them."
+> "We offer toggles for users to choose the compromises they prefer instead of forcing it on them."
 
-_"The final line of defense is containment through sandboxing at various levels:
+> "The final line of defense is containment through sandboxing at various levels:
 fine-grained sandboxes around a specific context like per site browser
 renderers, sandboxes around a specific component like Android's media codec
 sandbox and app/workspace sandboxes like the Android app sandbox used to sandbox
@@ -274,17 +274,44 @@ The security features of Hardened malloc can be simplified into several key poin
 
 In simpler terms, Hardened malloc ensures memory is handled securely by keeping it isolated, protected, and detecting any suspicious activities to prevent potential attacks.
 
-
-
 ### Sources:
+---
 
 
-### Hardware
+
+#### Hardware
+- <https://www.androidauthority.com/titan-m2-google-3261547/>
+- <https://safety.google/intl/en_us/pixel/>
+  
+ #### Android
+- <https://source.android.com/>
+- <https://source.android.com/docs/security/overview>
+- <https://developer.android.com/guide/platform>
+- <https://source.android.com/docs/core/architecture>
+- <https://source.android.com/docs/security/features>
+- <https://source.android.com/docs/security/app-sandbox>
+- [Android Security Model 2023 pdf](https://arxiv.org/pdf/1904.05572.pdf)
+- <https://source.android.com/docs/security/features/verifiedboot>
+- <https://source.android.com/docs/security/features/verifiedboot/device-state>
+- <https://source.android.com/docs/core/permissions/filesystem>
+- <https://source.android.com/docs/security/features/selinux>
+- <https://source.android.com/docs/security/features/authentication>
+- <https://source.android.com/docs/security/features/verifiedboot/boot-flow>
+- <https://source.android.com/docs/security/features/selinux/concepts>
+ 
+ #### GrapheneOS
+- <https://github.com/GrapheneOS>
+- <https://github.com/GrapheneOS/hardened_malloc>
+- <https://grapheneos.org/>
+- <https://grapheneos.org/faq>
+- <https://grapheneos.org/features>
+- <https://grapheneos.org/usage#sandboxed-google-play>
+- <https://attestation.app/about>
+- <https://grapheneos.org/features#auditor>
+- <https://grapheneos.org/features#exploit-mitigations>
+  
 
 
-### Android
 
-
-### GrapheneOS 
 
 
