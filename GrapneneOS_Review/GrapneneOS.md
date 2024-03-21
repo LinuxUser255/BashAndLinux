@@ -231,38 +231,32 @@ potential attacks.
 ### Sources:
 ---
 
-
-
 #### Hardware
-- <https://www.androidauthority.com/titan-m2-google-3261547/>
-- <https://safety.google/intl/en_us/pixel/>
- #### Android
-- <https://source.android.com/>
-- <https://source.android.com/docs/security/overview>
-- <https://developer.android.com/guide/platform>
-- <https://source.android.com/docs/core/architecture>
-- <https://source.android.com/docs/security/features>
-- <https://source.android.com/docs/security/app-sandbox>
-- [Android Security Model 2023 pdf](https://arxiv.org/pdf/1904.05572.pdf)
-- <https://source.android.com/docs/security/features/verifiedboot>
-- <https://source.android.com/docs/security/features/verifiedboot/device-state>
-- <https://source.android.com/docs/core/permissions/filesystem>
-- <https://source.android.com/docs/security/features/selinux>
-- <https://source.android.com/docs/security/features/authentication>
-- <https://source.android.com/docs/security/features/verifiedboot/boot-flow>
-- <https://source.android.com/docs/security/features/selinux/concepts>
- 
- #### GrapheneOS, Documentation & Souce Code
-- <https://github.com/GrapheneOS>
-- <https://github.com/GrapheneOS/hardened_malloc>
-- <https://grapheneos.org/>
-- <https://grapheneos.org/faq>
-- <https://grapheneos.org/features>
-- <https://grapheneos.org/usage#sandboxed-google-play>
-- <https://grapheneos.org/features#exploit-mitigations>
-- <https://attestation.app/about>
-- <https://grapheneos.org/features#auditor>
-- [app domain, trusted & untrusted](https://github.com/GrapheneOS/platform_system_sepolicy/blob/14/README.apps.md)
-- <https://github.com/GrapheneOS/platform_system_sepolicy/blob/14/public/app.te>
-- <https://github.com/GrapheneOS/hardened_malloc/blob/main/h_malloc.c>
+- [Titan M2](https://www.androidauthority.com/titan-m2-google-3261547/)
+- [Google Pixel](https://safety.google/intl/en_us/pixel/)
 
+#### Android
+- [Android Open Source Project](https://source.android.com/)
+- [Security Overview](https://source.android.com/docs/security/overview)
+- [OS Platform](https://developer.android.com/guide/platform)
+- [OS Architecture](https://source.android.com/docs/core/architecture)
+- [Security Features](https://source.android.com/docs/security/features)
+- [App Sandbox](https://source.android.com/docs/security/app-sandbox)
+- [Security Model 2023 pdf](https://arxiv.org/pdf/1904.05572.pdf))
+- [Verified Boot](https://source.android.com/docs/security/features/verifiedboot)
+- [File System Permissions](https://source.android.com/docs/core/permissions/filesystem)
+- [SELinux](https://source.android.com/docs/security/features/selinux)
+- [Authentication](https://source.android.com/docs/security/features/authentication)
+- [Boot-Flow](https://source.android.com/docs/security/features/verifiedboot/boot-flow)
+- [SELinux Concepts](https://source.android.com/docs/security/features/selinux/concepts)
+
+#### GrapheneOS
+- [GrapheneOS GitHub](https://github.com/GrapheneOS)
+- [Hardened Malloc Source Code](https://github.com/GrapheneOS/hardened_malloc)
+- [GrapheneOS Home Page](https://grapheneos.org/)
+- [FAQ](https://grapheneos.org/faq)
+- [Features](https://grapheneos.org/features)
+- [Sandboxed Google Play](https://grapheneos.org/usage#sandboxed-google-play)
+- [Attestation](https://attestation.app/about)
+- [Auditor](https://grapheneos.org/features#auditor)
+- [Exploit Mitigations](https://grapheneos.org/features#exploit-mitigations)
