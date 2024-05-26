@@ -44,4 +44,9 @@ tips tricks, how-to guides, links to other resources and more.
 - **[ISO Verify](https://danilodellaquila.com/en/blog/how-to-verify-authenticity-of-downloaded-debian-iso-images)**
 - **[GPG ENCRYPT - DECRYPT](https://www.howtogeek.com/427982/how-to-encrypt-and-decrypt-files-with-gpg-on-linux/)**
 
+<br>
 
+emoji
+```
+ ¯\_(ツ)_/¯
+```
