@@ -34,5 +34,27 @@ curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Vim_St
 ```bash
 curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Vim_Stuff/AdvancedMotions.md
 ```
+### Bonus, extra fun way to practice & learn Vim motions:
+
+#### VimBeGood plugin for NeoVim
+**Only woks in neovim**
+**It's like a video game on the command line**
+All you gotta do is create a file in your plugins directory named `vim-be-good.lua`
+And put this lua code in it, this is the plugin install if you are using the
+lazy plugin manager:
+```lua
+return {
+    "theprimeagen/vim-be-good",
+
+    dependencies = {
+        "nvim-lua/plenary.nvim"
+    },
+
+    config = function()
+    end
+}
+```
+**Link to the vim-be-good repo**
+`https://github.com/ThePrimeagen/vim-be-good`
 
 ### Enjoy!
