@@ -235,6 +235,7 @@ Format this extra long line of Lorem ipsum text into a paragraph by following th
 ## This one is really powerful, and a big time-saver too.
 ## [The norm command: Univerally edit files without editing each line manually](https://www.youtube.com/watch?v=hraHAZ1-RaM&list=PL-p5XmQHB_JSTaEPygu1DZjuFfb704Uv7)
 
+<br>
 
 ## More to check out:
 - [NeoVim's main site and documentation](https://neovim.io/)
