@@ -103,12 +103,14 @@ To gradualy highlight words, hit go into vis mode, then tap w to highlight words
 ```
 yank this line paste below by pressing yp , or yyp
 ```
+<br>
 
 - #### Visual Line Mode
 ```
 Highlight this line by pressing V, then navigate around
 escape to leave visual mode
 ```
+<br>
 
 - #### Copy-paste using Visual Mode + y / p
 ```
@@ -116,12 +118,13 @@ Highlight this line by pressing shift v
 then press y to yank, (copy the text)
 then press p to paste the text. It will paste one line below
 ```
-
+<br>
 
 - ### Undo changes you have made:
 ```
 enter normal mode and tap the u key, untill you get where you want.
 ```
+<br>
 
 - ### Jumping around while editing
 ```
@@ -153,6 +156,7 @@ function foo() {
 
 foo();
 ```
+
 <br>
 
 - ### More Vim motions using  the Shift and `{ }` keys
@@ -174,6 +178,7 @@ function foo() {
 
 foo();
 ```
+
 <br>
 
 ```js
@@ -224,12 +229,14 @@ Format this extra long line of Lorem ipsum text into a paragraph by following th
 ```
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 ```
+
 <br>
 
 - ### Special character selection:
 ```
 {slgjlskfgjlfgj} {123}} [sdlkjfh] <F12><F12><F12> (sadf()) ${UID}+
 ```
+
 <br>
 
 ## This one is really powerful, and a big time-saver too.
@@ -243,6 +250,7 @@ Format this extra long line of Lorem ipsum text into a paragraph by following th
 - [Kickstart.nvim: A launch point for your personal nvim configuration](https://github.com/nvim-lua/kickstart.nvim)
 - [My NeoVim config](https://github.com/LinuxUser255/nvim)
 
+ 
 <br>
 
 ### Tired of Vim Tutor?
