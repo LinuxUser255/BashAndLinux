@@ -200,8 +200,8 @@ foo();
 
 <br>
 
+- ### This remap found in my [nvim config keymaps.lua](https://github.com/LinuxUser255/nvim/blob/main/lua/config/keymaps.lua)
 - ### Using visual line mode to invert two lines
-- ### This is a key remap found in my [nvim config keymaps.lua](https://github.com/LinuxUser255/nvim/blob/main/lua/config/keymaps.lua)
 - ### Go into `visual line mode`, and press `shift j` to swap the selected line down, and `shift k` will swap the line up
 ```lua
 -- Move an entite line or lines up or down.
