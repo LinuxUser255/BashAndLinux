@@ -55,6 +55,6 @@ return {
 }
 ```
 **Link to the vim-be-good repo**
-`https://github.com/ThePrimeagen/vim-be-good`
+https://github.com/ThePrimeagen/vim-be-good
 
 ### Enjoy!
