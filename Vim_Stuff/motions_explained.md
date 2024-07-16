@@ -240,6 +240,7 @@ Format this extra long line of Lorem ipsum text into a paragraph by following th
 - [NeoVim's main site and documentation](https://neovim.io/)
 - [Oh My Zsh: Cool stuff for the Zsh shell](https://ohmyz.sh/)
 - [Kickstart.nvim: A launch point for your personal nvim configuration](https://github.com/nvim-lua/kickstart.nvim)
+- [My NeoVim config](https://github.com/LinuxUser255/nvim)
 
 <br>
 
