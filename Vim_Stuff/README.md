@@ -1,0 +1,38 @@
+# Vim motions practice
+
+## How to use:
+
+**The four mark down files here are meant to be opened in Vim, or NeoVim.
+Read the prompts/instructions, and try out the vim motions described.
+Some of these you may be familiar with, and others may be new. Either way,
+these exercises will boost your productivity and workflow while using Vim**
+
+**Easiest way to download:**
+`curl -LO` the raw files in a directory you'd like to use them.
+
+**Vim motions 1***
+```bash
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Vim_Stuff/vim-motions-01.md
+
+```
+
+
+**Vim motions 2**
+```bash
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Vim_Stuff/vim-motions-02.md
+```
+
+
+**Vim motions 3**
+```bash
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Vim_Stuff/vim-motions-02.md
+
+```
+
+**AdvancedMotions**
+*****
+```bash
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Vim_Stuff/AdvancedMotions.md
+```
+
+### Enjoy!
