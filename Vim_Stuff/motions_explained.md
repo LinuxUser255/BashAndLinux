@@ -14,6 +14,9 @@
 
 ## To use this file, copy the raw text into a mark down file, and follow the instructions and prompts
 - ### Changing modes
+
+<br>
+
 ```
 Go to Regular mode = esc(remaped to CAPS Lock)
 ESC (remaped to CAPS LOCK) to go into Normal mode.
@@ -22,6 +25,7 @@ i = insert
 v = visual
 r = replace
 ```
+<br>
 
 - ## Basic Moving around
 ```
@@ -33,12 +37,15 @@ h = left
 l =  right
 ```
 
+<br>
+
 - ### Horizontal line movements faster shortcuts
 ```
 b = back one word at a time
 w = forward one word at a time
 e = jump forward faster
 ```
+<br>
 
 - ### Vertical movements
 ```
@@ -49,6 +56,8 @@ gg = jump to very top of page
 gj = places you at the first line.
 ```
 
+<br>
+
 - ### Relative line jumping
 ```
 hit the numer of lines to move up, then press j to jump down that number of lines or k to jump up that number of lines.
@@ -57,6 +66,7 @@ d + 3 + j = puts in delete mode, instructs 3 to move, j says move down
 
 and to do this up, hit k instead of j
 ```
+<br>
 
 - ### Combining motions and editing
 ```
@@ -83,6 +93,7 @@ then p to paste it some where else if you want.
 
 To gradualy highlight words, hit go into vis mode, then tap w to highlight words to the right, and b to go back
 ```
+<br>
 
 - ## Practice:
 **Copy-Paste the text below into a neovim, or vim document, and practice yank, paste, visual mode and more**
@@ -99,16 +110,13 @@ Highlight this line by pressing V, then navigate around
 escape to leave visual mode
 ```
 
-- #### Visual Mode + y / p
+- #### Copy-paste using Visual Mode + y / p
 ```
-Highlight this line by pressing V, then press y
-press p
+Highlight this line by pressing shift v
+then press y to yank, (copy the text)
+then press p to paste the text. It will paste one line below
 ```
 
-```
-Highlight this point by pressing v, press wy 
-press p 
-```
 
 - ### Undo changes you have made:
 ```
@@ -124,10 +132,12 @@ $ = jumps to end of line but before last char in in normal mode
 A = jumps to very end of line into insert mode
 0 = Jumps to begining of the line
 _ = jumps to beging of line
-
 ```
 
+<br>
+
 - ### Example of editing between curly braces { }
+- ### Give this a try. The instructions are im the comments `//` in the pseudo code below
 
 ```js
 // Copy a line and paste it one line below without using visual mode:
@@ -137,17 +147,21 @@ _ = jumps to beging of line
 function foo() {
     for (let i = 0; i < 10; i++) {
         console.log("Iteration", i + 1);
+        console.log("Iteration", i + 1);
     }
 }
 
 foo();
 ```
+<br>
 
 - ### More Vim motions using  the Shift and { } keys
 ```
 SHIFT + } = jumps down between paragraphs and or blocks of code.
 SHIFT + { = jumps up between paragraphs
 ```
+<br>
+
 ```js
 // jump to a matching character:
 // put the cursor on the specific char, and press %
@@ -160,6 +174,35 @@ function foo() {
 
 foo();
 ```
+<br>
+
+```js
+// jump to a matching character:
+// put the cursor on the specific char, and press %
+function foo() {
+    for (let i = 0; i < 10; i++) {
+        console.log("Iteration", i + 1);
+        console.log("Iteration", i + 1);
+    }
+}
+
+foo();
+```
+
+
+<br>
+
+- ### Using visual line mode to invert two lines
+- ### This is a key remap found in my [nvim config keymaps.lua](https://github.com/LinuxUser255/nvim/blob/main/lua/config/keymaps.lua)
+- ### Go into visual mode, and press `shift j` to swap the selected line down, and `shift k` will swap the line up
+```lua
+-- Move an entite line or lines up or down.
+-- when highlighting a line, press shift + j or k
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+```
+
+<br>
+
 
 - ### Formating text
   
@@ -178,11 +221,13 @@ Format this extra long line of Lorem ipsum text into a paragraph by following th
 ```
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 ```
+<br>
 
 - ### Special character selection:
 ```
 {slgjlskfgjlfgj} {123}} [sdlkjfh] <F12><F12><F12> (sadf()) ${UID}+
 ```
+<br>
 
 ## [The norm command: Univerally edit files without editing each line manually](https://www.youtube.com/watch?v=hraHAZ1-RaM&list=PL-p5XmQHB_JSTaEPygu1DZjuFfb704Uv7)
 
