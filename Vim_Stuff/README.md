@@ -10,6 +10,11 @@ these exercises will boost your productivity and workflow while using Vim**
 **Easiest way to download:**
 `curl -LO` the raw files in a directory you'd like to use them.
 
+**Motions Explained**
+```bash
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Vim_Stuff/motions_explained.md
+```
+
 **Vim motions 1**
 ```bash
 curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Vim_Stuff/vim-motions-01.md
