@@ -10,42 +10,47 @@ these exercises will boost your productivity and workflow while using Vim**
 **Easiest way to download:**
 `curl -LO` the raw files in a directory you'd like to use them.
 
+<br>
+
 **Motions Explained**
 ```bash
 curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Vim_Stuff/motions_explained.md
 ```
+<br>
 
-**Vim motions 1**
+
+- **Vim motions 1**
 ```bash
 curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Vim_Stuff/vim-motions-01.md
 
 ```
+<br>
 
-
-**Vim motions 2**
+- **Vim motions 2**
 ```bash
 curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Vim_Stuff/vim-motions-02.md
 ```
+<br>
 
-
-**Vim motions 3**
+- **Vim motions 3**
 ```bash
 curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Vim_Stuff/vim-motions-02.md
-
 ```
+<br>
 
-**AdvancedMotions**
-*****
+- **AdvancedMotions**
 ```bash
 curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Vim_Stuff/AdvancedMotions.md
 ```
-### Bonus, extra fun way to practice & learn Vim motions:
+<br>
 
-#### VimBeGood plugin for NeoVim
+## Extra fun way to practice Vim motions:
+
+## [VimBeGood plugin for NeoVim](https://github.com/ThePrimeagen/vim-be-good)
 **Only woks in neovim**
 **It's like a video game on the command line**
 All you gotta do is create a file in your plugins directory named `vim-be-good.lua`
-And put this lua code in it, this is the plugin install if you are using the
+And put this lua code in it, this is the plugin install format for the
 lazy plugin manager:
 ```lua
 return {
@@ -62,4 +67,4 @@ return {
 **Link to the vim-be-good repo**
 https://github.com/ThePrimeagen/vim-be-good
 
-### Enjoy!
+## Enjoy!
