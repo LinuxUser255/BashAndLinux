@@ -2,7 +2,7 @@
 
 ## How to use:
 
-**The four mark down files here are meant to be opened in Vim, or NeoVim.
+**The mark down files here are meant to be opened in Vim, or NeoVim.
 Read the prompts/instructions, and try out the vim motions described.
 Some of these you may be familiar with, and others may be new. Either way,
 these exercises will boost your productivity and workflow while using Vim**
