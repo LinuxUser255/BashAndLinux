@@ -140,10 +140,9 @@ _ = jumps to beging of line
 - ### Give this a try. The instructions are im the comments `//` in the pseudo code below
 
 ```js
-// Copy a line and paste it one line below without using visual mode:
-// go into Normalmode, and rest the cursor on any character in the line/sentence.
-// And yank/copy the text by pressing
-// y + p
+// To jump to the opening parenthesis
+// put your cursor on the begining of the line that says `function()`
+// then press `f(` to jup to/on the `(` 
 function foo() {
     for (let i = 0; i < 10; i++) {
         console.log("Iteration", i + 1);
@@ -177,8 +176,11 @@ foo();
 <br>
 
 ```js
-// jump to a matching character:
-// put the cursor on the specific char, and press %
+// you can also practice cut and pasting lines
+// Copy a line and paste it one line below without using visual mode:
+// go into Normalmode, and rest the cursor on any character in the line/sentence.
+// And yank/copy the text by pressing
+// y + p
 function foo() {
     for (let i = 0; i < 10; i++) {
         console.log("Iteration", i + 1);
