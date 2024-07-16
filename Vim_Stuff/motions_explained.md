@@ -136,13 +136,14 @@ _ = jumps to beging of line
 
 <br>
 
-- ### Example of editing between curly braces `{ }`
+- ### Example of horizontal editing between curly braces `{ }`
 - ### Give this a try. The instructions are im the comments `//` in the pseudo code below
 
 ```js
 // To jump to the opening parenthesis
 // put your cursor on the begining of the line that says `function()`
-// then press `f(` to jup to/on the `(` 
+// then press `f(` to jup to/on the `(`
+// `f` plus any character,will jump to the first occurance of that character.
 function foo() {
     for (let i = 0; i < 10; i++) {
         console.log("Iteration", i + 1);
