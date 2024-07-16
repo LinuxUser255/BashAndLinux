@@ -136,7 +136,7 @@ _ = jumps to beging of line
 
 <br>
 
-- ### Example of editing between curly braces { }
+- ### Example of editing between curly braces `{ }`
 - ### Give this a try. The instructions are im the comments `//` in the pseudo code below
 
 ```js
@@ -155,7 +155,7 @@ foo();
 ```
 <br>
 
-- ### More Vim motions using  the Shift and { } keys
+- ### More Vim motions using  the Shift and `{ }` keys
 ```
 SHIFT + } = jumps down between paragraphs and or blocks of code.
 SHIFT + { = jumps up between paragraphs
@@ -194,7 +194,7 @@ foo();
 
 - ### Using visual line mode to invert two lines
 - ### This is a key remap found in my [nvim config keymaps.lua](https://github.com/LinuxUser255/nvim/blob/main/lua/config/keymaps.lua)
-- ### Go into visual mode, and press `shift j` to swap the selected line down, and `shift k` will swap the line up
+- ### Go into `visual line mode`, and press `shift j` to swap the selected line down, and `shift k` will swap the line up
 ```lua
 -- Move an entite line or lines up or down.
 -- when highlighting a line, press shift + j or k
@@ -229,6 +229,7 @@ Format this extra long line of Lorem ipsum text into a paragraph by following th
 ```
 <br>
 
+## This one is really powerful, and a big time-saver too.
 ## [The norm command: Univerally edit files without editing each line manually](https://www.youtube.com/watch?v=hraHAZ1-RaM&list=PL-p5XmQHB_JSTaEPygu1DZjuFfb704Uv7)
 
 
@@ -239,9 +240,11 @@ Format this extra long line of Lorem ipsum text into a paragraph by following th
 
 <br>
 
-Tired of Vim Tutor?
+### Tired of Vim Tutor?
+
 **Then try [Vim-Be-Good](https://github.com/ThePrimeagen/vim-be-good)**
-A NeoVim plugin to help you master vim motions and improve your speed!
+
+**A NeoVim plugin to help you master vim motions and improve your speed!**
 
 
 
