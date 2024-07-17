@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Updates and packages install
 sudo apt update; sudo apt upgrade
@@ -22,14 +22,36 @@ sudo apt install neofetch
 sudo apt install mpv
 sudo apt install kdenlive
 sudo apt install gimp
-python3 -m pip install -U yt-dlp # install yt-dlp
+
+echo ''
+echo 'Learn the best way to install yt-dlp by reading the commented instructions and info in this script'
+echo
+# Installation of YT-DLP
+# yt-dlp Do not use pip to install yt-dlp, it involves updates and management via PyPi, and is less simple to update/work with
+# instead, curl it to your ~./local/bin directory, which you will likely have to make the .local/bin
+# Detailed instructions found here: https://github.com/yt-dlp/yt-dlp/wiki/Installation
+
+# Install it like this:
+# curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o ~/.local/bin/yt-dlp
+# chmod a+rx ~/.local/bin/yt-dlp  # Make executable
+
+# Upon running this command, you may get an error saying that .local/bin does not exist, if so, then make that directory path.
+# run the curl command again 
+# mkdir -p .local/bin
+# curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o ~/.local/bin/yt-dlp
+# chmod a+rx ~/.local/bin/yt-dlp  # Make executable
+
+# A correct installation will look like this when running the ls -la command against the directory path
+# ls -la .local/bin/yt-dlp
+# -rwxr-xr-x 1 yourusername root 12345632 Jul 10 14:58 .local/bin/yt-dlp
+
 echo ""
 
 # Mapping Caps Lock to Escape in Debian
 # https://martin.hoppenheit.info/blog/2014/mapping-caps-lock-to-escape-in-debian/
 # set this system wide with the following line in /etc/default/keyboard:
   #
-  #XKBOPTIONS="caps:escape"
+#XKBOPTIONS="caps:escape"
 curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/dotfiles/.config/keyboard -o ~/etc/default/keyboard
 echo ""
 
