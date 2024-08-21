@@ -154,7 +154,7 @@ Take note of the purple section - _Native C/C++ Libraries_, this will come up la
 ![[SadnboxingLayers-Android 1.png]]
 
 
-#### [Android's Application Sandbox](https://source.android.com/docs/security/app-sandbox) and the three permission mechanisms that enforce it.
+## [Android's Application Sandbox](https://source.android.com/docs/security/app-sandbox) and the three permission mechanisms that enforce it.
 
 **Android's sandbox, via implementation of the [SELinux](https://source.android.com/docs/security/features/selinux/concepts) policy.**
 
