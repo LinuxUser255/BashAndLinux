@@ -1,9 +1,11 @@
 # GrapheneOS - A High-level Overview 
 
-This is the second iteration of the original GrapheneOS.md
+This is the second iteration of my original GrapheneOS review.
 
 ### Table of Contents
 ---
+<br>
+
 
 **Introduction**
 #### 1. Hardware
@@ -21,12 +23,16 @@ This is the second iteration of the original GrapheneOS.md
 - Permissions
 - Memory Allocation
 
+<br>
+
 ### Introduction
 ---
 The rabbit hole that is GrapheneOS, can  lead one down many other tangents.
 Therefore in this write-up,  so as to not get lost in the minutia, the author, when mentioning a feature, or specific technology, that is not specifically GrapheneOS, will provide a concise yet through explanation of it, then move on.
  
 This approach however, will not come at the expense of an incomplete review. Adequate explanation for an overall high-level understanding is the intent. And the reader will find embedded links to the  official documentation in the text, and a through list of referencese.
+
+<br>
 
 ### Part 1 - Hardware
 ---
@@ -82,6 +88,8 @@ The M2 is hardened against physical tampering too. The chip's firmware cannot be
 In order to load firmware to the Titan M, the phone must be unlocked.
 This makes it more difficult for the creation of custom firmware that could be used to unlock your phone. This resistance to an insider attack,  means only the user's authentication can unlock it. Not until you clear the lock screen prompt will the phone's storage be decrypted.
 
+<br>
+
 ### Part Two: Resisting Persistence
 ---
 
@@ -114,6 +122,8 @@ It works like this. It generates a persistent key in the [hardware-backed keysto
 This verifies the ID of the device, and assures no tampering or downgrading has occurred.
 This implements a Trust On First Use Model. This is accomplished via the device performing the verification, the Auditor. And, the device being verified, the auditee. 
 
+<br>
+
 ### Part 3: Security Hardening of the Android Operating System
 ---
 
@@ -134,7 +144,7 @@ Here are a few quotes taken from their page on exploit protection features.**
 
 > "The final line of defense is containment through sandboxing at various levels: fine-grained sandboxes around a specific context like per-site browser renderering, sandboxes around a specific component like Android's media codec sandbox, and app/workspace sandboxes like the Android app sandbox used to sandbox each app which is also the basis for user/work profiles. GrapheneOS improves all of these sandboxes through fortifying the kernel and other base OS components along with improving the sandboxing"
 
-
+<br>
 
 ### [Defense in Depth ](https://csrc.nist.gov/glossary/term/defense_in_depth) 
 This is at the core of [GrapheneOS Security](https://grapheneos.org/features#exploit-protection)
@@ -151,8 +161,10 @@ Take note of the purple section - _Native C/C++ Libraries_, this will come up la
 
 ![Android_Platform_Arch](https://github.com/LinuxUser255/BashAndLinux/assets/46334926/b849e420-99ae-4a1c-8b7e-5e91c7bbec8a)
 
-![[SadnboxingLayers-Android 1.png]]
+![SadnboxingLayers-Android](https://github.com/user-attachments/assets/7ae48d1b-1f49-4d64-9fe6-d93c968315a0)
 
+
+<br>
 
 ## [Android's Application Sandbox](https://source.android.com/docs/security/app-sandbox) and the three permission mechanisms that enforce it.
 
@@ -186,8 +198,9 @@ bypass SELinux in the Kernel.
 3. **[Android permissions](https://source.android.com/docs/core/permissions)**
 Android permissions are like special permissions that control what different apps on your phone can do. These permissions include things like accessing your location or using your camera. Each permission is assigned to a unique ID (UID), and apps can grant access to specific pieces of data they manage. The enforcement of these permissions is mostly handled by the app or service providing the data, although there are some exceptions, like internet access, which is handled differently. These permissions are set up in an app's settings file called AndroidManifest.xml and are the main way users see and control what their apps can do.
 
-### Grapene's Security hardening of SELinux
+<br>
 
+### Grapene's Security hardening of SELinux
 **In what way does GrapheneOS enhance the security of SELinux?**
 They split the [trusted, and untrusted app domains](https://github.com/GrapheneOS/platform_system_sepolicy/blob/14/README.apps.md)
 
@@ -213,7 +226,7 @@ Code examples of `domains`, `untrusted_app` & `untrusted_base_app`
 
 Code snippets: `untrusted_app.te` from the `platform_system_policy` repository
 
- ![untrusted_app_full-01](https://github.com/user-attachments/assets/43fddb5d-778c-4dbf-b729-9fc0b0adc5d6)
+![untrusted_app_full-01](https://github.com/user-attachments/assets/43fddb5d-778c-4dbf-b729-9fc0b0adc5d6)
 
 
 
@@ -243,12 +256,18 @@ Remember, that a large part of GrapheneOS's security model is reducing the attac
 They're able to mitigate entire classes of vulnerabilities, such as memory corruption,
 which leads to the third part of this review.
 
-**App Permissions Toggles**
-![[app-permissions-03.png]]
-Permissions menu: example of allowing network permissions to an app.
+<br>
 
-### What about memory unsafe languages? C/C++
-#### [Hardened Malloc](https://github.com/GrapheneOS/hardened_malloc)
+**App Permissions Toggles**
+**Permissions menu: example of allowing network permissions to an app.**
+
+![app-permissions-03](https://github.com/user-attachments/assets/17a8b3ff-ba05-4e3f-a1f3-a477bcce38f4)
+
+<br>
+
+
+## What about memory unsafe languages? C/C++
+### [Hardened Malloc](https://github.com/GrapheneOS/hardened_malloc)
 **Synopsis**
 Hardened malloc is Graphene's custom memory allocator. And is one of the most significant security features offered. The aim of which is preventing memory corruption vulnerabilities.  One of Hardened Malloc's main features is protection against heap corruption vulnerabilities. Another benefit of Hardened Malloc,  is  efficient memory management. It is scale-able by way of a configurable number of independent areas, and the internal locking is within areas that are further divided up in a per size class.
 
@@ -415,7 +434,8 @@ On Android-based operating systems, GrapheneOS's hardened_malloc is integrated i
 * It's assumed that an attacker can figure out the allocator is in use,
   so the focus is explicitly not on detecting bugs that are impossible to exploit with it in use
   like an 8 byte overflow.
-  
+
+<br>
 
 Code snippet from `h_malloc.c`, defining Slab Quarantine
 ![malloc-slab-01](https://github.com/user-attachments/assets/c4b4abf5-1435-4837-a519-c1615ede3d0e)
@@ -429,7 +449,7 @@ Code snippet from `h_malloc.c`, defining Slab Quarantine
 `alloc_metadata` function. Managing the allocation of metadata
 ![hmalloc-02](https://github.com/user-attachments/assets/756f6639-7076-442a-a21a-952fb1b168b2)
 
-
+<br>
 
 ### Sources:
 ---
