@@ -273,6 +273,8 @@ Hardened malloc is Graphene's custom memory allocator. And is one of the most si
 
 It currently supports [Bionic (Android)](https://android.googlesource.com/platform/bionic/), [musl libc](https://musl.libc.org/) and [GNU libc](https://www.gnu.org/savannah-checkouts/gnu/libc/index.html). 
 
+<br>
+
 **Let's first examine a basic example of memory allocation in C**
 ```c
 #include <stdio.h>
@@ -306,6 +308,8 @@ int main() {
     return 0;
 }
 ```
+
+<br>
 
 ### Introduction
 -----------------
