@@ -114,7 +114,7 @@ They eliminate some ways that the OS could store a persistence state. This makes
 more difficult for an adversary to persist on your device.
 
 **[Attestation](https://attestation.app/about)**
-A very unique security feature of GrapheneOS is that it uses a hardware-based attestation service, in order to validate the identity of a device, as well as the authenticity and integrity of the Operating System. This is accomplished via the [auditor app](https://play.google.com/store/apps/details?id=app.attestation.auditor.play).
+A very unique security feature of GrapheneOS is that it uses a hardware-based [attestation service](https://github.com/GrapheneOS/AttestationServer), in order to validate the identity of a device, as well as the authenticity and integrity of the Operating System. This is accomplished via the [auditor app](https://play.google.com/store/apps/details?id=app.attestation.auditor.play).
 
 This serves as a backup to the verified boot process.  For example,  in the event an attacker was able to downgrade or tamper with the Operating System, it is the Auditor App, that would detect such a compromise. This requires two devices to complete. And, is another reason that Graphene uses The Titan M.. The attestation keys are stored in it.
 
