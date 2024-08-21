@@ -164,14 +164,10 @@ Every app is assigned a UID, this allows the system to identify and separate app
 This serves as the first security control each app runs with its own user ID
 (UID) on UNIX-based systems. Apps can decide who can access their resources by
 changing permissions on those resources. 
-
-Apps run in their own instance in a [Dalvik Virtual Machine](https://source.android.com/docs/core/runtime)  embedded in
-Android Runtime. They are granted a dedicated separate space to store their data that
-other apps cannot access by default. 
-[If app A, needs to communicate with app B,then both apps must consent to the action](https://source.android.com/docs/security/app-sandbox). This consent enforcement is done by the Linux Kernel. Apps can also share access to their resources with other apps by passing a handle to the resource through Inter-Process Communication (IPC).
-However, if an app is running with root user privileges, it can bypass these
-permissions, although there may still be some restrictions imposed by Mandatory
-Access Control (MAC) policies.
+Apps run in their own instance in a [Dalvik Virtual Machine](https://source.android.com/docs/core/runtime) embedded in
+Android Runtime.They are granted a dedicated separate space to store their data that
+other apps cannot access by default. Therefore, [If app A, needs to communicate with app B,then both apps must consent to the action](https://source.android.com/docs/security/app-sandbox). This consent enforcement is done by the Linux Kernel. Apps can also share access to their resources with other apps by passing a handle to the resource through Inter Process Communication (IPC). However, if an app is running with root user privileges, it can bypass these
+permissions, although there may still be some restrictions imposed by Mandatory Access Control (MAC) policies.
 
 2. **[Mandatory Access Control (MAC):](https://source.android.com/docs/security/features/selinux/concepts)**
 This is the second layer of sandboxing. 
@@ -414,17 +410,22 @@ On Android-based operating systems, GrapheneOS's hardened_malloc is integrated i
 * It's assumed that an attacker can figure out the allocator is in use,
   so the focus is explicitly not on detecting bugs that are impossible to exploit with it in use
   like an 8 byte overflow.
+  
 
 Code snippet from `h_malloc.c`, defining Slab Quarantine
-![[malloc-slab-01.png]]
+![malloc-slab-01](https://github.com/user-attachments/assets/c4b4abf5-1435-4837-a519-c1615ede3d0e)
 
 
 `canary` and memory arenas management configuration
-![[hmalloc-canary-01.png]]
+![hmalloc-canary-01](https://github.com/user-attachments/assets/c20bf243-2975-4dbd-b8e2-0838a2570230)
+
 
 
 `alloc_metadata` function. Managing the allocation of metadata
-![[hmlloc-03.png]]
+![hmalloc-02](https://github.com/user-attachments/assets/756f6639-7076-442a-a21a-952fb1b168b2)
+
+
+
 ### Sources:
 ---
 
