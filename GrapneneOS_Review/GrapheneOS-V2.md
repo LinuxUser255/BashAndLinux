@@ -206,11 +206,16 @@ A significant change Graphene makes to  the untrusted base-app, is:
 
 Code examples of `domains`, `untrusted_app` & `untrusted_base_app`
 [Trusted, and Untrusted appdomains](https://github.com/GrapheneOS/platform_system_sepolicy/blob/14/private/domain.te)
+
 [untrusted_app.te](https://github.com/GrapheneOS/platform_system_sepolicy/blob/14/public/untrusted_app.te)
+
 [untrusted_app-all](https://github.com/GrapheneOS/platform_system_sepolicy/blob/14/private/untrusted_app_all.te)
 
-Code snippet from `untrusted_app.te` from the `platform_system_policy` repository
-![[untrusted_app_full-01.png]]
+Code snippets: `untrusted_app.te` from the `platform_system_policy` repository
+
+ ![untrusted_app_full-01](https://github.com/user-attachments/assets/43fddb5d-778c-4dbf-b729-9fc0b0adc5d6)
+
+
 
 #### [Android Permissions categories](https://arxiv.org/pdf/1904.05572 ) and Graphene's improvements
 Android permissions's five categories of consent: pg 20
