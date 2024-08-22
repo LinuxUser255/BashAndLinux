@@ -311,6 +311,10 @@ int main() {
 
 <br>
 
+**[Click Here for More Code examples and use-cases when to use Memory Allocation](https://github.com/LinuxUser255/BashAndLinux/blob/main/C_Programming/Memory_Allocation/MallocUseCases.md)**
+
+<br>
+
 ### Introduction
 -----------------
 
