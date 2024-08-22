@@ -1,24 +1,27 @@
 #include <stdio.h>
-#include <malloc.h>
+#include <stdlib.h>  // Use stdlib.h instead of malloc.h
 
+// Basic malloc example for Dynamic Array Allocation
 int main(void) {
-    int *arr = (int *)malloc(10 * sizeof(int));
+    // Allocate memory for 10 integers
+    int *arr = malloc(10 * sizeof(int));
 
-    if (arr == NULL) {
+    // Check for successful allocation
+    if (!arr) {
         printf("Memory allocation failed.\n");
         return 1;
     }
-   for (int i = 0; i < 10; i++) {
-       arr[i] = i * i;
-   }
-   printf("Array elements\n");
-   for (int i = 0; i < 10; i++) {
-       printf("%d ", arr[i]);
-   }
+
+    // Initialize and print array elements
+    for (int i = 0; i < 10; i++) {
+        arr[i] = i * i;
+        printf("%d ", arr[i]);
+    }
     printf("\n");
 
-   // Free the allocated memory
-   free(arr);
+    // Free the allocated memory
+    free(arr);
 
     return 0;
 }
+
