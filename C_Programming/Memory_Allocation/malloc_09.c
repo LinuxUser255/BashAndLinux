@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//  Buffers for I/O Operations
 int main() {
     char *buffer;
     int bufferSize;
@@ -16,4 +15,6 @@ int main() {
     // Check if memory allocation was successful
     if (buffer == NULL) {
         printf("Memory not allocated.\n");
-        exit(0);
+        exit(EXIT_SUCCESS);
+    }
+}
