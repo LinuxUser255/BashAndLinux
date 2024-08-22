@@ -23,7 +23,7 @@ int main(void) {
     password[PASSWORD_LENGTH] = '\0';  // Null-terminate the password string
 
     // Print the generated password
-    printf("Generated Password: %s\n", password);
+    printf("\nGenerated Password:\n\n%s\n\n",password);
 
     return 0;
 }
