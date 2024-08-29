@@ -1,11 +1,12 @@
 # This is my personal customized config for Alacritty
+# The window size/dimensions is defined below via columns and lines
 [colors.primary]
 background = "#1b1b1b"
 foreground = "#ffffff"
 
 [cursor.style]
 blinking = "On"
-shape = "Beam"
+shape = "Block"
 
 [env]
 TERM = "xterm-256color"
@@ -120,3 +121,7 @@ opacity = 0.8
 [window.padding]
 x = 5
 y = 5
+
+[window.dimensions]
+columns = 125
+lines = 52
