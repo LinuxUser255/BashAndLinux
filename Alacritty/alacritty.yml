@@ -7,6 +7,9 @@ colors:
     background: '#1b1b1b'
     foreground: '#ffffff'
 window:
+  dimensions:
+    columns: 125
+    lines: 52
   padding:
     x: 5
     y: 5
@@ -31,7 +34,7 @@ font:
    y: 1
 cursor:
   style:
-    shape: Beam
+    shape: Block
     blinking: On
 # to rice correctly u will want to tie background / foreground colors to your .Xresources
 #window.opacity: 0.8
