@@ -52,12 +52,12 @@
 #-------------Part 1: Pre-build-------------------------------------------------------#
 #
 # First check for sudo privileges, and if so, then proceede
-is_sudo() {
-    if [ ${UID} -ne 0 ]; then
-        printf "\e[1;31m Sudo privileges required. \e[0m\n"
-        exit 1
-    fi
-}
+# is_sudo() {
+#    if [ ${UID} -ne 0 ]; then
+#        printf "\e[1;31m Sudo privileges required. \e[0m\n"
+#        exit 1
+#    fi
+# }
 
 # Install dependencies
 check_and_install_packages() {
