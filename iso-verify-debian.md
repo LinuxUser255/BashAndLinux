@@ -36,5 +36,5 @@ gpg: Good signature from "Debian CD signing key <debian-cd@lists.debian.org>" [u
 ```
 sha512sum -c SHA512SUMS.txt 2>/dev/null | grep debian-live-11.5.0-amd64-kde+nonfree.iso
 ```
- *https://danilodellaquila.com/en/blog/how-to-verify-authenticity-of-downloaded-debian-iso-images *
+**https://danilodellaquila.com/en/blog/how-to-verify-authenticity-of-downloaded-debian-iso-images**
 
