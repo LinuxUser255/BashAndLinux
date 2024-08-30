@@ -1,4 +1,4 @@
-#!usr/bin/env python3
+#!/usr/bin/env python3
 
 # python script that iterates over a list of git repositories, in repos.txt, and git clone every one
 
