@@ -1,8 +1,6 @@
 # ~/.zshrc file for zsh interactive shells.
 # see /usr/share/doc/zsh/examples/zshrc for examples
 
-neofetch 
-
 setopt autocd              # change directory just by typing its name
 #setopt correct            # auto correct mistakes
 setopt interactivecomments # allow comments in interactive mode
@@ -237,31 +235,108 @@ if [ -x /usr/bin/dircolors ]; then
     zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 fi
 
-# some more ls aliases
-alias ll='ls -l'
-alias la='ls -A'
-alias l='ls -CF'
+#---Personal aliases---#
+# listing directories
 alias l='ls'
 alias ll='ls -l'
+alias LL='ls -l'
+alias LLA='ls -la'
 alias lla='ls -la'
-alias c='cat'
+alias lsdir='ls -l | awk "{print \$9}"'
+
+# Searching a directory
 alias lll='fastgrep'
-alias v='vim'
+alias LLL='fastgrep'
+
+# Search the password store
+alias ppp='pw-search'
+
+# cmd & shortcut scripts
+alias v='nvim'
 alias n='nvim'
+alias k='kate'
 alias s='sudo su'
 alias e='exit'
 alias q='exit'
-alias b='bat'
-alias up='apt update; apt upgrade'
-alias pip='pip3'
-alias python='python3'
-alias py='file_create'
+alias c='cat'
+alias b='batcat'
 alias p='pass'
 alias pa='pass add'
+alias up='sudo apt update'
+alias upup='sudo apt update && sudo apt upgrade'
 alias inst='sudo apt install'
-alias vb='vim .zshrc'
-alias bb='bat .zshrc'
-#alias t='terminator --geometry=1100x1225+0+0'
+alias ifconfig='sudo ifconfig'
+alias iwconfig='sudo iwconfig'
+alias shut='sudo shutdown -P now'
+alias png='ping 1.1.1.1'
+alias shutdown='sudo shutdown -P now'
+alias reboot='sudo reboot'
+alias wifidown='ifconfig wlp4s0 down'
+
+# start SSH_CONNECTION
+alias sshstart='sudo systemctl start ssh'
+alias sshstatus='sudo systemctl status ssh'
+alias sshstop='sudo systemctl stop ssh'
+alias space='pr -d -t '
+alias ufw='sudo ufw'
+alias lsnum='ls -l -v'
+alias rr='ranger'
+
+#alias lf='lf-ueberzug'
+alias yt='yt-dlp '
+alias yta='yt-dlp --extract-audio --audio-format mp3 '
+alias lsawk="echo ls -l pipe to awk print 9th field"
+alias gr='go run'
+alias swisskey='cd /opt/PayloadsAllTheThings'
+alias messages='cd ~/Documents/messages'
+# alacritty commands
+alias a='alacritty msg create-window'
+
+#alias aa='alacritty --working-directory'
+# copy pwd to clipboard
+#alias cppwd='pwd | xclip;'
+
+# More Custom scripts
+#-----------------------
+alias headers='headers' # List of HTTP request headers.
+alias xfh='xfh' #  List of X-Forwarded for headers.
+alias stealcookies='stealcookies' #  XSS exploit code to steal cookies.
+alias space='space'  # Double spaces lines of a text file.
+alias remap='remap'   # Remaps caps lock to the escape key.
+alias fast='xset r rate 380 80' # increase cursor speed
+
+# dot file access
+alias vb='vim .bashrc'
+alias vv="vim .vimrc"
+alias rc='nvim ~/.zshrc'
+alias nn='nvim .'
+alias bb='bat ~/.zshrc'
+alias late='ls -lt | head -n 10' # displays the most recent file added or edited in a directory.
+alias ohmyzsh="cd ~/.oh-my-zsh"
+alias nvconfig="cd ~/.config/nvim"
+#alias zshconfig="mate ~/.zshrc"
+
+# change directory shortcuts & access specific directories
+alias cc='cd'
+alias CC='cd'
+alias down='cd ~/Downloads'
+alias doc='cd ~/Documents'
+alias pic='cd ~/Pictures'
+alias mus='cd ~/Music'
+alias vid='cd ~/Videos'
+alias opt='cd /opt'
+alias temp='cd ~/Templates'
+
+# Web Browsers
+
+# IDEs
+
+# Specialty Apps Crypto wallets
+
+alias graud='cd /opt/graudit/;./graudit'
+# alias cmd=' '
+
+
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
