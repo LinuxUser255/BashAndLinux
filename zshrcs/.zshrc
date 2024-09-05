@@ -215,7 +215,6 @@ alias btc='cd Downloads/Electrum-4.3.4;./run_electrum' # Bitcoin wallet
 alias xmr='cd ~/Downloads/monero-gui-v0.18.3.1;./monero-wallet-gui'  # Monero wallet
 alias xmrig='cd ~/Downloads/xmrig-6.15.2;sudo ./xmrig -c config.json' # Monero Mining
 alias graud='cd /opt/graudit/;./graudit'
-alias linodessh='ssh root@170.187.203.129'
 # alias cmd=' '
 
 # Software  Added to Path
