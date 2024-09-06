@@ -6,8 +6,6 @@ sudo apt install ripgrep
 sudo apt install arandr
 sudo apt install chromium
 sudo apt install x11-server-utils
-sudo apt install setxkbmap
-sudo apt install xdtools
 sudo apt install pass
 sudo apt install gpg
 sudo apt install xclip
@@ -21,14 +19,14 @@ sudo apt update
 sudo apt install brave-browser
 
 # edited kali zshrc
-curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/zshrcs/kali_zshrc_2024
+https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/zshrcs/kali_zshrc_2024
 
 # cli shortcuts
-cul -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/fastgrep
-cul -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/pw-search
-cul -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/printawk
-cul -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/ggg
-cul -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/fff
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/fastgrep
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/pw-search
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/printawk
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/ggg
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/fff
 # curl -LO
 
 sudo chmod +x fastgrep
@@ -55,8 +53,3 @@ rm -rf ~/.local/share/nvim
 
 # install my configs
 git clone https://github.com/LinuxUser255/nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
-
-
-
-
-
