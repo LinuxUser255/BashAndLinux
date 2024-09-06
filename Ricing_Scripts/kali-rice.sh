@@ -3,8 +3,8 @@
 # Updates and packages install
 sudo apt update &&  sudo apt upgrade
 sudo apt install ripgrep
-apt install arandr
-apt install chromium
+sudo apt install arandr
+sudo apt install chromium
 sudo apt install x11-server-utils
 sudo apt install setxkbmap
 sudo apt install xdtools
