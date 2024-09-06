@@ -21,7 +21,7 @@ sudo apt update
 sudo apt install brave-browser
 
 # edited kali zshrc
-https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/zshrcs/kali_zshrc_2024
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/zshrcs/kali_zshrc_2024
 
 # cli shortcuts
 cul -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/fastgrep
