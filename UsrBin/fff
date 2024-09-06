@@ -25,6 +25,22 @@ then
     read NAME
 touch $NAME.py
 echo "#!/usr/bin/env python3" > $NAME.py
+echo "" >> $NAME.py
+echo "" >> $NAME.py
+echo "" >> $NAME.py
+echo "" >> $NAME.py
+echo "def main():" >> $NAME.py
+echo "    # Main fuction code here" >> $NAME.py
+
+
+echo "" >> $NAME.py
+echo "" >> $NAME.py
+echo "" >> $NAME.py
+echo "" >> $NAME.py
+
+echo "if __name__ == '__main__':" >> $NAME.py
+echo "    main() " >> $NAME.py
+
 chmod +x $NAME.py
 nvim $NAME.py
 
