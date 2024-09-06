@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Instantly Create & chmod a new file type of your choosing.
-# In this example you can create a Python, Bash, .txt or .md
+# In this example you can create a Python, Bash, Go, .txt or .md
 # Give it a short and easy to type new name, and remove the .sh extension
 # I named mine terp, as in, auto create & tell the interpreter what I want.
 # Then move it to /usr/bin
@@ -13,8 +13,8 @@
 # 4. Then it is automatically opend in Vim and ready for writing
 
 
-# Create either a Python, Bash, .txt file or a markdown doc & open it with Vim
-echo -e "Select a filetype to create: Python, Bash, Go, txt, or md: \n1 = Python\n2 = Bash\n3 = Go\n4 = txt\n5 = Markdown Doc File"
+# Create either a Python, Bash, Go, .txt file or a markdown doc & open it with NeoVim
+echo -e "Select a filetype to create: Python, Shell Script, Go, txt, or md: \n1 = Python\n2 = Shell Script\n3 = Go\n4 = txt\n5 = Markdown Doc File \n6 = Flask"
 read sel
 
 
@@ -29,13 +29,13 @@ chmod +x $NAME.py
 nvim $NAME.py
 
 
-# 2. Create a Bash Script
+# 2. Create a Shell Script
 elif [[ $sel -eq 2 ]];
 then
-    echo "Name the Bash script: "
+    echo "Name the Shell script: "
     read NAME
 touch $NAME.sh
-echo "#!/bin/bash" > $NAME.sh
+echo "#!/usr/bin/env bash" > $NAME.sh
 chmod 755 $NAME.sh
 nvim $NAME.sh
 
@@ -78,6 +78,65 @@ then
 touch $NAME.md
 echo "# Title" > $NAME.md
 nvim $NAME.md
+
+# 6. Creat basic Flask Pyhon boiler plate code
+# Also need to create a virtual enviroment, do that first
+elif [[ $sel -eq 6 ]];
+then
+    echo "Name the Python script: "
+    read NAME
+touch $NAME.py
+echo "#!/usr/bin/env python3" > $NAME.py
+echo "" >> $NAME.py
+echo "" >> $NAME.py
+
+echo "# Remember to  create the virtual enviroment first" >> $NAME.py
+echo "# python -m venv myenv" >> $NAME.py
+echo "" >> $NAME.py
+
+echo "# Then source it" >> $NAME.py
+echo "# source myenv/bin/activate" >> $NAME.py
+echo "" >> $NAME.py
+
+echo "# Then  install the flask package" >> $NAME.py
+echo "# pip3 install flask" >> $NAME.py
+
+
+# append blank lines
+echo "" >> $NAME.py
+
+# append the imports
+echo "from flask import Flask" >> $NAME.py
+
+# append blank lines
+echo "" >> $NAME.py
+echo "" >> $NAME.py
+echo "" >> $NAME.py
+
+# do the app flask name thing
+echo "@app = Flask(__name__)" >> $NAME.py
+echo "" >> $NAME.py
+echo "" >> $NAME.py
+
+# create the root route
+echo "@app.route('/')" >> $NAME.py
+echo "def home():" >> $NAME.py
+echo "    return 'Home'" >> $NAME.py
+
+# append blak lines
+echo "" >> $NAME.py
+echo "" >> $NAME.py
+echo "" >> $NAME.py
+
+# name guarding
+echo "if __name__ == '__main__':" >> $NAME.py
+echo "    app.run()" >> $NAME.py
+
+# one more blank line
+echo "" >> $NAME.py
+
+chmod +x $NAME.py
+nvim $NAME.py
 
 exit 0
 fi
