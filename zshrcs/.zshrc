@@ -4,8 +4,11 @@ export ZSH="$HOME/.oh-my-zsh"
 # Auto remap Caps lock to Esc upon shell launch. And it also speeds xset.
 remap
 
-# print sytem info: neofetch
-# neofetch
+# Speed up the cursor & scrolling system wide
+fast
+
+# print sytem info like neofetch,but using one written in C instead
+# it's Blazingly Fast!!
 fastfetch
 
 ## Set name of the theme to load --- if set to "random", it will
@@ -69,8 +72,6 @@ alias lla='ls -la'
 
 # Same as above, but output the Directory names in bold red font
 alias lsdir='ls -l | awk "{print \"\033[1;31m\"\$9\"\033[0m\"}"'
-
-
 
 # Searching a directory
 alias lll='fastgrep'
