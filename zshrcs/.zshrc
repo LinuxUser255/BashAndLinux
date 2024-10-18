@@ -63,7 +63,14 @@ alias ll='ls -l'
 alias LL='ls -l'
 alias LLA='ls -la'
 alias lla='ls -la'
-alias lsdir='ls -l | awk "{print \$9}"'
+
+# List only the Directories
+# alias lsdir='ls -l | awk "{print \$9}"'
+
+# Same as above, but output the Directory names in bold red font
+alias lsdir='ls -l | awk "{print \"\033[1;31m\"\$9\"\033[0m\"}"'
+
+
 
 # Searching a directory
 alias lll='fastgrep'
