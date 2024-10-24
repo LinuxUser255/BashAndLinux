@@ -51,7 +51,7 @@ echo ""
 # https://martin.hoppenheit.info/blog/2014/mapping-caps-lock-to-escape-in-debian/
 # set this system wide with the following line in /etc/default/keyboard:
   #
-#XKBOPTIONS="caps:escape"
+XKBOPTIONS="caps:escape"
 curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/dotfiles/.config/keyboard 
 echo ""
 
@@ -77,26 +77,7 @@ echo ""
 # Mullvad & Wireguard
 sudo apt install mullvad
 
-#  Zsh install from source
-printf "\e[1;31m  Installing Zsh .\e[0m";
-git clone https://github.com/zsh-users/zsh.git
-cd zsh
-./configure --prefix=/usr/local/zsh
-make
-make install
 
-export PATH=$PATH:/usr/local/zsh/bin
-
-zsh --version
-
-echo ""
-
-#  Then change shell to zsh
-sudo tee -a /etc/shells <<EOF
-/bin/zsh
-EOF
-
-sudo chsh -s /usr/bin/zsh
 
 echo ""
 
@@ -108,14 +89,23 @@ echo ""
 
 # NeoVim dependencies & installatiottn
 # https://github.com/neovim/neovim/wiki/Building-Neovim#debian-10-buster-example
-printf "\e[1;31m  Installing NeoVim .\e[0m";
-sudo apt install compat-lua-libs libtermkey libtree-sitter libvterm luajit luajit2.1-luv msgpack unibilium xsel
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+sudo mv nvim.appomage /usr/local/bin/nvim
+echo ''
+which nvim
+
+
+
+# This method of building neovim from source might work
+#printf "\e[1;31m  Installing NeoVim .\e[0m";
+#sudo apt install compat-lua-libs libtermkey libtree-sitter libvterm luajit luajit2.1-luv msgpack unibilium xsel
 # git clone https://github.com/neovim/neovim
-wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
-tar xzvf nvim-linux64.tar.gz
-cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
-git checkout stable
-cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
+#wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
+#tar xzvf nvim-linux64.tar.gz
+#cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+#git checkout stable
+#cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 echo ""
 
 
@@ -166,5 +156,26 @@ chmod +x ggg
 chmod +x printawk
 echo ""
 
-printf "\e[1;31m  All done! .\e[0m";
+echo 'all done but the zsh znd chshell'
 echo ""
+
+#  Zsh install from source
+printf "\e[1;31m  Installing Zsh .\e[0m";
+git clone https://github.com/zsh-users/zsh.git
+cd zsh
+./configure --prefix=/usr/local/zsh
+make
+make install
+
+export PATH=$PATH:/usr/local/zsh/bin
+
+zsh --version
+
+echo ""
+
+#  Then change shell to zsh
+sudo tee -a /etc/shells <<EOF
+/bin/zsh
+EOF
+
+sudo chsh -s /usr/bin/zsh
