@@ -83,25 +83,7 @@ echo ""
 
 
 
-# NeoVim dependencies & installatiottn
-# https://github.com/neovim/neovim/wiki/Building-Neovim#debian-10-buster-example
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-chmod u+x nvim.appimage
-sudo mv nvim.appomage /usr/local/bin/nvim
-echo ''
-which nvim
 
-
-
-# This method of building neovim from source might work
-#printf "\e[1;31m  Installing NeoVim .\e[0m";
-#sudo apt install compat-lua-libs libtermkey libtree-sitter libvterm luajit luajit2.1-luv msgpack unibilium xsel
-# git clone https://github.com/neovim/neovim
-#wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
-#tar xzvf nvim-linux64.tar.gz
-#cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
-#git checkout stable
-#cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 echo ""
 
 
@@ -150,6 +132,8 @@ echo ""
 echo 'all done but the zsh znd chshell'
 echo ""
 
+
+
 #  Zsh install from source
 printf "\e[1;31m  Installing Zsh .\e[0m";
 git clone https://github.com/zsh-users/zsh.git
@@ -183,6 +167,23 @@ echo ''
 
 curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/.zshrc 
 
+# Install NeoVim
+# https://github.com/neovim/neovim/wiki/Building-Neovim#debian-10-buster-example
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+sudo mv nvim.appomage /usr/local/bin/nvim
+echo ''
+
+# This method of building neovim from source might work
+#printf "\e[1;31m  Installing NeoVim .\e[0m";
+#sudo apt install compat-lua-libs libtermkey libtree-sitter libvterm luajit luajit2.1-luv msgpack unibilium xsel
+# git clone https://github.com/neovim/neovim
+#wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
+#tar xzvf nvim-linux64.tar.gz
+#cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+#git checkout stable
+#cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
+
 # Install your neovim config
 # First delete and remove your current/previous neovim files and dirs.
 rm -rf ~/.config/nvim
@@ -190,4 +191,6 @@ rm -rf ~/.local/share/nvim
 git clone https://github.com/LinuxUser255/nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 
 echo 'type nvim, to open it and activate your config and lazyly install all plugins'
+echo ''
+echo 'done!'
 echo ''
