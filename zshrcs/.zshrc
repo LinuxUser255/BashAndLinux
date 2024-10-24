@@ -21,16 +21,16 @@ fast
 ZSH_THEME="jispwoso"
 # ZSH_THEME="robbyrussell" # <- the default one
 
-# Prompt config file color adjustment
+#------------- Custom Prompt & Colour Explained --------------------#
+
+# Prompt Config File Colour Customization:
 # Located at: /home/linux/.oh-my-zsh/themes
-# them name: jispwoso.zsh-theme
-
-#------------- Custom Prompt & colour explained --------------------#
-
+# Theme name: jispwoso.zsh-theme
+#
 # This config sets the user@machine prompt to red
 # And the PWD font to Cyan
 # 
-# local ret_status="%(?:%{$fg_bold[red]%}➜ :%{$fg_bold[red]%}➜ %s)" # that's the -> color
+# local ret_status="%(?:%{$fg_bold[red]%}➜ :%{$fg_bold[red]%}➜ %s)" 
 #
 # The PROMPT [color] defines the color of your linux@debian.   # this fg_bold defines the dir path
 # The PROMPT below makes linux@debion red and the pwd cyan. And the bit about the git prompt is for when you are in a git repo/dir
@@ -44,7 +44,7 @@ ZSH_THEME="jispwoso"
 # ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}) %{$fg[yellow]%}✗%{$reset_color%}" # <-- changed to red 
 # ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[red]%})" # <--changed to red
 
-# ------ End of prompt config colour customization ----------- #
+# ------ End of Prompt Config Colour Customization ----------- #
 
 #  update reminder zsh
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
