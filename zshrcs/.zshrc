@@ -8,42 +8,43 @@ remap
 # xset r rate 380 80
 fast
 
-# print sytem info like neofetch,but using one written in C instead
-# it's Blazingly Fast!!
-# easy install, build from source instructions here
+# Print sytem info like neofetch:
+# Very Fast. No lag time
+
+# Easy install, build from source instructions here:
 # https://github.com/fastfetch-cli/fastfetch/wiki/Building
+
 # uncomment fastfetch below if you want it to lauch with every new terminal
 # fastfetch
 
-## Set name of the theme to load --- if set to "random", it will
+# Set name of the oh-my-zsh theme to load --- if set to "random", it will launch random themes
 ZSH_THEME="jispwoso"
-#ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell" # <- the default one
 
-# And prompt config file color adjustment
+# Prompt config file color adjustment
 # Located at: /home/linux/.oh-my-zsh/themes
 # them name: jispwoso.zsh-theme
 
-#  
 #------------- Custom Prompt & colour explained --------------------#
 
 # This config sets the user@machine prompt to red
 # And the PWD font to Cyan
 # 
 # local ret_status="%(?:%{$fg_bold[red]%}➜ :%{$fg_bold[red]%}➜ %s)" # that's the -> color
-
+#
 # The PROMPT [color] defines the color of your linux@debian.   # this fg_bold defines the dir path
 # The PROMPT below makes linux@debion red and the pwd cyan. And the bit about the git prompt is for when you are in a git repo/dir
 # PROMPT=$'%{$fg[red]%}%n@%m: %{$reset_color%}%{$fg[cyan]%}%/ %{$reset_color%}%{$fg_bold[cyan]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}
-#${ret_status} %{$reset_color%} '
-
+# ${ret_status} %{$reset_color%} '
+#
 # PROMPT2="%{$fg_blod[black]%}%_> %{$reset_color%}"
-
+#
 # ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}" # <-- this has been changed to red also
 # ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 # ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}) %{$fg[yellow]%}✗%{$reset_color%}" # <-- changed to red 
 # ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[red]%})" # <--changed to red
 
-# ------ End of prompt config ----------- #
+# ------ End of prompt config colour customization ----------- #
 
 #  update reminder zsh
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
