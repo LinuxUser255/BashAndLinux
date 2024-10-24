@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# ! Remember that you will need to change the prompt color for your oh-my-zsh config ! #
+
 # Updates and packages install
 sudo apt update && sudo apt upgrade
 sudo apt install rip-grep
@@ -134,13 +136,15 @@ echo ""
 
 
 
-#  Zsh install from source
-printf "\e[1;31m  Installing Zsh .\e[0m";
-git clone https://github.com/zsh-users/zsh.git
-cd zsh
-./configure --prefix=/usr/local/zsh
-make
-make install
+#  Zsh install from source -- no this was a pain
+# just install it from the repos
+sudo apt install zsh
+# printf "\e[1;31m  Installing Zsh .\e[0m";
+# git clone https://github.com/zsh-users/zsh.git
+# cd zsh
+# ./configure --prefix=/usr/local/zsh
+# make
+# make install
 
 export PATH=$PATH:/usr/local/zsh/bin
 zsh --version
@@ -150,8 +154,11 @@ sudo tee -a /etc/shells <<EOF
 /bin/zsh
 EOF
 
+# and changing shells like this was kinda a pain too
+# there's a simpler way. I think it's on oh-my-zsh's website
 sudo chsh -s /usr/bin/zsh
 
+# ! Remember that you will need to change the prompt color for your oh-my-zsh config ! #
 # Install Oh-my-zsh & and import my .zshrc
 sudo mv zsh-5.9/zsh /usr/local/bin/zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
