@@ -32,8 +32,8 @@ echo
 # Detailed instructions found here: https://github.com/yt-dlp/yt-dlp/wiki/Installation
 
 # Install it like this:
-# curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o ~/.local/bin/yt-dlp
-# chmod a+rx ~/.local/bin/yt-dlp  # Make executable
+curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o ~/.local/bin/yt-dlp
+chmod a+rx ~/.local/bin/yt-dlp  # Make executable
 
 # Upon running this command, you may get an error saying that .local/bin does not exist, if so, then make that directory path.
 # run the curl command again 
@@ -83,12 +83,28 @@ echo ''
 
 #  Zsh install from source
 printf "\e[1;31m  Installing Zsh .\e[0m";
-wget -c https://sourceforge.net/projects/zsh/files/latest/download/zsh-5.9.tar.xz
-tar xf zsh-5.9.tar.xz
+git clone https://github.com/zsh-users/zsh.git
+cd zsh
+./configure --prefix=/usr/local/zsh
+make
+make install
+
+export PATH=$PATH:/usr/local/zsh/bin
+
+zsh --version
+
 echo ""
 
 #  Then change shell to zsh
-printf "\e[1;31m  Changing shell to Zsh .\e[0m";
+sudo tee -a /etc/shells <<EOF
+/bin/zsh
+EOF
+
+sudo chsh -s /bin/zsh
+
+
+
+
 sudo mv zsh-5.9/zsh /usr/local/bin/zsh
 sudo ln -s /usr/local/bin/zsh /usr/bin/zsh
 sudo ln -s /usr/local/bin/zsh /usr/local/bin/zsh
@@ -96,7 +112,6 @@ chsh -s /usr/bin/zsh $USER
 echo ""
 
 # Install Oh-my-zsh & and import my .zshrc
-printf "\e[1;31m  Installing Oh-My-Zsh .\e[0m";
 sudo mv zsh-5.9/zsh /usr/local/bin/zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/.zshrc -o .zshrc
@@ -114,53 +129,15 @@ git checkout stable
 cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 echo ""
 
-# NvChad
-printf "\e[1;31m  Installing NvChad .\e[0m";
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
-echo ""
 
-# Install rust
-printf "\e[1;31m  Installing Rust .\e[0m";
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-source ~/.cargo/env
-rustc -v
-echo ""
-#mkdir ~/rust-projects
-#cd rust-projects && touch helloworld.rs
-#echo 'fn main() { println!("Hello, world!"); }' > helloworld.rs
-##rustc helloworld.rs
-#./helloworld
+# Install Alacritty from your script
+curl -LO https://raw.githubusercontent.com/LinuxUser255/alacritty/master/scripts/alacritty_install.sh
+sh alacritty_install.sh
 
-# Install Alacritty
-printf "\e[1;31m  Installing alacritty 1) Proceed with installation.\e[0m";
-sudo apt install pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-echo ""
 
-source $HOME/.cargo/env
-rustup override set stable
-rustup update stable
-git clone https://github.com/alacritty/alacritty.git
-cd alacritty
-cargo build --release
-echo ""
 
-# command should run without any errors, otherwise install it globally as below
-printf "\e[1;31m Running infocmp command, if errors, then run it globally .\e[0m";
-infocmp alacritty
-sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
-echo ""
 
-# create Alacritty desktop entry then get the man pages for Alacritty
-printf "\e[1;31m Creating an Alacritty desktop entry .\e[0m";
-sudo cp target/release/alacritty /usr/local/bin/alacritty
-sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
-sudo desktop-file-install extra/linux/Alacritty.desktop
-sudo update-desktop-database
-sudo mkdir -p /usr/local/share/man/man1
-gzip -c extra/alacritty.man | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
-gzip -c extra/alacritty-msg.man | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz > /dev/null
-echo ""
+
 
 # get shell completions
 printf "\e[1;31m  Getting shell completion.\e[0m";
@@ -177,36 +154,31 @@ curl -Ls https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.local/b
 echo ''
 #  shortcut scripts
 printf "\e[1;31m  Installing custom shortcut scripts \e[0m";
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/.zshrc -o ~/.zshrc
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Useful_Scripts/file_create.sh -o ~/usr/bin/file_create
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Useful_Scripts/red -o ~/usr/bin/red
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/Useful_Scripts/remap -o ~/usr/bin/remap
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/fff -o ~/usr/bin/
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/fastgrep -o ~/usr/bin/fastgrep
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/ggg -o ~/usr/bin/ggg
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/new -o ~/usr/bin/new
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/nvchadusage.sh -o ~/usr/bin/nvchadusage
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/printawk -o ~/usr/bin/printawk
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/printawk -o ~/usr/bin/printawk
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/py -o ~/usr/bin/py
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/tarcmds -o ~/usr/bin/tarcmds
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/xfh -o ~/usr/bin/xfh
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/cookiemonster -o ~/usr/bin/cookiemonster
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/cookiesteal.txt -o ~/usr/bin/cookiesteal.txt
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/.zshrc 
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Useful_Scripts/file_create.sh 
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Useful_Scripts/red 
+curl -LO https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/Useful_Scripts/remap 
+curl -LO https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/fff 
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/fastgrep 
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/ggg 
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/UsrBin/new 
+
+curl -LO https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/printawk 
+curl -LO https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/py 
+curl -LO https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/UsrBin/tarcmds 
+
 echo ""
 
 # make  curled scripts above executable chmod +x
 printf "\e[1;31m  Making shortcut scripts executable \e[0m";
 curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/.zshrc -o ~/.zshrc
-chmod +x ~/usr/bin/file_create
-chmod +x ~/usr/bin/red
-chmod +x ~/usr/bin/remap
-chmod +x ~/usr/bin/fff
-chmod +x ~/usr/bin/fastgrep
-chmod +x ~/usr/bin/ggg
-chmod +x ~/usr/bin/new
-chmod +x ~/usr/bin/nvchadusage
-chmod +x ~/usr/bin/printawk
+chmod +x file_create.sh 
+chmod +x red
+chmod +x remap
+chmod +x fff
+chmod +x fastgrep
+chmod +x ggg
+chmod +x printawk
 echo ""
 
 printf "\e[1;31m  All done! .\e[0m";
