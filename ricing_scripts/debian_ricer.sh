@@ -159,10 +159,7 @@ make
 make install
 
 export PATH=$PATH:/usr/local/zsh/bin
-
 zsh --version
-
-echo ""
 
 #  Then change shell to zsh
 sudo tee -a /etc/shells <<EOF
@@ -190,7 +187,7 @@ curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/.zshrc
 # First delete and remove your current/previous neovim files and dirs.
 rm -rf ~/.config/nvim
 rm -rf ~/.local/share/nvim
-
 git clone https://github.com/LinuxUser255/nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 
-nvim
+echo 'type nvim, to open it and activate your config and lazyly install all plugins'
+echo ''
