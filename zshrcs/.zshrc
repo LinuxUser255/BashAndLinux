@@ -5,16 +5,45 @@ export ZSH="$HOME/.oh-my-zsh"
 remap
 
 # Speed up the cursor & scrolling system wide
-# xset r rate 380 80' 
+# xset r rate 380 80
 fast
 
 # print sytem info like neofetch,but using one written in C instead
 # it's Blazingly Fast!!
-fastfetch
+# easy install, build from source instructions here
+# https://github.com/fastfetch-cli/fastfetch/wiki/Building
+# uncomment fastfetch below if you want it to lauch with every new terminal
+# fastfetch
 
 ## Set name of the theme to load --- if set to "random", it will
 ZSH_THEME="jispwoso"
 #ZSH_THEME="robbyrussell"
+
+# And prompt config file color adjustment
+# Located at: /home/linux/.oh-my-zsh/themes
+# them name: jispwoso.zsh-theme
+
+#  
+#------------- Custom Prompt & colour explained --------------------#
+
+# This config sits the user@machine prompt to red
+# And the PWD font to Cyan
+# 
+# local ret_status="%(?:%{$fg_bold[red]%}➜ :%{$fg_bold[red]%}➜ %s)" # that's the -> color
+
+# The PROMPT [color] defines the color of your linux@debian.   # this fg_bold defines the dir path
+# The PROMPT below makes linux@debion red and the pwd cyan. And the bit about the git prompt is for when you are in a git repo/dir
+# PROMPT=$'%{$fg[red]%}%n@%m: %{$reset_color%}%{$fg[cyan]%}%/ %{$reset_color%}%{$fg_bold[cyan]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}
+#${ret_status} %{$reset_color%} '
+
+# PROMPT2="%{$fg_blod[black]%}%_> %{$reset_color%}"
+
+# ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}" # <-- this has been changed to red also
+# ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+# ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}) %{$fg[yellow]%}✗%{$reset_color%}" # <-- changed to red 
+# ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[red]%})" # <--changed to red
+
+# ------ End of prompt config ----------- #
 
 #  update reminder zsh
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
@@ -188,28 +217,33 @@ alias phpstorm='sh /opt/JetBrainsIDEs-All/PhpStorm-231.9011.38/bin/.phpstorm.sh'
 
 # Template for creating more aliases
 # alias cmd=' '
-# alias cmd=' '
 
-# Software  Added to Path
+
+#----- PATH additions ------------------------ #
+
+# Uncomment the ones you download/install, otherwise leave all commented out to prevent mishaps
+# I'v left only the zsh-syntax-highlighting uncommented. That's all you need at first.
+
 # Postman to PATH
-export PATH="$PATH:/usr/bin/Postman"
+# export PATH="$PATH:/usr/bin/Postman"
 
 # Go Lang  Env to path
-export GOPATH=$HOME/go
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+# export GOPATH=$HOME/go
+# export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 # pip to path
-export PATH=$PATH:/home/linux/.local/bin
+# export PATH=$PATH:/home/linux/.local/bin
 
-PATH="$HOME/graudit:${PATH:+:${PATH}}"; export PATH;
-export GRDIR=/path/to/graudit/signatures
+# PATH="$HOME/graudit:${PATH:+:${PATH}}"; export PATH;
+# export GRDIR=/path/to/graudit/signatures
 
 # tree sitter cli thing
-export PATH=$PATH:./node_modules/.bin
+# export PATH=$PATH:./node_modules/.bin
+
+# source /lfbundle/lfbundle.zshrc
+# fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 # Source Zsh Syntax highlighting
 source /home/linux/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 #--- end ---#
-# source /lfbundle/lfbundle.zshrc
-fpath+=${ZDOTDIR:-~}/.zsh_functions
+
