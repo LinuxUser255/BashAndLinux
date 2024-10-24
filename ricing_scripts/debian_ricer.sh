@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Updates and packages install
-sudo apt update; sudo apt upgrade
+sudo apt update && sudo apt upgrade
 sudo apt install rip-grep
 sudo apt install git python3-pip exuberant-ctags ack-grep
 sudo apt install curl build-essential gcc make
