@@ -52,7 +52,7 @@ echo ""
 # set this system wide with the following line in /etc/default/keyboard:
   #
 #XKBOPTIONS="caps:escape"
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/dotfiles/.config/keyboard -o ~/etc/default/keyboard
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/dotfiles/.config/keyboard 
 echo ""
 
 # Brave Browser
@@ -75,11 +75,7 @@ sudo apt update && sudo apt install signal-desktop
 echo ""
 
 # Mullvad & Wireguard
-printf "\e[1;31m  Installing Mullvad and Wireguard .\e[0m";
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/Mullvad_Wireguard/master/install.sh -o ~/Downloads/Mullvad_Wireguard
-# run installer.sh
-sh ~/Downloads/Mullvad_Wireguard/installer.sh
-echo ''
+sudo apt install mullvad
 
 #  Zsh install from source
 printf "\e[1;31m  Installing Zsh .\e[0m";
@@ -100,15 +96,8 @@ sudo tee -a /etc/shells <<EOF
 /bin/zsh
 EOF
 
-sudo chsh -s /bin/zsh
+sudo chsh -s /usr/bin/zsh
 
-
-
-
-sudo mv zsh-5.9/zsh /usr/local/bin/zsh
-sudo ln -s /usr/local/bin/zsh /usr/bin/zsh
-sudo ln -s /usr/local/bin/zsh /usr/local/bin/zsh
-chsh -s /usr/bin/zsh $USER
 echo ""
 
 # Install Oh-my-zsh & and import my .zshrc
@@ -133,10 +122,6 @@ echo ""
 # Install Alacritty from your script
 curl -LO https://raw.githubusercontent.com/LinuxUser255/alacritty/master/scripts/alacritty_install.sh
 sh alacritty_install.sh
-
-
-
-
 
 
 # get shell completions
