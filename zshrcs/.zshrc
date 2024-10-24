@@ -26,7 +26,7 @@ ZSH_THEME="jispwoso"
 #  
 #------------- Custom Prompt & colour explained --------------------#
 
-# This config sits the user@machine prompt to red
+# This config sets the user@machine prompt to red
 # And the PWD font to Cyan
 # 
 # local ret_status="%(?:%{$fg_bold[red]%}➜ :%{$fg_bold[red]%}➜ %s)" # that's the -> color
