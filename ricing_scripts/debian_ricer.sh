@@ -81,11 +81,7 @@ sudo apt install mullvad
 
 echo ""
 
-# Install Oh-my-zsh & and import my .zshrc
-sudo mv zsh-5.9/zsh /usr/local/bin/zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/.zshrc -o .zshrc
-echo ""
+
 
 # NeoVim dependencies & installatiottn
 # https://github.com/neovim/neovim/wiki/Building-Neovim#debian-10-buster-example
@@ -114,22 +110,17 @@ curl -LO https://raw.githubusercontent.com/LinuxUser255/alacritty/master/scripts
 sh alacritty_install.sh
 
 
-# get shell completions
-printf "\e[1;31m  Getting shell completion.\e[0m";
-mkdir -p ${ZDOTDIR:-~}/.zsh_functions
-echo 'fpath+=${ZDOTDIR:-~}/.zsh_functions' >> ${ZDOTDIR:-~}/.zshrc
-cp extra/completions/_alacritty ${ZDOTDIR:-~}/.zsh_functions/_alacritty
-echo ''
+
 
 # dotfiles & rc files & remaps
 printf "\e[1;31m  Installing dotfiles and rc files \e[0m";
-curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/.zshrc -o ~/.zshrc
-curl  -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/dotfiles/alacritty/alacritty.yml -o ~/alacritty/alacritty.yml
-curl -Ls https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.local/bin/remaps -o ~/usr/bin/remaps
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/.zshrc 
+curl -LO https://raw.githubusercontent.com/LinuxUser255/alacritty/master/alacritty_config/alacritty.toml
+curl -LO https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.local/bin/remaps -o ~/usr/bin/remaps
 echo ''
 #  shortcut scripts
 printf "\e[1;31m  Installing custom shortcut scripts \e[0m";
-curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/.zshrc 
+
 curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Useful_Scripts/file_create.sh 
 curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/Useful_Scripts/red 
 curl -LO https://raw.githubusercontent.com/LinuxUser255/Bash/AndLinux/main/Useful_Scripts/remap 
@@ -179,3 +170,27 @@ sudo tee -a /etc/shells <<EOF
 EOF
 
 sudo chsh -s /usr/bin/zsh
+
+# Install Oh-my-zsh & and import my .zshrc
+sudo mv zsh-5.9/zsh /usr/local/bin/zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+curl -Ls https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/.zshrc -o .zshrc
+echo ""
+
+# get shell completions
+printf "\e[1;31m  Getting shell completion.\e[0m";
+mkdir -p ${ZDOTDIR:-~}/.zsh_functions
+echo 'fpath+=${ZDOTDIR:-~}/.zsh_functions' >> ${ZDOTDIR:-~}/.zshrc
+cp extra/completions/_alacritty ${ZDOTDIR:-~}/.zsh_functions/_alacritty
+echo ''
+
+curl -LO https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/main/.zshrc 
+
+# Install your neovim config
+# First delete and remove your current/previous neovim files and dirs.
+rm -rf ~/.config/nvim
+rm -rf ~/.local/share/nvim
+
+git clone https://github.com/LinuxUser255/nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+
+nvim
