@@ -24,6 +24,7 @@ sudo apt install neofetch
 sudo apt install mpv
 sudo apt install kdenlive
 sudo apt install gimp
+sudo apt install texlive-full
 
 echo ''
 echo 'Learn the best way to install yt-dlp by reading the commented instructions and info in this script'
