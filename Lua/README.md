@@ -1,1 +1,3 @@
-<https://nvchad.com/quickstart/learn-lua>
+
+https://nvchad.com/docs/quickstart/learn-lua
+
