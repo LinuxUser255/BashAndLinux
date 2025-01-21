@@ -2,6 +2,12 @@
 #include <stdlib.h>
 #include <ctype.h>
 
+// Model URLs
+// https://ollama.com/library/codellama
+// https://ollama.com/library/starcoder2
+// https://ollama.com/library/codegemma
+// https://ollama.com/library/deepseek-coder-v2
+
 int main() {
     // Print a menu
     printf("Select an Ollama Model to run.\n\n");
