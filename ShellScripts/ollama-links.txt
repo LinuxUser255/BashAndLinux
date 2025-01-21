@@ -1,0 +1,20 @@
+
+# Model urls
+
+# Ollama Github
+https://github.com/ollama/ollama
+
+# Codellama, Starcoder2 & codegame
+https://ollama.com/library/codellama
+https://ollama.com/library/starcoder2
+https://ollama.com/library/codegemma
+
+# Deepseekl coder V2
+https://ollama.com/library/deepseek-coder-v2
+
+# Deepseek coder V2 - Lite
+https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct
+
+# Deepseek V3
+https://github.com/deepseek-ai/DeepSeek-V3/tree/main
+https://github.com/deepseek-ai/DeepSeek-Coder-V2/tree/main
