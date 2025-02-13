@@ -1,83 +1,117 @@
 #!/usr/bin/env bash
 
 # Instantly Create & chmod a new file type of your choosing.
-# In this example you can create a Python, Bash, Go, .txt or .md
-# Give it a short and easy to type new name, and remove the .sh extension
-# I named mine terp, as in, auto create & tell the interpreter what I want.
-# Then move it to /usr/bin
+# This script allows you to create Python, Shell, Go, txt, Markdown, Flask, C++, or C files.
+# The file is created, optionally populated with boilerplate, made executable (if needed), and opened in NeoVim.
 
-# It works like this:
-# 1. The file is created via the touch command
-# 2. The the interpreter is assigned the enviroment to use. For example: #!/usr/bin/env python3 for Python3.
-# 3. The script is given executable privilages
-# 4. Then it is automatically opend in Vim and ready for writing
+echo -e "Select a file type to create: \n1 = Python\n2 = Shell Script\n3 = Go\n4 = txt\n5 = Markdown\n6 = Flask\n7 = C++\n8 = C"
+read -r sel
 
+echo "Enter the file name (without extension): "
+read -r NAME
 
-# Create either a Python, Bash, Go, .txt file or a markdown doc & open it with NeoVim
-echo -e "Select a filetype to create: Python, Bash, Go, txt, or md: \n1 = Python\n2 = Bash\n3 = Go\n4 = txt\n5 = Markdown Doc File"
-read sel
+case $sel in
+    1)  # Python script
+        touch "$NAME.py"
+        cat <<EOF > "$NAME.py"
+#!/usr/bin/env python3
 
+def main():
+    # Main function code here
+    pass
 
-# 1. Crete a Python file/script
-if [[ $sel -eq 1 ]];
-then
-    echo "Name the Python script: "
-    read NAME
-touch $NAME.py
-echo "#!/usr/bin/env python3" > $NAME.py
-chmod +x $NAME.py
-nvim $NAME.py
+if __name__ == "__main__":
+    main()
+EOF
+        chmod +x "$NAME.py"
+        nvim "$NAME.py"
+        ;;
 
+    2)  # Shell script
+        touch "$NAME.sh"
+        echo "#!/usr/bin/env bash" > "$NAME.sh"
+        chmod +x "$NAME.sh"
+        nvim "$NAME.sh"
+        ;;
 
-# 2. Create a Bash Script
-elif [[ $sel -eq 2 ]];
-then
-    echo "Name the Bash script: "
-    read NAME
-touch $NAME.sh
-echo "#!/bin/bash" > $NAME.sh
-chmod 755 $NAME.sh
-nvim $NAME.sh
+    3)  # Go file
+        touch "$NAME.go"
+        cat <<EOF > "$NAME.go"
+package main
 
+import "fmt"
 
-# 3. Create a .Go file
-elif [[ $sel -eq 3 ]];
-then
-    echo "Name the Go script: "
-    read NAME
+func main() {
+    fmt.Println("Hello, World!")
+}
+EOF
+        nvim "$NAME.go"
+        ;;
 
-touch $NAME.go
-echo "package main" > $NAME.go
-echo "" >> $NAME.go
-echo 'import "fmt"' >> $NAME.go
-echo "" >> $NAME.go
-echo "func main(){" >> $NAME.go
-echo "// put code here" >> $NAME.go
-echo "" >> $NAME.go
-echo "}" >> $NAME.go
-echo "" >> $NAME.go
-echo "" >> $NAME.go
-nvim $NAME.go
+    4)  # Text file
+        touch "$NAME.txt"
+        echo "# Title" > "$NAME.txt"
+        nvim "$NAME.txt"
+        ;;
 
+    5)  # Markdown file
+        touch "$NAME.md"
+        echo "# Title" > "$NAME.md"
+        nvim "$NAME.md"
+        ;;
 
-# 4. Create a .txt file
-elif [[ $sel -eq 4 ]];
-then
-    echo "Name the text file: "
-    read NAME
-touch $NAME.txt
-echo "# Title" > $NAME.txt
-nvim $NAME.txt
+    6)  # Flask Python script
+        touch "$NAME.py"
+        cat <<EOF > "$NAME.py"
+#!/usr/bin/env python3
 
+from flask import Flask
 
-# 5. Create a Markdown Documentation file
-elif [[ $sel -eq 5 ]];
-then
-    echo "Name the Markdown Doc file: "
-    read NAME
-touch $NAME.md
-echo "# Title" > $NAME.md
-nvim $NAME.md
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return 'Home'
+
+if __name__ == '__main__':
+    app.run()
+EOF
+        chmod +x "$NAME.py"
+        nvim "$NAME.py"
+        ;;
+
+    7)  # C++ file
+        touch "$NAME.cpp"
+        cat <<EOF > "$NAME.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    cout << "Hello, World!" << endl;
+    return 0;
+}
+EOF
+        nvim "$NAME.cpp"
+        ;;
+
+    8)  # C file
+        touch "$NAME.c"
+        cat <<EOF > "$NAME.c"
+#include <stdio.h>
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
+EOF
+        nvim "$NAME.c"
+        ;;
+
+    *)  # Invalid selection
+        echo "Invalid selection. Please choose a number between 1 and 8."
+        exit 1
+        ;;
+esac
 
 exit 0
-fi
