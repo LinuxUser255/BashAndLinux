@@ -37,3 +37,43 @@ git push origin master
 
 # And your code should now be up on github
 ```
+<br>
+
+### Some errors you might encounter
+```bash
+
+➜   git push
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+```
+<br>
+
+### Solution: use the `--set-upstream` flag
+**Then enter your login creds to complete it**
+```bash
+
+➜   git push --set-upstream origin master
+Username for 'https://github.com': your_username_here
+Password for 'https://linux@github.com': 
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 24 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 46.30 KiB | 23.15 MiB/s, done.
+Total 7 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/LinuxUser255/ReactFast.git
+   6d3c5f3..f5ec179  master -> master
+branch 'master' set up to track 'origin/master'.
+
+```
+
+
+
+
+
