@@ -1,18 +1,25 @@
-# GrapheneOS - A High-level Overview 
+## GrapheneOS - A High-level Overview 
 
-This is the second iteration of my original GrapheneOS review.
+<br>
 
-### Table of Contents
----
+**By Chris Bingham**
+
 <br>
 
 
-**Introduction**
+### __Table of Contents__
+---
+
+<br>
+
+
 #### 1. Hardware
 - The Titan M Series Chip
+
 #### 2. Resisting Persistence
 - Boot Flow
 - Attestation
+
 #### 3. Security Hardening
 - GrapheneOS Security Practices
 - Defense in Depth
@@ -90,10 +97,10 @@ This makes it more difficult for the creation of custom firmware that could be u
 
 <br>
 
-### Part Two: Resisting Persistence
+### __Part Two: Resisting Persistence__
 ---
 
-### [Verified Boot](https://source.android.com/docs/security/features/verifiedboot/boot-flow)
+#### [Verified Boot](https://source.android.com/docs/security/features/verifiedboot/boot-flow)
 
 **Android's Boot Flow: There are four different states of integrity**
 
@@ -124,7 +131,7 @@ This implements a Trust On First Use Model. This is accomplished via the device 
 
 <br>
 
-### Part 3: Security Hardening of the Android Operating System
+#### __Part 3: Security Hardening of the Android Operating System__
 ---
 
 **GrapheneOS Security Practice Philosophy**
@@ -146,17 +153,19 @@ Here are a few quotes taken from their page on exploit protection features.**
 
 <br>
 
-### [Defense in Depth ](https://csrc.nist.gov/glossary/term/defense_in_depth) 
+### __[Defense in Depth ](https://csrc.nist.gov/glossary/term/defense_in_depth)__ 
 This is at the core of [GrapheneOS Security](https://grapheneos.org/features#exploit-protection)
  for defending against Zero Day Exploits.  First, let's take a high-level overview of The Android Operating System and see what the developers at GrapheneOS do differently.
 #### The Android Software Stack and  Platform architecture
 
-![Android_Arcnitecture_Overview](https://github.com/LinuxUser255/BashAndLinux/assets/46334926/50e39637-e2b7-4ce4-8fd3-c79a48081039)
+**![Android_Arcnitecture_Overview](https://github.com/LinuxUser255/BashAndLinux/assets/46334926/50e39637-e2b7-4ce4-8fd3-c79a48081039)**
 
 
 
-#### Contents of each layer
-Take note of the purple section - _Native C/C++ Libraries_, this will come up later in this review.
+#### __Contents of each layer__
+Take note of the purple section - _Native C/C++ Libraries_, 
+
+this will come up later in this review.
 
 
 ![Android_Platform_Arch](https://github.com/LinuxUser255/BashAndLinux/assets/46334926/b849e420-99ae-4a1c-8b7e-5e91c7bbec8a)
@@ -166,7 +175,7 @@ Take note of the purple section - _Native C/C++ Libraries_, this will come up la
 
 <br>
 
-## [Android's Application Sandbox](https://source.android.com/docs/security/app-sandbox) and the three permission mechanisms that enforce it.
+#### __[Android's Application Sandbox](https://source.android.com/docs/security/app-sandbox) and the three permission mechanisms that enforce it.__
 
 **Android's sandbox, via implementation of the [SELinux](https://source.android.com/docs/security/features/selinux/concepts) policy.**
 
@@ -180,6 +189,7 @@ Apps run in their own instance in a [Dalvik Virtual Machine](https://source.andr
 Android Runtime.They are granted a dedicated separate space to store their data that
 other apps cannot access by default. Therefore, [If app A, needs to communicate with app B,then both apps must consent to the action](https://source.android.com/docs/security/app-sandbox). This consent enforcement is done by the Linux Kernel. Apps can also share access to their resources with other apps by passing a handle to the resource through Inter Process Communication (IPC). However, if an app is running with root user privileges, it can bypass these
 permissions, although there may still be some restrictions imposed by Mandatory Access Control (MAC) policies.
+
 
 2. **[Mandatory Access Control (MAC):](https://source.android.com/docs/security/features/selinux/concepts)**
 This is the second layer of sandboxing. 
@@ -195,12 +205,13 @@ detailed level of security.  This makes it more difficult for remote exploits to
 advantage of system process or access user data. This is because it would have to 
 bypass SELinux in the Kernel.
 
+
 3. **[Android permissions](https://source.android.com/docs/core/permissions)**
 Android permissions are like special permissions that control what different apps on your phone can do. These permissions include things like accessing your location or using your camera. Each permission is assigned to a unique ID (UID), and apps can grant access to specific pieces of data they manage. The enforcement of these permissions is mostly handled by the app or service providing the data, although there are some exceptions, like internet access, which is handled differently. These permissions are set up in an app's settings file called AndroidManifest.xml and are the main way users see and control what their apps can do.
 
 <br>
 
-### Grapene's Security hardening of SELinux
+#### __Grapene's Security hardening of SELinux__
 **In what way does GrapheneOS enhance the security of SELinux?**
 They split the [trusted, and untrusted app domains](https://github.com/GrapheneOS/platform_system_sepolicy/blob/14/README.apps.md)
 
@@ -230,7 +241,7 @@ Code snippets: `untrusted_app.te` from the `platform_system_policy` repository
 
 
 
-#### [Android Permissions categories](https://arxiv.org/pdf/1904.05572 ) and Graphene's improvements
+#### __[Android Permissions categories](https://arxiv.org/pdf/1904.05572 ) and Graphene's improvements__
 Android permissions's five categories of consent: pg 20
 1.  Audit-only / Install time permissions
 2.  Runtime permissions 
@@ -266,7 +277,7 @@ which leads to the third part of this review.
 <br>
 
 
-## What about memory unsafe languages? C/C++
+### __What about memory unsafe languages? C/C++__
 ### [Hardened Malloc](https://github.com/GrapheneOS/hardened_malloc)
 **Synopsis**
 Hardened malloc is Graphene's custom memory allocator. And is one of the most significant security features offered. The aim of which is preventing memory corruption vulnerabilities.  One of Hardened Malloc's main features is protection against heap corruption vulnerabilities. Another benefit of Hardened Malloc,  is  efficient memory management. It is scale-able by way of a configurable number of independent areas, and the internal locking is within areas that are further divided up in a per size class.
@@ -325,28 +336,40 @@ On Android-based operating systems, GrapheneOS's hardened_malloc is integrated i
 
 * Hardened Malloc is Exclusive to 64-bit platforms.
 
+
+
 * This enables taking full advantage of the abundant address space, thus eliminating
    the design constraints of 32-bit architecture.
+
+
 
 * The mutable allocator state is located solely within a dedicated metadata region.
    This design approach is for slab allocation, both large and small.
 
+
+
 * The result is reliable, deterministic protections against invalid free.
    Including: double frees, and  metadata protection from attackers.
+
 
 * Traditional allocator exploit techniques do not work with the implementation
    of hardened_malloc
 
+
 *  Small allocations are always located in a large memory regions.
+
 
 * Once the memory is freed, it is possible to determine that an allocation is one of the
    small size classes from the address range.
 
+
 * If arenas are enabled, the arena is also determined from the address range, as each
    arena has a dedicated sub-region in the slab allocation.
 
+
 * Arenas provide complete independent slab allocators with their own allocator state.
    There is no coordination between them.
+
 
 * Regarding the base region and its relation to the size class.
    This is the part of the allocated slab that has no enabled arenas.
@@ -354,62 +377,80 @@ On Android-based operating systems, GrapheneOS's hardened_malloc is integrated i
    The base region is determined first, then the size class.
    Each size class is then divided into a per-sub-region.
 
+
 * There's a top level slab allocation region, divided up into arenas,
    with each of those divided up into size class regions.
 
+
 * The size class regions each have a random base within a large guard region.
+
 
 * Once the size class is determined, the slab size is known, and the index of the slab
    is calculated and used to obtain the slab metadata for the slab from the
    slab metadata array.
 
+
 * Finally, the index of the slot within the slab provides the index of the bit tracking
    the slot in the bitmap.
+
 
 * Every slab allocation slot has a dedicated bit in a bitmap tracking
    whether it's free, along with a separate bitmap for tracking allocations in the
    quarantine.
 
+
 * The slab metadata entries, in the array have intrusive lists threaded throughout
    them. This is to track partial, empty, and free slabs.
+
 
 * Empty slabs have a limited amount of cached free memory.
    Free slabs are purged / memory protected.
 
+
 * Large allocations are tracked via a global hash table mapping their address to
    their size and random guard size.
 
+
 * These are memory mappings that are eventually mapped on allocation, then
    unmapped on free.
+
 
 * Slab allocations are statically reserved. and thus, large allocations are the
    only dynamic memory mappings made by the allocator.
    This also applies to the allocation of large and small metadata.
 
+
 * With regards to software development, this memory allocator is intented for
    production use. And not for aiding with finding and fixing of
    memory corruption bugs.
+
 
 * It does find many latent bugs.
    However, it does not include features such as:
    the option of generating and storing stack traces per allocation, the allocation site
    or their related error messages.
 
+
 * As mentioned in the introduction, The design choices are based around minimizing overhead and and maximizing security. This often leads to designs that do not include a debugging tool.
+
 
 * For example, zero-based sanitization on free are used,
    It doe not minimize slack space from size class rounding between the end of an
    allocation, and the canary / guard region.
 
+
 * While Zero-based filling has the least chance of uncovering latent bugs,
    it does have the best chance of mitigating vulnerabilities.
+
 
 * The canary feature is primarily intended to act as padding.
    Meaning, it absorbs small overflows,  rendering them harmless.
    Therefore, slack space is helpful, despite not detecting the corruption on free.
 
+
 * The canary needs detection on free in order to have any hope of stopping other kinds of
    issues like a sequential overflow, which is why it's included.
+
 
 * It's assumed that an attacker can figure out the allocator is in use,
   so the focus is explicitly not on detecting bugs that are impossible to exploit with it in use
@@ -434,10 +475,11 @@ Code snippet from `h_malloc.c`, defining Slab Quarantine
 ### Sources:
 ---
 
-#### Hardware
+#### __Hardware__
 - [Titan M2](https://www.androidauthority.com/titan-m2-google-3261547/)
 - [Google Pixel](https://safety.google/intl/en_us/pixel/)
-#### Android
+
+#### __Android__
 - [Android Open Source Project](https://source.android.com/)
 - [Security Overview](https://source.android.com/docs/security/overview)
 - [OS Platform](https://developer.android.com/guide/platform)
@@ -451,7 +493,8 @@ Code snippet from `h_malloc.c`, defining Slab Quarantine
 - [Authentication](https://source.android.com/docs/security/features/authentication)
 - [Boot-Flow](https://source.android.com/docs/security/features/verifiedboot/boot-flow)
 - [SELinux Concepts](https://source.android.com/docs/security/features/selinux/concepts)
-#### GrapheneOS
+
+#### __GrapheneOS__
 - [GrapheneOS Home Page](https://grapheneos.org/)
 - [FAQ](https://grapheneos.org/faq)
 - [Source Code](https://github.com/GrapheneOS)
@@ -465,12 +508,13 @@ Code snippet from `h_malloc.c`, defining Slab Quarantine
 - [The glibc(GNU C Library) manual](https://sourceware.org/glibc/manual/)
 - [Official Documentation: musl libc](https://musl.libc.org/)
 - [musl source code](https://github.com/bminor/musl)
-### Noteworthy Android apps
+
+### __Noteworthy Android apps__
 - [F-Droid](https://f-droid.org/)
 - [Aurora Store](https://github.com/ArielOSProject/AuroraStore)
 - [New Pipe](https://github.com/TeamNewPipe/NewPipe/)
 
-#### References from The Android Platform Security Model *
+#### __References from The Android Platform Security Model__
 https://arxiv.org/pdf/1904.05572 
 
 pg 17, 4.3
