@@ -6,6 +6,8 @@
  *
  * This program allocates memory for an array of 10 integers,
  * fills the array with square values, prints the array elements,
+ * Array elements
+ * 0 1 4 9 16 25 36 49 64 81
  * and then frees the allocated memory.
  *
  * @param void No input parameters
