@@ -276,38 +276,10 @@ It currently supports [Bionic (Android)](https://android.googlesource.com/platfo
 <br>
 
 **Let's first examine a basic example of memory allocation in C**
-```c
-#include <stdio.h>
-#include <stdlib.h>
 
-int main() {
-    // Allocate memory for an array of 10 integers
-    int *arr = (int *)malloc(10 * sizeof(int));
-    
-    // Check if the memory allocation was successful
-    if (arr == NULL) {
-        fprintf(stderr, "Memory allocation failed\n");
-        return 1;
-    }
+![Malloc_Basic_Documented](https://github.com/user-attachments/assets/a9b6bec9-cb7a-497b-a493-554cf86273e6)
 
-    // Initialize and Use the allocated memory
-    for (int i = 0; i < 10; ++i) {
-        arr[i] = i * i; // Storing squares of indices in the array
-    }
 
-    // Print the values stored in the array
-    printf("Array elements:\n");
-    for (int i = 0; i < 10; ++i) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-
-    // Deallocate, or "free" the memory
-    free(arr);
-
-    return 0;
-}
-```
 
 <br>
 
@@ -500,7 +472,11 @@ Code snippet from `h_malloc.c`, defining Slab Quarantine
 
 #### References from The Android Platform Security Model *
 https://arxiv.org/pdf/1904.05572 
+
 pg 17, 4.3
+
 pg 18, 4.3.1
+
 pg 19, 4.3.2
+
 pg 20 & 21, 4.3.1
