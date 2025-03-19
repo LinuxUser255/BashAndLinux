@@ -1,5 +1,5 @@
 
-#  To push a New code-base/local repo to github
+# Some basic git commands
 
 1. in the root of the code base dir
 do `git init`
@@ -22,7 +22,7 @@ then
 
 ```shell
 
-/TheCodeBase
+# Run these cmds in the root of the master or main branch
 
 git init
 
