@@ -22,6 +22,32 @@ This file is a login page for an admin interface. Let me break down its key comp
 
 ## Security Concerns
 
+```js
+<script src="/js/min.js"></script>
+<script id="rendered-js">
+    var working = false;
+    $('.login').on('submit', function (e) {
+        e.preventDefault();
+        if (working) return;
+        working = true;
+        var $this = $(this),
+            $state = $this.find('button > .state');
+        $this.addClass('loading');
+        $state.html('Authenticating');
+        setTimeout(function () {
+            $this.addClass('ok');
+            $state.html('Welcome back!');
+            setTimeout(function () {
+                $state.html('Log in');
+                $this.removeClass('ok loading');
+                working = false;
+            }, 4000);
+        }, 3000);
+    });
+    //# sourceURL=pen.js
+</script>
+```
+
 1. **Guest Login Feature**:
    - The presence of a guest login option (`/cdn-cgi/login/?guest=true`) could potentially allow unauthorized access to parts of the admin interface
    - This is often a security risk if guest accounts have excessive privileges
