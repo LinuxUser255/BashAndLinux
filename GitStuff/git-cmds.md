@@ -42,14 +42,24 @@ git push origin master
 ## Pushing local changes to your GitHub repo
 
 ```bash
-# stage the changed file
-git add --all
+git add <file you are adding>
 
-git commit -m "added image to README.md"
+git commit -m "commit message"
 
 git push
 
 ```
+
+## Changing branches and stashing
+```bash
+git stash save "message what youre saving"
+
+# Then switch branches
+
+git checkout <branch name>
+
+```
+
 
 ### some errors you might encounter
 ```bash
