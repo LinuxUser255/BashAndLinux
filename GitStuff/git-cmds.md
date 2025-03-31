@@ -188,3 +188,21 @@ git pull origin master
 
 
 ### Replace `master` with the name of the branch you want to sync (e.g., `main`, `dev`, etc.).
+
+
+## Pyton vir env create
+```bash
+
+python3 -m venv path/to/your/virtualenv
+
+source path/to/your/virtualenv/bin/activate
+
+# creating a unique virt env name
+python3 -m venv my_unique_name
+
+# then source it like in the example above
+
+# then to exit it
+deactivate
+
+```
