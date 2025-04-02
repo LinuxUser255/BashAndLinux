@@ -6,7 +6,7 @@
 # Arch users:  pacman -S ripgrep
 # For more info, see the repo: https://github.com/BurntSushi/ripgrep
 
-read -p 'ls | grep -i "' RG  
+read -p 'ls | rg -i "' RG  
 echo ''
 echo -e 'Search result(s):\n------------------\n'
 
