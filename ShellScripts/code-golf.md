@@ -1,5 +1,5 @@
 
-## Interesting Shell Scripting from 
+## More Concise syntax examples
 [Dylan Araps Pure Bash Bible](https://github.com/dylanaraps/pure-bash-bible)
 
 
