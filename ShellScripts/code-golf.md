@@ -38,3 +38,25 @@ fun() {
 fun arg1 arg2 arg3
 ```
 
+## Arrarys & Functions
+```bash
+#!/usr/bin/env bash
+
+remove_array_dups() {
+    # Usage: remove_array_dups "array"
+    declare -A tmp_array
+
+    for i in "$@"; do
+        [[ $i ]] && IFS=" " tmp_array["${i:- }"]=1
+    done
+
+    printf '%s\n' "${!tmp_array[@]}"
+}
+
+remove_array_dups
+```
+
+
+
+
+
