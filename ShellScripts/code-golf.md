@@ -56,6 +56,26 @@ remove_array_dups() {
 remove_array_dups
 ```
 
+## Cycle through an Arrary
+```bash
+#!/usr/bin/env bash
+
+arr=(
+    a
+    b
+    c
+    d
+)
+
+cycle() {
+    printf '%s ' "${arr[${i:=0}]}"
+    ((i=i>=${#arr[@]}-1?0:++i))
+}
+
+cycle
+
+```
+
 
 
 
