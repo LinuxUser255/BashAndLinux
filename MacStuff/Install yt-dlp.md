@@ -1,5 +1,5 @@
 
-# How to install [yt-dlp](https://github.com/yt-dlp/yt-dlp) on Mac
+# How to install [yt-dlp](https://github.com/yt-dlp/yt-dlp) on Mac & Linux
 
 ## I have found this to be the be the best way to install yt-dlp on Mac, and offers greatest global functionality.
 
@@ -25,3 +25,13 @@ sudo cp -p /Users/chris/.local/bin/yt-dlp /usr/local/bin/
 ```
 
 **Now `yt-dlp` has been copied to `/usr/local/bin` and is globally executable without having to do `python3 ~/.local/bin/yt-dlp`**
+
+## On Linux, it's sligtly different
+```bash
+# do not need the ~ tilda prefixed to /usr/...
+
+sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+
+sudo chmod a+rx  /usr/local/bin/yt-dlp
+
+```
