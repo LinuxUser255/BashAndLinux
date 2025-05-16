@@ -2,6 +2,8 @@
 
 ## Build final ricer shell script
 
+**Based off of larbs.sh**
+
 _needs to have & do:_
 
 - use whiptail dialogue boxes
