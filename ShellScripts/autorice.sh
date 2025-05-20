@@ -12,7 +12,7 @@
 
 
 repo="https://github.com/OpenSource-For-Freedom/HARDN/"
-progsfile="https://raw.githubusercontent.com/LinuxUser255/HARDN/refs/heads/main-dev/progs.csv"
+progsfile="https://raw.githubusercontent.com/LinuxUser255/BashAndLinux/refs/heads/main/ShellScripts/progs.csv"
 repobranch="main-patch"
 name=$(whoami)
 
