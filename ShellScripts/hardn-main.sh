@@ -986,16 +986,13 @@ stig_disable_ipv6() {
 grub_security() {
     {
         echo 10
-        sleep 0.2
 
         if [[ -d /sys/firmware/efi ]]; then
             echo "[*] UEFI system detected. Skipping GRUB configuration..."
             echo 100
-            sleep 0.2
             return 0
         fi
         echo 20
-        sleep 0.2
 
         if grep -q 'hypervisor' /proc/cpuinfo; then
             echo "[*] Virtual machine detected. Proceeding with GRUB configuration..."
@@ -1003,13 +1000,16 @@ grub_security() {
             echo "[+] No virtual machine detected. Proceeding with GRUB configuration..."
         fi
         echo 30
-        sleep 0.2
 
-        echo "[+] Setting GRUB password..."
-        grub-mkpasswd-pbkdf2 | tee /etc/grub.d/40_custom_password
+        # Non-interactive password generation
+        echo "[+] Generating secure GRUB password..."
+        GRUB_PASSWORD=$(openssl rand -base64 12)
+        echo -e "$GRUB_PASSWORD\n$GRUB_PASSWORD" | grub-mkpasswd-pbkdf2 | grep "grub.pbkdf2" | tee /etc/grub.d/40_custom_password
+        echo "[+] Generated GRUB password: $GRUB_PASSWORD"
+        echo "[+] Please save this password in a secure location."
         echo 40
-        sleep 0.2
 
+        # Find GRUB config file
         if [[ -f /boot/grub/grub.cfg ]]; then
             GRUB_CFG="/boot/grub/grub.cfg"
         elif [[ -f /boot/grub2/grub.cfg ]]; then
@@ -1017,49 +1017,64 @@ grub_security() {
         else
             echo "[-] GRUB config not found. Please verify GRUB installation."
             echo 100
-            sleep 0.2
             return 1
         fi
         echo 50
-        sleep 0.2
 
-        echo "[+] Configuring GRUB security settings..."
-        BACKUP_CFG="$GRUB_CFG.bak.$(date +%Y%m%d%H%M%S)"
-        cp "$GRUB_CFG" "$BACKUP_CFG"
-        echo "[+] Backup created at $BACKUP_CFG"
+        # Create backup only if not already done today
+        BACKUP_DATE=$(date +%Y%m%d)
+        if ! ls "$GRUB_CFG.bak.$BACKUP_DATE"* &>/dev/null; then
+            echo "[+] Configuring GRUB security settings..."
+            BACKUP_CFG="$GRUB_CFG.bak.$(date +%Y%m%d%H%M%S)"
+            cp "$GRUB_CFG" "$BACKUP_CFG"
+            echo "[+] Backup created at $BACKUP_CFG"
+        else
+            echo "[+] GRUB backup already exists for today, skipping backup."
+        fi
         echo 60
-        sleep 0.2
 
-        # Adding security parameters & Setting GRUB Timeout
-        sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash security=1 /' /etc/default/grub
-        grep -q '^GRUB_TIMEOUT=' /etc/default/grub && sed -i 's/^GRUB_TIMEOUT=.*/GRUB_TIMEOUT=5/' /etc/default/grub || echo "GRUB_TIMEOUT=5" >> /etc/default/grub
+        # Track if we need to update GRUB
+        GRUB_CONFIG_CHANGED=false
 
+        # Adding security parameters if not already present
+        if ! grep -q "security=1" /etc/default/grub; then
+            sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash security=1 /' /etc/default/grub
+            GRUB_CONFIG_CHANGED=true
+        fi
+
+        # Setting GRUB Timeout if needed
         if grep -q '^GRUB_TIMEOUT=' /etc/default/grub; then
-            sed -i 's/^GRUB_TIMEOUT=.*/GRUB_TIMEOUT=5/' /etc/default/grub
+            if ! grep -q '^GRUB_TIMEOUT=5' /etc/default/grub; then
+                sed -i 's/^GRUB_TIMEOUT=.*/GRUB_TIMEOUT=5/' /etc/default/grub
+                GRUB_CONFIG_CHANGED=true
+            fi
         else
             echo "GRUB_TIMEOUT=5" >> /etc/default/grub
+            GRUB_CONFIG_CHANGED=true
         fi
         echo 70
-        sleep 0.2
 
-        if command -v update-grub >/dev/null 2>&1; then
-            update-grub || echo "[-] Failed to update GRUB using update-grub."
-        elif command -v grub2-mkconfig >/dev/null 2>&1; then
-            grub2-mkconfig -o "$GRUB_CFG" || echo "[-] Failed to update GRUB using grub2-mkconfig."
+        # Only update GRUB if configuration changed
+        if [[ "$GRUB_CONFIG_CHANGED" == "true" ]]; then
+            echo "[+] GRUB configuration changed, updating..."
+            if command -v update-grub >/dev/null 2>&1; then
+                update-grub || echo "[-] Failed to update GRUB using update-grub."
+            elif command -v grub2-mkconfig >/dev/null 2>&1; then
+                grub2-mkconfig -o "$GRUB_CFG" || echo "[-] Failed to update GRUB using grub2-mkconfig."
+            else
+                echo "[-] Neither update-grub nor grub2-mkconfig found. Please install GRUB tools."
+                echo 100
+                return 1
+            fi
         else
-            echo "[-] Neither update-grub nor grub2-mkconfig found. Please install GRUB tools."
-            echo 100
-            sleep 0.2
-            return 1
+            echo "[+] No GRUB configuration changes detected, skipping update."
         fi
         echo 90
-        sleep 0.2
 
         chmod 600 "$GRUB_CFG"
         chown root:root "$GRUB_CFG"
         echo "[+] GRUB configuration secured: $GRUB_CFG"
         echo 100
-        sleep 0.2
     } | whiptail --gauge "Configuring GRUB security..." 8 60 0
 }
 
@@ -1767,5 +1782,3 @@ main() {
 }
 
 main
-
-
