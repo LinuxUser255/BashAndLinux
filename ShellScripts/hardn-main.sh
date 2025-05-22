@@ -277,6 +277,7 @@ enable_suricata() {
     } | whiptail --gauge "Installing and enabling Suricata..." 8 60 0
 }
 
+# enable rootkit hunter
 enable_rkhunter() {
     {
         echo 10
@@ -814,6 +815,7 @@ stig_password_policy() {
         fi
 }
 
+### Enable aide
 enable_aide() {
     printf "\033[1;31m[+] Installing and configuring AIDE...\033[0m\n"
     {
@@ -940,6 +942,7 @@ EOF
 
     printf "\033[1;32m[+] AIDE installed, enabled, and basic config applied.\033[0m\n"
 }
+
 
 
 reload_apparmor() {
@@ -1764,3 +1767,5 @@ main() {
 }
 
 main
+
+
