@@ -50,5 +50,25 @@ These tools simplify identifying and resolving conflicts during merges.
 ### ✅ Summary
 Following these practices consistently helps reduce the frequency and complexity of merge conflicts, streamlining collaboration and keeping your project history clean.
 
+<br>
 
+### Additional:
+
+This is a common workflow when dealing with merge conflicts.
+If you encounter similar issues in the future, remember these steps:
+
+1. Aborting any ongoing merge or rebase
+2. Resetting the conflicted file to its original state
+3. Adding the file to the index
+4. Switching to your target branch
+
+
+```bash
+git merge --abort  # or git rebase --abort
+git checkout HEAD -- path/to/conflicted/file
+git add path/to/conflicted/file
+git switch your-branch
+```
+
+<br>
 
