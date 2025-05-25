@@ -14,7 +14,8 @@ Smaller commits are easier to review, understand, and debug, and they reduce the
 
 ## 3. Communicate with Your Team
 Discuss significant changes with your team.
-Clear communication helps avoid overlapping work and ensures everyone is aware of what others are working on.
+
+**Clear communication helps avoid overlapping work and ensures everyone is aware of what others are working on.**
 
 ---
 
