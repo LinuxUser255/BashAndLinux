@@ -77,4 +77,3 @@ choice=$(echo $choice | tr '[:lower:]' '[:upper:]')
 
 # Handle the selected model
 handle_model $choice
-
