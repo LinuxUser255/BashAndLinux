@@ -1,77 +1,110 @@
-# Path to your oh-my-zsh installation.
+# ULMIT -n 8192
+# Prevent this Alacritty error:
+# [ERROR] see log at /tmp/Alacritty-304237.log ($ALACRITTY_LOG):
+# Unable to watch config file: Too many open files (os error 24)
+ulimit -n 8192
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+
+# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Auto remap Caps lock to Esc upon shell launch. And it also speeds xset.
-remap
+fastfetch
+#syntax
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time Oh My Zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+#ZSH_THEME="jispwoso"
+ZSH_THEME="robbyrussell"
 
-# Speed up the cursor & scrolling system wide
-# xset r rate 380 80
-fast
 
-# Print sytem info like neofetch:
-# Very Fast. No lag time
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# Easy install, build from source instructions here:
-# https://github.com/fastfetch-cli/fastfetch/wiki/Building
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-# uncomment fastfetch below if you want it to lauch with every new terminal
-# fastfetch
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
-# Set name of the oh-my-zsh theme to load --- if set to "random", it will launch random themes
-ZSH_THEME="jispwoso"
-# ZSH_THEME="robbyrussell" # <- the default one
-
-#------------- Custom Prompt & Colour Explained --------------------#
-
-# Prompt Config File Colour Customization:
-# Located at: /home/linux/.oh-my-zsh/themes
-# Theme name: jispwoso.zsh-theme
-#
-# This config sets the user@machine prompt to red
-# And the PWD font to Cyan
-# 
-# local ret_status="%(?:%{$fg_bold[red]%}➜ :%{$fg_bold[red]%}➜ %s)" 
-#
-# The PROMPT [color] defines the color of your linux@debian.   # this fg_bold defines the dir path
-# The PROMPT below makes linux@debion red and the pwd cyan. And the bit about the git prompt is for when you are in a git repo/dir
-# PROMPT=$'%{$fg[red]%}%n@%m: %{$reset_color%}%{$fg[cyan]%}%/ %{$reset_color%}%{$fg_bold[cyan]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}
-# ${ret_status} %{$reset_color%} '
-#
-# PROMPT2="%{$fg_blod[black]%}%_> %{$reset_color%}"
-#
-# ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}" # <-- this has been changed to red also
-# ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-# ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}) %{$fg[yellow]%}✗%{$reset_color%}" # <-- changed to red 
-# ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[red]%})" # <--changed to red
-
-# ------ End of Prompt Config Colour Customization ----------- #
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 #  update reminder zsh
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to enable command auto-correction.
- ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+zstyle ':omz:update' frequeny 10
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
 plugins=(alias-finder)
 
-# Sourcing the ZShell
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export ZSH_2000_DISABLE_RVM='true'
 # export MANPATH="/usr/local/man:$MANPATH"
 
-#  manually set your language environment
+# You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-EDITOR='nvim'
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
  else
    export EDITOR='nvim'
  fi
+
 
 # enable completion features
 autoload -Uz compinit
@@ -90,37 +123,46 @@ zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
+# Compilation flags
+# export ARCHFLAGS="-arch $(uname -m)"
+
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+alias ohmyzsh="mate ~/.oh-my-zsh"
+# Template for creating aliases
+# alias cmd=' '
+
 #---Personal aliases---#
-# listing directories
+# Listing Directories
 alias l='ls'
 alias ll='ls -l'
 alias LL='ls -l'
 alias LLA='ls -la'
 alias lla='ls -la'
-# Template for creating more aliases
-# alias cmd=' '
-# alias cmd=' '
-
-# List only the Directories
-# alias lsdir='ls -l | awk "{print \$9}"'
-
-# Same as above, but output the Directory names in bold red font
+alias lll='lsgrep'
+alias ppp='pwsearch'
+# List only the Directory names in bold red font
 alias lsdir='ls -l | awk "{print \"\033[1;31m\"\$9\"\033[0m\"}"'
 
-# Searching a directory
-alias lll='fastgrep'
-alias LLL='fastgrep'
-
-# Search the password store
-alias ppp='pw-search'
-
-# cmd & shortcut scripts
+# Text editors
 alias v='nvim'
 alias n='nvim'
+alias nn='nvim .' # netrw
 alias k='kate'
+
+# ops & cmds
 alias s='sudo su'
 alias e='exit'
 alias q='exit'
+alias rr='ranger'
 alias c='cat'
 alias b='batcat'
 alias p='pass'
@@ -135,116 +177,91 @@ alias png='ping 1.1.1.1'
 alias shutdown='sudo shutdown -P now'
 alias reboot='sudo reboot'
 alias wifidown='ifconfig wlp4s0 down'
-
-# Template for creating more aliases
-# alias cmd=' '
-# alias cmd=' '
-
-# start SSH_CONNECTION
-alias sshstart='sudo systemctl start ssh'
-alias sshstatus='sudo systemctl status ssh'
-alias sshstop='sudo systemctl stop ssh'
-alias space='pr -d -t '
-alias ufw='sudo ufw'
-alias lsnum='ls -l -v'
-alias rr='ranger'
-#alias lf='lf-ueberzug'
+alias a='alacritty msg create-window'
 alias yt='yt-dlp '
 alias yta='yt-dlp --extract-audio --audio-format mp3 '
-alias lsawk="echo ls -l pipe to awk print 9th field"
-alias nvconf='cd ~/.config/nvim '
-alias gr='go run'
-# Template for creating more aliases
-# alias cmd=' '
-# alias cmd=' '
-
-# alacritty commands
-alias a='alacritty msg create-window'
-
-#alias aa='alacritty --working-directory'
-# copy pwd to clipboard
-# alias cppwd='pwd | xclip;' 
-# Template for creating more aliases
-# alias cmd=' '
-# alias cmd=' '
-
-# More Custom scripts
-#-----------------------
 alias space='space'  # Double spaces lines of a text file.
 alias remap='remap'   # Remaps caps lock to the escape key.
-# Template for creating more aliases
-# alias cmd=' '
-# alias cmd=' '
 
-# dot file access
-alias vb='vim .bashrc'
-alias vv="vim .vimrc"
-alias rc='nvim ~/.zshrc'
-alias nn='nvim .'
-alias bb='bat ~/.zshrc'
-alias late='ls -lt | head -n 10' # displays the most recent file added or edited in a directory.
-alias ohmyzsh="cd ~/.oh-my-zsh"
-alias nvconfig="cd ~/.config/nvim"
-#alias zshconfig="mate ~/.zshrc"
-# Template for creating more aliases
-# alias cmd=' '
-# alias cmd=' '
-
-# change directory shortcuts & access specific directories
-alias cc='cd'
-alias CC='cd'
+# Opening files and directories
 alias down='cd ~/Downloads'
 alias doc='cd ~/Documents'
 alias pic='cd ~/Pictures'
-alias mus='cd ~/Music'
+alias music='cd ~/Music'
+alias mus='cd ~/Music/Genres'
 alias vid='cd ~/Videos'
 alias opt='cd /opt'
 alias proj='cd ~/Projects'
+alias pythonproj='cd ~/Projects/Python'
+alias temp='cd ~/Templates'
 alias projects='cd ~/Projects'
+alias proj='cd ~/Projects'
 alias rand='cd ~/Documents/random/'
-# Template for creating more aliases
+alias res='~/Documents/Resumes/Latex/2025/'
+alias stratum='cd ~/Projects/StratumSec'
+alias keymaps='nvim ~/Projects/Neovim/nvim-keymaps-tutor.md'
+alias todo='cd ~/Documents/ToDos'
+alias bsuite='cat ~/Documents/BSuitestuff/bsuite.txt'
+alias gpt='nvim ~/Documents/random/gptchat/questions.txt'
+alias emails='nvim ~/Documents/random/email-compose.txt'
+alias hacking='cd ~/Projects/Hacking/'
+alias apivids='cd ~/Downloads/old-downloads/Backups/ExternalHD-2TB/Crucial2TB/Tutorials'
+alias tutor='cd ~/Downloads/old-downloads/Backups/ExternalHD-2TB/Crucial2TB/'
+alias todo='cd ~/Documents/ToDo'
+alias bots='cd ~/Projects/Bots'
+alias nix='cd ~/Projects/LinuxThings'
+alias hardn='cd ~/Projects/LinuxThings/Hardn-Project'
+alias privaterepos='cd ~/Projects/LinuxThings/MyRepos-GitHub/PrivateRepos'
+alias mysterylabs='cd ~/Projects/WebAcademy-MysteryLabs'
+
+alias bsides='cd ~/Documents/BsidesTriad'
+alias linuxthings='cd ~/Projects/LinuxThings/'
+
+
+# dot file access
+alias vb='vim ~/.bashrc'
+alias vv="vim ~/.vimrc"
+alias rc='nvim ~/.zshrc'
+alias bb='bat ~/.zshrc'
+alias late='ls -lt | head -n 10' # displays the most recent file added or edited in a directory.
+alias ohmyzsh="cd ~/.oh-my-zsh"
+alias nvconf="cd ~/.config/nvim"
+alias alconf="nvim ~/.config/alacritty/alacritty.toml"
+alias vimprac='nvim ~/Projects/Primeagen/VimMotionsTraining'
+alias gitstuff='cd ~/Projects/GitStuff'
+alias prime='cd ~/Projects/Primeagen'
+alias alaconf='cd ~/.config/alacritty'
+
 # alias cmd=' '
 # alias cmd=' '
 
-
-# IDEs
-alias idea='sh /opt/JetBrainsIDEs-All/idea-IU-242.20224.419/bin.idea.sh'
-alias pycharm='sh /opt/JetBrainsIDEs-All/JetBrainsIDEs-2024/pycharm-2024.1/bin/pycharm.sh '
-alias goland='sh /opt/JetBrainsIDEs-All/GoLand-2023.1.2/bin/goland.sh'
-alias webstorm='sh /opt/JetBrainsIDEs-All/WebStorm-231.9011.35/bin/webstorm.sh'
-alias clion='sh /opt/JetBrainsIDEs-All/clion-2023.3.4/bin/clion.sh'
-alias rustrover='sh /opt/JetBrainsIDEs-All/JetBrainsIDEs-2024/RustRover-2024.1/bin/rustrover.sh'
-alias phpstorm='sh /opt/JetBrainsIDEs-All/PhpStorm-231.9011.38/bin/.phpstorm.sh'
-
-# Template for creating more aliases
-# alias cmd=' '
-
-
-#----- PATH additions ------------------------ #
-
-# Uncomment the ones you download/install, otherwise leave all commented out to prevent mishaps
-# I'v left only the zsh-syntax-highlighting uncommented. That's all you need at first.
-
-# Postman to PATH
-# export PATH="$PATH:/usr/bin/Postman"
-
-# Go Lang  Env to path
-# export GOPATH=$HOME/go
-# export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
-
-# pip to path
-# export PATH=$PATH:/home/linux/.local/bin
-
+# SOURCED software added to $PATH
+# ----------------------------------------------------------------------------
 # PATH="$HOME/graudit:${PATH:+:${PATH}}"; export PATH;
 # export GRDIR=/path/to/graudit/signatures
-
-# tree sitter cli thing
-# export PATH=$PATH:./node_modules/.bin
-
 # source /lfbundle/lfbundle.zshrc
 # fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-# Source Zsh Syntax highlighting
+# ruff-lsp
+export PATH="$HOME/.local/bin:$PATH"
+
+# tree sitter cli thing
+export PATH=$PATH:./node_modules/.bin
+
+# pip to path
+export PATH=$PATH:/home/linux/.local/bin
+
+# Go Lang  Env to path
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# ZSH Syntax highlighting
 source /home/linux/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#--- end ---#
+
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 
