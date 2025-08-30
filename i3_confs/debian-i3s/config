@@ -1,0 +1,241 @@
+# i3 config file (v4)
+
+#======> globals
+
+    #======> theme colors
+    set_from_resource   $fg     i3wm.color7     #f0f0f0
+    set_from_resource   $bg     i3wm.color2     #f0f0f0
+    set_from_resource   $bbg    i3wm.color0
+    set_from_resource   $urg    i3wm.color1
+    set_from_resource   $hig    i3wm.color15
+
+    # class                 border  backgr. text indicator child_border
+    client.focused          $bg     $bg     $fg  $bg       $bg
+    client.focused_inactive $bg     $bg     $fg  $bg       $bg
+    client.unfocused        $bg     $bg     $fg  $bg       $bg
+    client.urgent           $bg     $bg     $fg  $bg       $bg
+    client.placeholder      $bg     $bg     $fg  $bg       $bg
+    client.background       $bg
+
+#==> keys / cmds
+set $mod Mod4
+
+set $bar-cmd i3bar
+set $status-cmd i3blocks -c ${HOME}/.config/i3/i3blocks/i3blocks.conf
+set $lock-cmd i3lock
+set $term alacritty
+set $compositor-cmd picom -bCG --config ${HOME}/.config/picom/picom.conf
+set $netref --no-startup-id sudo -A systemctl restart NetworkManager
+
+#==> scripts
+set $laptop ${HOME}/.config/i3/display/lap.sh
+set $batwings ${HOME}/.config/i3/display/wings.sh
+set $hud ${HOME}/.config/i3/display/hud.sh
+set $spread ${HOME}/.config/i3/display/all.sh
+
+set $tester ${HOME}/.config/dmenu/search.sh
+set $dwrap ${HOME}/.config/dmenu/dwrap.sh
+
+#==> folders
+set $screenshots ${HOME}/Pictures/screenshots
+set $scripts ${HOME}/.config/i3/scripts
+
+#==> workspaces
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+
+#======> autostart
+exec --no-startup-id nm-applet
+exec --no-startup-id nitrogen --restore; sleep 1;
+exec_always --no-startup-id $compositor-cmd
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id xautolock -time 15 -locker blurlock
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+
+#mod and enable below if reboot pywal issues occur with xinitrc
+exec_always --no-start-up-id wal -R
+
+#======> borders & titles
+
+#==> fonts (use iso-10646 fonts for glyph support)
+font pango:DejaVu Sans Mono 10
+
+#==> floating ability
+for_window [class="0bshutdown"] floating enable
+
+#==> hide titles
+for_window [class="Firefox" instance="Navigator"] border none
+
+#==> border size
+new_window pixel 3
+new_float normal
+
+#==> hide borders
+hide_edge_borders none
+
+#======> hardware
+
+#==> touchpad
+bindsym $mod+Shift+t exec --no-startup-id $scripts/touchpad
+
+#==> monitors
+#exec --no-startup-id $HOME/.config/i3/xrandr_configs/debian-mobile.sh
+
+#--> brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id \
+    $scripts/backlight 1 up
+
+bindsym XF86MonBrightnessDown exec --no-startup-id \
+    $scripts/backlight 1 down
+
+#==> sound
+#--> standard laptop media controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id \
+    $scripts/sound 10 up
+
+bindsym XF86AudioLowerVolume exec --no-startup-id \
+    $scripts/sound 10 down
+
+bindsym XF86AudioMute exec --no-startup-id \
+    $scripts/sound 0 mute
+
+bindsym $mod+XF86AudioMute exec --no-startup-id \
+    $scripts/sound 0 mico
+
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+
+#--> key combo media controls (moonlander mappings)
+bindsym $mod+Ctrl+u exec --no-startup-id \
+    $scripts/sound 10 up
+
+bindsym $mod+Ctrl+d exec --no-startup-id \
+    $scripts/sound 10 down
+
+bindsym $mod+Ctrl+z exec --no-startup-id \
+    $scripts/sound 0 mute
+
+bindsym $mod+Ctrl+x exec --no-startup-id \
+    $scripts/sound 0 mico
+
+bindsym $mod+Ctrl+p exec playerctl play
+bindsym $mod+Ctrl+h exec playerctl pause
+
+#======> keybindings
+
+#==> screenshot
+bindsym Print exec --no-startup-id scrot \
+    '%Y-%m-%d_$wx$h_scrot-fullscreen.png' \
+    -e 'mv $f $screenshots' && \
+    sleep 1 && \
+    exec dunstify \
+    'screenshot saved in $screenshots'
+
+bindsym --release $mod+Print exec "flameshot gui"
+
+#==> start terminal
+bindsym $mod+Return exec --no-startup-id $term
+
+#==> menus
+bindsym $mod+o exec --no-startup-id dmenu_run -nb "$bbg" -nf "$hig" -sb "$urg" -sf "$hig" -fn "$MENU_PRIMARY_FONT-8:Bold"
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -nb '$bbg' -nf '$hig' -sb '$urg' -sf '$hig' -fn '$MENU_PRIMARY_FONT-8:Bold'"
+bindsym $mod+t exec $dwrap "tmux"
+bindsym $mod+c exec $dwrap "config"
+bindsym $mod+g exec $dwrap "search"
+
+#==> kill focused window
+bindsym $mod+Shift+q kill
+
+#==> lock screen
+bindsym $mod+l exec $lock-cmd -c 111111
+
+#==> reload config file
+bindsym $mod+Shift+c reload
+
+#==> sound
+bindsym $mod+Ctrl+m exec $term -e 'pulsemixer'
+bindsym $mod+F5 exec $term -e 'mocp'
+
+#==> monitoring
+bindsym $mod+Shift+g exec $term -e 'glances'
+bindsym $mod+Shift+d exec $term -e 'dockly'
+
+#==> web search
+bindsym $mod+s exec $HOME/.config/dmenu/search.sh
+
+#==> rebind wallpaper
+bindsym $mod+Shift+w exec nitrogen --restore
+
+#==> start compositor
+bindsym $mod+Shift+p exec $compositor
+
+#==> window focus and movement
+floating_modifier $mod
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+#==> workspace switching
+workspace_auto_back_and_forth yes
+bindsym $mod+b workspace back_and_forth
+bindsym $mod+Shift+b move container to workspace back_and_forth; \
+    workspace back_and_forth
+
+#==> window orientation (h -horizontal & v - vertical)
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+#==> stacked / tabed / toggle split
+bindsym $mod+Ctrl+s layout stacking;exec notify-send 'stacked window mode'
+bindsym $mod+Ctrl+w layout tabbed;exec notify-send 'tabbed window mode'
+bindsym $mod+Ctrl+e layout toggle split;exec notify-send 'split window mode'
+
+#==> sticky toggle
+bindsym $mod+Shift+s sticky toggle;exec notify-send 'sticky windows toggled'
+
+#==> fullscreen toggle
+bindsym $mod+f fullscreen toggle
+
+#==> toggle floating / tiled
+bindsym $mod+Shift+space floating toggle
+
+#==> change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+#==> focus on different containers
+bindsym $mod+a focus parent    #parent
+
+#==> workspace navigation
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace prev
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+
+#====> Brave Browser as Default Browser
+exec --no-startup-id xdg-settings set default-web-browser brave-browser.desktop
+
+# Start Brave if it's not running
+exec --no-startup-id brave-browser --no-sandbox
+
